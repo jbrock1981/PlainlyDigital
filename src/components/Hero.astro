@@ -1,0 +1,55 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+}
+
+const { eyebrow, title, subtitle } = Astro.props;
+---
+
+<section class="hero">
+  <div class="container hero__inner">
+    {eyebrow && <p class="tag">{eyebrow}</p>}
+    <h1 class="hero__title">{title}</h1>
+    {subtitle && <p class="lead hero__subtitle">{subtitle}</p>}
+    <slot />
+  </div>
+  <div class="hero__bg" aria-hidden="true"></div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    padding-block: var(--pd-space-16) var(--pd-space-12);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  @media (min-width: 768px) {
+    .hero {
+      padding-block: var(--pd-space-24) var(--pd-space-16);
+    }
+  }
+  .hero__title {
+    margin-bottom: var(--pd-space-4);
+  }
+  .hero__subtitle {
+    margin-bottom: var(--pd-space-8);
+  }
+  .hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(
+        circle at 20% 0%,
+        color-mix(in oklab, var(--pd-primary) 18%, transparent),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 80% 30%,
+        color-mix(in oklab, var(--pd-accent) 14%, transparent),
+        transparent 50%
+      );
+  }
+</style>

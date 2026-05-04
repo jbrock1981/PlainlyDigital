@@ -1,0 +1,80 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import type { IAppMeta } from "@/data/apps";
+
+interface Props {
+  app: IAppMeta;
+}
+
+const { app } = Astro.props;
+---
+
+<BaseLayout
+  title={app.name}
+  description={`${app.tagline} — ${app.description}`}
+>
+  <Hero eyebrow={app.name} title={app.tagline} subtitle={app.description}>
+    <p class="badge-row">
+      <span class="badge" style={`background:${app.primaryBg};color:${app.primary};`}>
+        Coming soon to App Store + Google Play
+      </span>
+    </p>
+  </Hero>
+
+  <section>
+    <div class="container readable">
+      <h2>What it'll do</h2>
+      <ul class="features" style={`--accent:${app.primary};`}>
+        {app.features.map((f) => <li>{f}</li>)}
+      </ul>
+
+      <div class="card">
+        <h3>Want to know when it lands?</h3>
+        <p>
+          Email <a href={`mailto:apps@plainlydigital.com?subject=Notify me%3A ${app.name}`}>apps@plainlydigital.com</a>
+          with the subject line "Notify me: {app.name}" and we'll email you
+          when it hits the stores. No newsletter, no marketing &mdash; just
+          one email when it's ready.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .badge-row { margin: 0; }
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: var(--pd-space-2) var(--pd-space-4);
+    border-radius: 999px; font-weight: 600; font-size: 0.875rem;
+  }
+  .features {
+    list-style: none; padding: 0;
+    margin-bottom: var(--pd-space-8);
+  }
+  .features li {
+    position: relative;
+    padding-inline-start: 1.75rem;
+    color: var(--pd-ink-soft);
+  }
+  .features li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .card {
+    margin-top: var(--pd-space-12);
+    padding: var(--pd-space-6);
+    border-radius: var(--pd-radius);
+    background: var(--pd-surface-alt);
+    border: 1px solid var(--pd-line);
+  }
+  .card h3 { margin-top: 0; }
+  .card p { margin-bottom: 0; color: var(--pd-ink-soft); }
+</style>

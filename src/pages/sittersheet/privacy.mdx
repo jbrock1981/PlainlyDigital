@@ -1,0 +1,143 @@
+---
+layout: "@/layouts/LegalLayout.astro"
+title: "SitterSheet privacy policy"
+description: "How SitterSheet collects, uses, stores, and deletes your data."
+effective: "May 4, 2026"
+---
+
+SitterSheet is a mobile app published by Plainly Digital LLC ("we," "us,"
+"our") that turns your wizard answers into a comprehensive pet/house-sitter
+guide and lets you share it with a 30-day expiring link. SitterSheet handles
+**sensitive household and pet information**, so this policy is detailed.
+Please read it.
+
+## What SitterSheet collects
+
+When you complete the wizard, SitterSheet collects:
+
+- **Pet information**: name, species, age, feeding schedule, medications,
+  exercise needs, behavior quirks, and emergency vet contact information.
+- **House information**: address, WiFi network name and password, alarm
+  code, trash and recycling schedule, neighbor or backup-contact name and
+  phone number.
+- **Owner contact information**: your phone number and how to reach you in
+  an emergency.
+- **Account data**: a Firebase Authentication user ID. SitterSheet supports
+  anonymous accounts and email-and-password accounts.
+- **Usage data**: counts of guides created, subscription/unlock state, rate
+  limit counters used for abuse prevention.
+
+## How sensitive fields are stored
+
+This is the part most people care about, so we'll be specific:
+
+- **WiFi password and alarm code** are stored on your device using
+  the operating system's secure storage — **iOS Keychain** or **Android
+  Keystore**, via [`expo-secure-store`](https://docs.expo.dev/versions/latest/sdk/securestore/).
+  These fields are not stored in plaintext on the device. If your device
+  does not support secure storage (for example, the web preview), SitterSheet
+  will warn you and refuse to persist sensitive draft data — your wizard
+  progress for those fields will not be saved between sessions.
+- **Other guide content** (pet info, addresses, vet contact, etc.) is sent
+  to our servers and stored in **Google Firebase Firestore**, encrypted in
+  transit and at rest by Google. Sensitive fields included in the final
+  generated guide are also stored alongside the rest of the guide so the
+  guide can be rendered when shared.
+
+## What SitterSheet sends to third parties
+
+To provide the service, SitterSheet shares limited data with three providers:
+
+- **Anthropic** — when you generate a guide, your wizard answers are sent
+  to Anthropic's Claude API to format them into a friendly markdown guide.
+  Per Anthropic's
+  [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms),
+  Anthropic does not retain API inputs or outputs for training.
+- **Google Firebase** — Authentication, Firestore, Cloud Functions, and
+  Hosting (for share pages) are operated by Google.
+- **RevenueCat** — handles your `$4.99` lifetime unlock purchase, in
+  accordance with their [privacy policy](https://www.revenuecat.com/privacy).
+  RevenueCat receives a hashed user ID and the product purchased.
+
+## Sharing — read this carefully
+
+When you tap **Share**, SitterSheet generates a unique 32-character (128-bit)
+random token and creates a public web page at
+`plainlydigital.com/g/<token>` that renders your guide in plain HTML.
+
+**Anyone who has that link can view the guide.** The link is hard to
+guess — 128 bits of entropy — but it is not access-controlled. Treat the
+link as you would a key to your home, because if your guide includes a
+WiFi password and an alarm code, that's effectively what it is.
+
+We mitigate the risk in three ways:
+
+- Share links **expire automatically after 30 days**, after which the URL
+  returns "410 Gone."
+- You can **rotate** the share link from inside the app at any time, which
+  permanently invalidates the previous link.
+- Share pages are served with `X-Robots-Tag: noindex,nofollow` so search
+  engines should not index them.
+
+If you accidentally share a link with the wrong person, **rotate the link
+immediately** in the app. Treat that as a security incident: if the wrong
+person has your alarm code, change the code.
+
+## Account deletion
+
+You can delete your account at any time from **Settings → Delete account**.
+Deletion permanently removes your Firebase Auth record and all stored
+guides within 30 days. Active share links are immediately invalidated.
+On-device secure-storage entries are deleted from your device when you
+uninstall the app or call **Settings → Reset device data**.
+
+You may also email [apps@plainlydigital.com](mailto:apps@plainlydigital.com)
+to request deletion if the in-app flow does not work for you.
+
+## AI disclosure
+
+SitterSheet uses the Claude AI model from Anthropic to format your wizard
+answers into a guide. AI is fallible. SitterSheet may rephrase, summarize,
+or omit information you entered. **Always read the generated guide
+carefully and edit anything that's wrong before sharing it with a sitter
+who will rely on it.** SitterSheet is not a substitute for veterinary or
+legal advice.
+
+## Anonymous-account orphan-data risk
+
+If you use SitterSheet anonymously and then uninstall the app or sign out
+without first deleting your account, the anonymous user ID becomes
+unreachable. Your guides remain in our database, encrypted at rest, but you
+will not be able to log back in to recover or delete them. We retain
+unreachable anonymous data for 12 months and then purge it on a rolling
+schedule. Sign in with email if you want recovery.
+
+## Children
+
+SitterSheet is not directed at children under 13. We do not knowingly
+collect personal information from children under 13.
+
+## Your rights
+
+If you reside in the EU/EEA, the UK, California, or any other jurisdiction
+with similar privacy rights, you have the right to access, correct, delete,
+or port your data, and to object to certain processing. Email
+[apps@plainlydigital.com](mailto:apps@plainlydigital.com) and we will
+respond within 30 days. We do not sell or "share" personal information for
+cross-context behavioral advertising.
+
+## Changes
+
+We will update this policy from time to time. Material changes will be
+flagged at the top of the page along with a revised effective date.
+
+## Contact
+
+[apps@plainlydigital.com](mailto:apps@plainlydigital.com)
+
+Plainly Digital LLC, Tennessee, United States.
+
+## Governing law
+
+This policy is governed by the laws of the State of Tennessee, without
+regard to its conflict-of-law principles.

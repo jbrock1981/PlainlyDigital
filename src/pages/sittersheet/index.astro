@@ -1,0 +1,143 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import PhoneMockup from "@/components/PhoneMockup.astro";
+import Disclaimer from "@/components/Disclaimer.astro";
+import { appBySlug } from "@/data/apps";
+
+const app = appBySlug("sittersheet")!;
+---
+
+<BaseLayout
+  title={app.name}
+  description={`${app.tagline} — ${app.description}`}
+>
+  <Hero
+    eyebrow="SitterSheet"
+    title={app.tagline}
+    subtitle={app.description}
+  >
+    <p class="badge-row">
+      <span class="badge">Coming soon to App Store + Google Play</span>
+    </p>
+  </Hero>
+
+  <section class="split">
+    <div class="container split__inner">
+      <div class="split__copy">
+        <h2>What it does</h2>
+        <ul class="features">
+          {app.features.map((f) => <li>{f}</li>)}
+        </ul>
+
+        <h2>Pricing</h2>
+        <div class="pricing">
+          <div class="price">
+            <p class="price__name">First guide</p>
+            <p class="price__amount">Free</p>
+            <p class="muted">Try the wizard. Share with one sitter.</p>
+          </div>
+          <div class="price price--featured">
+            <p class="price__name">Lifetime unlock</p>
+            <p class="price__amount">$4.99</p>
+            <p class="muted">One payment. Unlimited guides. Forever.</p>
+          </div>
+        </div>
+
+        <Disclaimer variant="warn">
+          <strong>About sharing.</strong> Share links are 32-character secure
+          tokens, but anyone with the link can view the guide while it's live.
+          Think before you post one publicly. You can rotate or expire any
+          link from the app.
+        </Disclaimer>
+      </div>
+
+      <div class="split__visual">
+        <PhoneMockup
+          label="Guide preview"
+          accent="var(--app-sittersheet)"
+          bg="#FAF8F5"
+        >
+          <div class="mock ss-mock">
+            <header class="ss-mock__head">
+              <span class="ss-mock__avatar" aria-hidden="true">🐾</span>
+              <span class="ss-mock__title">Maple's care guide</span>
+            </header>
+            <div class="ss-mock__body">
+              <p class="ss-mock__tag">For: Olivia (sitter)</p>
+              <h3 class="ss-mock__h">Maple, 6yo Lab mix</h3>
+              <div class="ss-mock__section">
+                <p class="ss-mock__label">Feeding</p>
+                <p>1 cup kibble &mdash; 7 AM and 6 PM. No grain.</p>
+              </div>
+              <div class="ss-mock__section">
+                <p class="ss-mock__label">Walks</p>
+                <p>Two short walks daily. Avoid Park Ave (loud trucks).</p>
+              </div>
+              <div class="ss-mock__section">
+                <p class="ss-mock__label">Quirks</p>
+                <p>Hides under the bed during thunder. It passes.</p>
+              </div>
+              <button class="ss-mock__btn">Copy share link</button>
+            </div>
+          </div>
+        </PhoneMockup>
+      </div>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="container">
+      <h2>Privacy summary</h2>
+      <p class="lead">
+        SitterSheet handles sensitive household info &mdash; WiFi password,
+        alarm code, vet contacts. Sensitive fields are stored on your device
+        in iOS Keychain or Android Keystore. Generated guides live in your
+        account until you delete them. Share links expire automatically after
+        30 days.
+      </p>
+      <p>
+        Read the full <a href="/sittersheet/privacy">privacy policy</a> and
+        <a href="/sittersheet/terms">terms of service</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .badge-row { margin: 0; }
+  .badge {
+    display: inline-flex; align-items: center;
+    padding: var(--pd-space-2) var(--pd-space-4);
+    border-radius: 999px; background: var(--app-sittersheet-bg);
+    color: var(--app-sittersheet); font-weight: 600; font-size: 0.875rem;
+  }
+  .split__inner { display: grid; gap: var(--pd-space-12); grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 960px) {
+    .split__inner { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); }
+  }
+  .features { list-style: none; padding: 0; margin-bottom: var(--pd-space-8); }
+  .features li { position: relative; padding-inline-start: 1.75rem; color: var(--pd-ink-soft); }
+  .features li::before { content: ""; position: absolute; inset-inline-start: 0; top: 0.5rem; width: 12px; height: 12px; border-radius: 50%; background: var(--app-sittersheet); }
+  .pricing { display: grid; gap: var(--pd-space-3); grid-template-columns: 1fr; margin-bottom: var(--pd-space-8); }
+  @media (min-width: 600px) { .pricing { grid-template-columns: repeat(2, 1fr); } }
+  .price { padding: var(--pd-space-4); border-radius: var(--pd-radius); border: 1px solid var(--pd-line); background: var(--pd-surface); }
+  .price--featured { border-color: var(--app-sittersheet); box-shadow: 0 0 0 3px color-mix(in oklab, var(--app-sittersheet) 18%, transparent); }
+  .price__name { margin: 0; font-size: 0.8125rem; color: var(--pd-ink-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .price__amount { margin: var(--pd-space-2) 0; font-family: var(--pd-font-display); font-size: 1.625rem; font-weight: 800; }
+
+  .meta { background: var(--pd-surface-alt); }
+  .meta .lead { margin-bottom: var(--pd-space-4); }
+
+  .ss-mock { display: flex; flex-direction: column; height: 100%; color: #1a1a2e; font-family: var(--pd-font-sans); }
+  .ss-mock__head { display: flex; align-items: center; padding: 32px 16px 12px; gap: 12px; border-bottom: 1px solid #ece5d8; background: var(--app-sittersheet); color: #FAF8F5; }
+  .ss-mock__avatar { font-size: 22px; }
+  .ss-mock__title { font-weight: 700; font-size: 15px; }
+  .ss-mock__body { padding: 16px; flex: 1; overflow: hidden; }
+  .ss-mock__tag { font-size: 11px; color: var(--app-sittersheet); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 8px; }
+  .ss-mock__h { margin: 0 0 16px; font-size: 19px; font-weight: 800; }
+  .ss-mock__section { padding: 8px 0; border-top: 1px solid #ece5d8; font-size: 12.5px; }
+  .ss-mock__label { margin: 0 0 4px; font-weight: 700; color: var(--app-sittersheet); font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .ss-mock__section p:last-child { margin: 0; color: #555; line-height: 1.45; }
+  .ss-mock__btn { margin-top: 16px; width: 100%; padding: 10px; border: none; border-radius: 12px; background: var(--app-sittersheet-accent); color: #FAF8F5; font-weight: 600; font-size: 13px; }
+</style>

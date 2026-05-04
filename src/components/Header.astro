@@ -1,0 +1,96 @@
+---
+const path = Astro.url.pathname;
+const navItems = [
+  { href: "/", label: "Home" },
+  { href: "/cleardoc", label: "ClearDoc" },
+  { href: "/sittersheet", label: "SitterSheet" },
+  { href: "/about", label: "About" },
+];
+---
+
+<header class="header">
+  <div class="container header__inner">
+    <a href="/" class="header__brand" aria-label="Plainly Digital home">
+      <img src="/icons/plainlydigital.svg" width="36" height="36" alt="" />
+      <span class="header__brand-text">Plainly Digital</span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="header__nav">
+        {
+          navItems.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={path === item.href ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: color-mix(in oklab, var(--pd-surface) 92%, transparent);
+    backdrop-filter: saturate(180%) blur(8px);
+    border-bottom: 1px solid var(--pd-line);
+  }
+  .header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--pd-space-4);
+    padding-block: var(--pd-space-3);
+  }
+  .header__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pd-space-2);
+    text-decoration: none;
+    color: var(--pd-ink);
+    font-weight: 700;
+    font-family: var(--pd-font-display);
+  }
+  .header__brand-text {
+    font-size: 1.0625rem;
+  }
+  @media (max-width: 480px) {
+    .header__brand-text {
+      display: none;
+    }
+  }
+  .header__nav {
+    display: flex;
+    gap: var(--pd-space-2);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .header__nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--pd-tap);
+    padding: var(--pd-space-2) var(--pd-space-3);
+    border-radius: var(--pd-radius-sm);
+    color: var(--pd-ink-soft);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9375rem;
+  }
+  .header__nav a:hover {
+    background: var(--pd-surface-alt);
+    color: var(--pd-ink);
+  }
+  .header__nav a[aria-current="page"] {
+    color: var(--pd-primary);
+    background: var(--pd-primary-soft);
+  }
+</style>

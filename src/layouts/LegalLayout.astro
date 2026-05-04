@@ -1,0 +1,45 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  effective: string;
+}
+
+const { title, description, effective } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <article class="legal container">
+    <header class="legal__header">
+      <p class="tag">Legal</p>
+      <h1>{title}</h1>
+      <p class="muted">Effective: {effective}</p>
+    </header>
+    <div class="legal__body readable">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal {
+    padding-block: var(--pd-space-16);
+  }
+  .legal__header {
+    margin-bottom: var(--pd-space-8);
+  }
+  .legal__body :global(h2) {
+    margin-top: var(--pd-space-12);
+    font-size: 1.5rem;
+  }
+  .legal__body :global(h3) {
+    margin-top: var(--pd-space-8);
+    font-size: 1.125rem;
+  }
+  .legal__body :global(p),
+  .legal__body :global(li) {
+    color: var(--pd-ink-soft);
+  }
+</style>

@@ -1,0 +1,97 @@
+---
+import type { IAppMeta } from "@/data/apps";
+
+interface Props {
+  app: IAppMeta;
+}
+
+const { app } = Astro.props;
+const statusLabel = {
+  available: "Available now",
+  "coming-soon": "Coming soon",
+  "in-beta": "In beta",
+}[app.status];
+---
+
+<a class="card" href={`/${app.slug}`} aria-label={`${app.name} — ${statusLabel}`}>
+  <div class="card__icon" style={`background:${app.primaryBg};`}>
+    <img src={`/icons/${app.iconSlug}.svg`} alt="" width="56" height="56" />
+  </div>
+  <div class="card__body">
+    <div class="card__head">
+      <h3 class="card__name">{app.name}</h3>
+      <span class="card__status" data-status={app.status}>{statusLabel}</span>
+    </div>
+    <p class="card__tagline">{app.tagline}</p>
+    <p class="card__cta">Learn more <span aria-hidden="true">&rarr;</span></p>
+  </div>
+</a>
+
+<style>
+  .card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--pd-space-4);
+    align-items: start;
+    padding: var(--pd-space-6);
+    border-radius: var(--pd-radius);
+    border: 1px solid var(--pd-line);
+    background: var(--pd-surface);
+    color: inherit;
+    text-decoration: none;
+    box-shadow: var(--pd-shadow-sm);
+    transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--pd-shadow);
+    border-color: var(--pd-primary);
+  }
+  .card__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--pd-radius);
+    display: grid;
+    place-items: center;
+  }
+  .card__head {
+    display: flex;
+    align-items: center;
+    gap: var(--pd-space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--pd-space-2);
+  }
+  .card__name {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  .card__status {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--pd-surface-alt);
+    color: var(--pd-ink-muted);
+  }
+  .card__status[data-status="available"] {
+    background: color-mix(in oklab, var(--pd-success) 18%, transparent);
+    color: var(--pd-success);
+  }
+  .card__status[data-status="in-beta"] {
+    background: color-mix(in oklab, var(--pd-accent) 22%, transparent);
+    color: var(--pd-ink);
+  }
+  .card__tagline {
+    margin: 0 0 var(--pd-space-3);
+    color: var(--pd-ink-soft);
+    font-size: 0.9375rem;
+  }
+  .card__cta {
+    margin: 0;
+    color: var(--pd-primary);
+    font-weight: 600;
+    font-size: 0.9375rem;
+  }
+</style>

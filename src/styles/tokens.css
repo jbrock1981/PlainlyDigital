@@ -1,0 +1,94 @@
+/* Plainly Digital — design tokens */
+
+:root {
+  /* Brand */
+  --pd-bg: #0f0f1a;
+  --pd-surface: #fafaf7;
+  --pd-surface-alt: #f1f0eb;
+  --pd-ink: #0f0f1a;
+  --pd-ink-soft: #4a4a5e;
+  --pd-ink-muted: #75758a;
+  --pd-line: #e5e3dd;
+
+  /* Accents */
+  --pd-primary: #6b5bff;
+  --pd-primary-soft: #ece9ff;
+  --pd-primary-ink: #ffffff;
+  --pd-accent: #ffb347;
+  --pd-success: #3dcc91;
+  --pd-warn: #ff6b6b;
+
+  /* Per-app accents */
+  --app-cleardoc: #00c853;
+  --app-cleardoc-bg: #e6f7ed;
+  --app-sittersheet: #2d5a3d;
+  --app-sittersheet-bg: #eaf0ec;
+  --app-sittersheet-accent: #c75b39;
+  --app-plainly: #0d8a8a;
+  --app-plainly-bg: #e1f3f3;
+  --app-vytally: #ff7a59;
+  --app-vytally-bg: #fde8e2;
+  --app-accomplishly: #7c4dff;
+  --app-accomplishly-bg: #ece5ff;
+  --app-advisor: #5b6cff;
+  --app-advisor-bg: #e5e8ff;
+
+  /* Sizing */
+  --pd-radius: 16px;
+  --pd-radius-sm: 8px;
+  --pd-radius-lg: 24px;
+  --pd-tap: 44px;
+
+  /* Spacing */
+  --pd-space-1: 0.25rem;
+  --pd-space-2: 0.5rem;
+  --pd-space-3: 0.75rem;
+  --pd-space-4: 1rem;
+  --pd-space-6: 1.5rem;
+  --pd-space-8: 2rem;
+  --pd-space-12: 3rem;
+  --pd-space-16: 4rem;
+  --pd-space-24: 6rem;
+
+  /* Typography */
+  --pd-font-sans: "Inter Variable", "Inter", system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --pd-font-display: "Geist", var(--pd-font-sans);
+  --pd-font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Consolas,
+    "Liberation Mono", monospace;
+
+  --pd-leading: 1.55;
+  --pd-leading-tight: 1.15;
+
+  /* Shadows */
+  --pd-shadow-sm: 0 1px 2px rgba(15, 15, 26, 0.06);
+  --pd-shadow: 0 4px 12px rgba(15, 15, 26, 0.08);
+  --pd-shadow-lg: 0 12px 32px rgba(15, 15, 26, 0.12);
+
+  /* Layout */
+  --pd-max-width: 1120px;
+  --pd-max-readable: 64ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --pd-surface: #16162a;
+    --pd-surface-alt: #1d1d35;
+    --pd-ink: #f5f4ef;
+    --pd-ink-soft: #c8c8d4;
+    --pd-ink-muted: #8a8aa3;
+    --pd-line: #2a2a44;
+    --pd-primary-soft: #2a2354;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

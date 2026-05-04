@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="SitterSheet">
+  <rect width="256" height="256" rx="56" fill="#FAF8F5"/>
+  <rect x="44" y="68" width="168" height="120" rx="10" fill="#2D5A3D"/>
+  <path d="M44 78l84 56 84-56" stroke="#FAF8F5" stroke-width="6" fill="none" stroke-linejoin="round"/>
+  <ellipse cx="128" cy="146" rx="14" ry="18" fill="#FAF8F5"/>
+  <ellipse cx="106" cy="124" rx="9" ry="12" fill="#FAF8F5"/>
+  <ellipse cx="150" cy="124" rx="9" ry="12" fill="#FAF8F5"/>
+  <ellipse cx="92" cy="146" rx="8" ry="11" fill="#FAF8F5"/>
+  <ellipse cx="164" cy="146" rx="8" ry="11" fill="#FAF8F5"/>
+  <circle cx="200" cy="64" r="10" fill="#C75B39"/>
+</svg>

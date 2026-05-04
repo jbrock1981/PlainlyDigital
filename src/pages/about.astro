@@ -1,0 +1,80 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+
+const description =
+  "Plainly Digital LLC is built by a cybersecurity engineer who makes secure, cutting-edge apps that improve daily life.";
+---
+
+<BaseLayout title="About" description={description}>
+  <Hero eyebrow="About" title="A studio of one. Built like a studio of ten." />
+
+  <section>
+    <div class="container readable about">
+      <p>
+        Plainly Digital is built by a cybersecurity engineer who makes secure,
+        cutting-edge apps that improve daily life. Every app in the suite is
+        built with the same security discipline &mdash; encrypted at rest,
+        hardened at the API layer, AI-governed at the model layer.
+      </p>
+      <p>
+        The apps in this suite started as solutions to problems I had myself:
+        a confusing benefits letter that took two hours to decode, a pet sitter
+        who needed to know seventeen things and ended up missing four of them,
+        finance content built for the people writing finance content, and so on.
+        Plainly Digital is the small studio that turns those into mobile apps
+        anyone can use.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        One address: <a href="mailto:apps@plainlydigital.com"
+          >apps@plainlydigital.com</a
+        >. App support, business, security disclosures, partnerships &mdash;
+        all the same inbox.
+      </p>
+
+      <h2>Security disclosure</h2>
+      <p>
+        If you find a security issue, please email
+        <a href="mailto:apps@plainlydigital.com">apps@plainlydigital.com</a>.
+        See <a href="/.well-known/security.txt"><code>/.well-known/security.txt</code></a>
+        for our coordinated disclosure preferences.
+      </p>
+
+      <h2>Legal</h2>
+      <p>
+        Plainly Digital LLC is registered in Tennessee. Each app has its own
+        privacy policy and terms of service:
+      </p>
+      <ul>
+        <li>
+          ClearDoc &mdash;
+          <a href="/cleardoc/privacy">privacy</a>,
+          <a href="/cleardoc/terms">terms</a>
+        </li>
+        <li>
+          SitterSheet &mdash;
+          <a href="/sittersheet/privacy">privacy</a>,
+          <a href="/sittersheet/terms">terms</a>
+        </li>
+        <li>
+          This site &mdash;
+          <a href="/privacy">privacy</a>,
+          <a href="/terms">terms</a>
+        </li>
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about p,
+  .about li {
+    color: var(--pd-ink-soft);
+  }
+  .about h2 {
+    margin-top: var(--pd-space-12);
+    font-size: 1.5rem;
+  }
+</style>

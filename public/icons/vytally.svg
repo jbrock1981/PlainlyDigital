@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Vytally">
+  <rect width="256" height="256" rx="56" fill="#FFF1ED"/>
+  <path d="M40 128h28l16-32 24 64 20-48 16 24h32" stroke="#FF7A59" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M176 136c0-30 24-56 52-56-2 32-22 56-52 56Z" fill="#3DCC91"/>
+  <path d="M188 124c10-8 26-12 38-10" stroke="#FAF8F5" stroke-width="4" stroke-linecap="round" fill="none"/>
+</svg>

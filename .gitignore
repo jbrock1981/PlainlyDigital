@@ -1,0 +1,16 @@
+node_modules/
+dist/
+.astro/
+.DS_Store
+.env
+.env.local
+.vercel/
+.cloudflare/
+.wrangler/
+*.log
+
+# Generated PNG icons (regenerate via npm run icons:build)
+public/icons/*.png
+public/icons/*.ico
+public/og-default.png
+!public/icons/.gitkeep

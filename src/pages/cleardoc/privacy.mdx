@@ -1,0 +1,115 @@
+---
+layout: "@/layouts/LegalLayout.astro"
+title: "ClearDoc privacy policy"
+description: "How ClearDoc collects, uses, stores, and deletes your data."
+effective: "May 4, 2026"
+---
+
+ClearDoc is a mobile app published by Plainly Digital LLC ("we," "us," "our")
+that lets you point your camera at a document and get a plain-English
+explanation. This privacy policy explains what data ClearDoc collects, how it
+is used, where it goes, and how to delete it.
+
+## What ClearDoc collects
+
+When you use ClearDoc:
+
+- **Documents you scan**: the photo you capture, plus the AI-generated
+  summary, action items, and key fields extracted from it.
+- **Account data**: a Firebase Authentication user ID. By default this is an
+  *anonymous* ID — no email or name is required. If you sign in with email,
+  we store your email address.
+- **Usage data**: a count of scans you have performed, your subscription or
+  scan-pack balance, and rate-limit counters used for abuse prevention.
+- **Crash and error data**: anonymized crash reports if you opt into device
+  diagnostics. We do not collect crash reports tied to your identity.
+
+ClearDoc does **not** collect your contacts, location, microphone audio,
+calendar entries, advertising identifiers, or browsing history.
+
+## What ClearDoc sends to third parties
+
+To provide the service, ClearDoc shares limited data with three providers:
+
+- **Anthropic** — when you scan a document, the photo is sent to Anthropic's
+  Claude API for one-time processing. Per Anthropic's
+  [Commercial Terms of Service](https://www.anthropic.com/legal/commercial-terms),
+  Anthropic does not retain API inputs or outputs for training, and processes
+  inputs only to return the response.
+- **Google Firebase** — Authentication, Firestore (database), and Cloud
+  Functions are operated by Google. Firebase processes the photo and
+  extracted text in transit and stores extracted data in your account until
+  you delete it. Firebase data is encrypted in transit and at rest by Google.
+- **RevenueCat** — handles subscription state and one-time purchases, in
+  accordance with their [privacy policy](https://www.revenuecat.com/privacy).
+  RevenueCat receives a hashed user ID and the product purchased — not the
+  contents of your scans.
+
+## Sensitive identifier redaction
+
+Before scan results are stored or shown to you, ClearDoc applies a redaction
+step that masks obvious sensitive identifiers found in extracted text — full
+Social Security Numbers, full credit card numbers, driver's license numbers,
+and passport numbers. The redaction is automatic and best-effort. **You
+should still treat your stored scans as sensitive and avoid scanning highly
+confidential government documents whose redaction we cannot guarantee.**
+
+## Anonymous-account orphan-data risk
+
+If you use ClearDoc anonymously and then uninstall the app or sign out
+without first deleting your account, the anonymous user ID becomes
+unreachable. Your scans remain in our database, encrypted at rest, but you
+will not be able to log back in to recover or delete them. We retain
+unreachable anonymous data for 12 months and then purge it on a rolling
+schedule.
+
+If you want to be able to recover your data on a new device, sign in with
+email instead of using the anonymous flow.
+
+## Account deletion
+
+You can delete your account at any time from **Settings → Delete account**
+inside the ClearDoc app. Deletion permanently removes your Firebase Auth
+record and all stored scans within 30 days. Backup copies are purged as
+they age out (typically within an additional 30 days).
+
+You may also email [apps@plainlydigital.com](mailto:apps@plainlydigital.com)
+to request deletion if the in-app flow does not work for you.
+
+## AI disclosure
+
+ClearDoc uses the Claude AI model from Anthropic to read documents and
+produce summaries. AI is fallible. ClearDoc's output is **not** legal,
+medical, tax, or financial advice. Always verify any important detail with
+a qualified professional before acting on it.
+
+## Children
+
+ClearDoc is not directed at children under 13. We do not knowingly collect
+personal information from children under 13. If you believe we have done so,
+please contact us and we will delete the data.
+
+## Your rights
+
+If you reside in the EU/EEA, the UK, California, or any other jurisdiction
+with similar privacy rights, you have the right to access, correct, delete,
+or port your data, and to object to certain processing. Email
+[apps@plainlydigital.com](mailto:apps@plainlydigital.com) and we will respond
+within 30 days. We do not sell or "share" personal information for
+cross-context behavioral advertising.
+
+## Changes
+
+We will update this policy from time to time. Material changes will be
+flagged at the top of the page and a revised effective date posted.
+
+## Contact
+
+[apps@plainlydigital.com](mailto:apps@plainlydigital.com)
+
+Plainly Digital LLC, Tennessee, United States.
+
+## Governing law
+
+This policy is governed by the laws of the State of Tennessee, without
+regard to its conflict-of-law principles.

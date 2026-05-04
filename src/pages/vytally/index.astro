@@ -1,0 +1,7 @@
+---
+import ComingSoonLayout from "@/layouts/ComingSoonLayout.astro";
+import { appBySlug } from "@/data/apps";
+const app = appBySlug("vytally")!;
+---
+
+<ComingSoonLayout app={app} />

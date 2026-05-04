@@ -1,0 +1,130 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import AppCard from "@/components/AppCard.astro";
+import { APPS } from "@/data/apps";
+
+const description =
+  "Plainly Digital LLC builds secure, useful mobile apps that improve daily life. ClearDoc, SitterSheet, and a growing suite of apps for the things you actually do.";
+---
+
+<BaseLayout title="Plainly Digital" description={description}>
+  <Hero
+    eyebrow="Plainly Digital"
+    title="Apps that quietly make your day easier."
+    subtitle="A small studio building secure, useful mobile apps for the things you actually do — understanding documents, briefing pet sitters, getting your money straight, and more on the way."
+  >
+    <div class="hero-cta">
+      <a class="btn" href="#apps">See the apps</a>
+      <a class="btn btn--ghost" href="/about">About the studio</a>
+    </div>
+  </Hero>
+
+  <section id="apps" aria-labelledby="apps-heading">
+    <div class="container">
+      <header class="section-head">
+        <p class="tag">The suite</p>
+        <h2 id="apps-heading">Six apps. One quiet promise.</h2>
+        <p class="lead">
+          Every Plainly Digital app is mobile-first, AI-aware, and built with
+          the security discipline of someone who builds compliance tools for a
+          living. Two are nearly here. Four are coming.
+        </p>
+      </header>
+      <div class="apps-grid">
+        {APPS.map((app) => <AppCard app={app} />)}
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how-heading" class="how">
+    <div class="container how__inner">
+      <header>
+        <p class="tag">The way we build</p>
+        <h2 id="how-heading">Not another platform. Not another feed.</h2>
+      </header>
+      <div class="how__grid">
+        <div class="how__card">
+          <h3>Encrypted at rest, hardened at the API</h3>
+          <p>
+            Sensitive fields live in iOS Keychain or Android Keystore. APIs are
+            rate-limited, audited, and budget-capped. Account deletion is a
+            two-tap flow, not a support ticket.
+          </p>
+        </div>
+        <div class="how__card">
+          <h3>AI used carefully, not theatrically</h3>
+          <p>
+            Every AI feature is governed: explicit disclaimers, redaction of
+            sensitive identifiers, and a hard kill-switch on daily spend. We
+            don't train on your data &mdash; ever.
+          </p>
+        </div>
+        <div class="how__card">
+          <h3>Mobile-only, deliberately</h3>
+          <p>
+            These apps live where you live: in your pocket. No desktop sprawl,
+            no notification firehose, no engagement tricks. Use it, close it,
+            move on.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-cta {
+    display: flex;
+    gap: var(--pd-space-3);
+    flex-wrap: wrap;
+  }
+  .section-head {
+    max-width: var(--pd-max-readable);
+    margin-bottom: var(--pd-space-12);
+  }
+  .apps-grid {
+    display: grid;
+    gap: var(--pd-space-4);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) {
+    .apps-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (min-width: 1080px) {
+    .apps-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .how {
+    background: var(--pd-surface-alt);
+  }
+  .how__grid {
+    display: grid;
+    gap: var(--pd-space-6);
+    grid-template-columns: 1fr;
+    margin-top: var(--pd-space-8);
+  }
+  @media (min-width: 768px) {
+    .how__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .how__card {
+    padding: var(--pd-space-6);
+    border-radius: var(--pd-radius);
+    background: var(--pd-surface);
+    border: 1px solid var(--pd-line);
+  }
+  .how__card h3 {
+    font-size: 1.0625rem;
+    margin-bottom: var(--pd-space-2);
+  }
+  .how__card p {
+    color: var(--pd-ink-soft);
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+</style>

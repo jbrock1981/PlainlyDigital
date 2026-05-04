@@ -1,0 +1,195 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import PhoneMockup from "@/components/PhoneMockup.astro";
+import Disclaimer from "@/components/Disclaimer.astro";
+import { appBySlug } from "@/data/apps";
+
+const app = appBySlug("cleardoc")!;
+---
+
+<BaseLayout
+  title={app.name}
+  description={`${app.tagline} — ${app.description}`}
+>
+  <Hero
+    eyebrow="ClearDoc"
+    title={app.tagline}
+    subtitle={app.description}
+  >
+    <p class="badge-row">
+      <span class="badge">Coming soon to App Store + Google Play</span>
+    </p>
+  </Hero>
+
+  <section class="split">
+    <div class="container split__inner">
+      <div class="split__copy">
+        <h2>What it does</h2>
+        <ul class="features">
+          {app.features.map((f) => <li>{f}</li>)}
+        </ul>
+
+        <h2>Pricing</h2>
+        <div class="pricing">
+          <div class="price">
+            <p class="price__name">First scan</p>
+            <p class="price__amount">Free</p>
+            <p class="muted">Try it once. No card required.</p>
+          </div>
+          <div class="price price--featured">
+            <p class="price__name">Scan pack</p>
+            <p class="price__amount">$4.99</p>
+            <p class="muted">20 scans, no expiry.</p>
+          </div>
+          <div class="price">
+            <p class="price__name">Unlimited monthly</p>
+            <p class="price__amount">$7.99<span>/mo</span></p>
+            <p class="muted">For when you're knee-deep in paperwork.</p>
+          </div>
+        </div>
+
+        <Disclaimer>
+          <strong>Not legal, medical, tax, or financial advice.</strong>
+          ClearDoc explains documents in plain English. Verify any important
+          detail with a professional before acting on it.
+        </Disclaimer>
+      </div>
+
+      <div class="split__visual">
+        <PhoneMockup
+          label="Scan result"
+          accent="var(--app-cleardoc)"
+          bg="#FFFFFF"
+        >
+          <div class="mock cd-mock">
+            <header class="cd-mock__head">
+              <span class="cd-mock__back" aria-hidden="true">‹</span>
+              <span class="cd-mock__title">Result</span>
+              <span class="cd-mock__avatar" aria-hidden="true"></span>
+            </header>
+            <div class="cd-mock__body">
+              <p class="cd-mock__tag">Medical bill • Region: TN</p>
+              <h3 class="cd-mock__h">You owe <strong>$148.20</strong></h3>
+              <p class="cd-mock__sum">
+                Insurance covered most of the visit. Your portion is the
+                co-pay plus lab fees.
+              </p>
+              <div class="cd-mock__row">
+                <span>Due date</span><strong>May 30</strong>
+              </div>
+              <div class="cd-mock__row">
+                <span>Pay online</span><strong>quickbill.example/123</strong>
+              </div>
+              <div class="cd-mock__row">
+                <span>Account #</span><strong>***-**-4827</strong>
+              </div>
+              <button class="cd-mock__btn">Add to calendar</button>
+            </div>
+          </div>
+        </PhoneMockup>
+      </div>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="container">
+      <h2>Privacy summary</h2>
+      <p class="lead">
+        Photos are sent to Anthropic's API for one-time processing &mdash; not
+        retained, not used for training. Scans are stored in your account so
+        you can re-open them, and deleted in two taps when you're done.
+        Sensitive identifiers (SSNs, card numbers) are redacted before storage.
+      </p>
+      <p>
+        Read the full <a href="/cleardoc/privacy">privacy policy</a> and
+        <a href="/cleardoc/terms">terms of service</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .badge-row { margin: 0; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--pd-space-2) var(--pd-space-4);
+    border-radius: 999px;
+    background: var(--app-cleardoc-bg);
+    color: var(--app-cleardoc);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .split__inner {
+    display: grid;
+    gap: var(--pd-space-12);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .split__inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+  }
+  .features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: var(--pd-space-8);
+  }
+  .features li {
+    position: relative;
+    padding-inline-start: 1.75rem;
+    color: var(--pd-ink-soft);
+  }
+  .features li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--app-cleardoc);
+  }
+  .pricing {
+    display: grid;
+    gap: var(--pd-space-3);
+    grid-template-columns: 1fr;
+    margin-bottom: var(--pd-space-8);
+  }
+  @media (min-width: 600px) {
+    .pricing { grid-template-columns: repeat(3, 1fr); }
+  }
+  .price {
+    padding: var(--pd-space-4);
+    border-radius: var(--pd-radius);
+    border: 1px solid var(--pd-line);
+    background: var(--pd-surface);
+  }
+  .price--featured {
+    border-color: var(--app-cleardoc);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--app-cleardoc) 18%, transparent);
+  }
+  .price__name { margin: 0; font-size: 0.8125rem; color: var(--pd-ink-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .price__amount { margin: var(--pd-space-2) 0; font-family: var(--pd-font-display); font-size: 1.625rem; font-weight: 800; }
+  .price__amount span { font-size: 0.875rem; font-weight: 600; color: var(--pd-ink-muted); }
+
+  .meta { background: var(--pd-surface-alt); }
+  .meta .lead { margin-bottom: var(--pd-space-4); }
+
+  /* Mockup styles */
+  .cd-mock { display: flex; flex-direction: column; height: 100%; color: #1a1a2e; font-family: var(--pd-font-sans); }
+  .cd-mock__head { display: flex; align-items: center; padding: 32px 16px 12px; gap: 12px; border-bottom: 1px solid #eee; }
+  .cd-mock__back { color: var(--app-cleardoc); font-size: 24px; font-weight: 600; }
+  .cd-mock__title { flex: 1; text-align: center; font-weight: 700; font-size: 15px; }
+  .cd-mock__avatar { width: 24px; height: 24px; border-radius: 50%; background: #eee; }
+  .cd-mock__body { padding: 16px; flex: 1; overflow: hidden; }
+  .cd-mock__tag { font-size: 11px; color: var(--app-cleardoc); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin: 0 0 8px; }
+  .cd-mock__h { margin: 0 0 8px; font-size: 22px; font-weight: 800; }
+  .cd-mock__h strong { color: var(--app-cleardoc); }
+  .cd-mock__sum { font-size: 12.5px; color: #555; margin: 0 0 16px; line-height: 1.4; }
+  .cd-mock__row { display: flex; justify-content: space-between; padding: 8px 0; border-top: 1px solid #f0f0f0; font-size: 12.5px; }
+  .cd-mock__row span { color: #777; }
+  .cd-mock__btn { margin-top: 16px; width: 100%; padding: 10px; border: none; border-radius: 12px; background: var(--app-cleardoc); color: #fff; font-weight: 600; font-size: 13px; }
+</style>

@@ -1,0 +1,94 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div>
+      <p class="footer__brand">
+        <img src="/icons/plainlydigital.svg" width="28" height="28" alt="" />
+        <strong>Plainly Digital LLC</strong>
+      </p>
+      <p class="muted footer__line">
+        A cybersecurity engineer building secure apps that improve daily life.
+      </p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href="/about">About</a></li>
+        <li><a href="/privacy">Privacy</a></li>
+        <li><a href="/terms">Terms</a></li>
+        <li><a href="mailto:apps@plainlydigital.com">apps@plainlydigital.com</a></li>
+      </ul>
+    </nav>
+    <nav aria-label="Apps">
+      <ul>
+        <li><a href="/cleardoc">ClearDoc</a></li>
+        <li><a href="/sittersheet">SitterSheet</a></li>
+        <li><a href="/plainly">Plainly</a></li>
+        <li><a href="/vytally">Vytally</a></li>
+        <li><a href="/accomplishly">Accomplishly</a></li>
+        <li><a href="/ai-life-advisor">AI Life Advisor</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer__bottom">
+    <p class="muted">&copy; {year} Plainly Digital LLC. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    margin-top: var(--pd-space-24);
+    padding-block: var(--pd-space-12) var(--pd-space-8);
+    background: var(--pd-surface-alt);
+    border-top: 1px solid var(--pd-line);
+  }
+  .footer__inner {
+    display: grid;
+    gap: var(--pd-space-8);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px) {
+    .footer__inner {
+      grid-template-columns: 2fr 1fr 1fr;
+    }
+  }
+  .footer__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--pd-space-2);
+    margin-bottom: var(--pd-space-2);
+    font-family: var(--pd-font-display);
+  }
+  .footer__line {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+  .footer nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--pd-space-2);
+  }
+  .footer nav li + li {
+    margin: 0;
+  }
+  .footer nav a {
+    display: inline-block;
+    color: var(--pd-ink-soft);
+    text-decoration: none;
+    font-size: 0.9375rem;
+  }
+  .footer nav a:hover {
+    color: var(--pd-primary);
+    text-decoration: underline;
+  }
+  .footer__bottom {
+    margin-top: var(--pd-space-8);
+    padding-top: var(--pd-space-4);
+    border-top: 1px solid var(--pd-line);
+    font-size: 0.875rem;
+  }
+</style>

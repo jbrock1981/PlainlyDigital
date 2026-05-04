@@ -1,0 +1,17 @@
+{
+  "name": "Plainly Digital",
+  "short_name": "Plainly Digital",
+  "description": "A studio building secure, useful mobile apps that improve daily life.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#FAFAF7",
+  "theme_color": "#0F0F1A",
+  "icons": [
+    {
+      "src": "/icons/plainlydigital-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

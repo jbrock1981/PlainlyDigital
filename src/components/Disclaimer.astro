@@ -1,0 +1,28 @@
+---
+interface Props {
+  variant?: "info" | "warn";
+}
+const { variant = "info" } = Astro.props;
+---
+
+<aside class="disclaimer" data-variant={variant} role="note">
+  <slot />
+</aside>
+
+<style>
+  .disclaimer {
+    padding: var(--pd-space-4) var(--pd-space-6);
+    border-radius: var(--pd-radius-sm);
+    border-inline-start: 3px solid var(--pd-primary);
+    background: var(--pd-surface-alt);
+    color: var(--pd-ink-soft);
+    font-size: 0.9375rem;
+  }
+  .disclaimer[data-variant="warn"] {
+    border-inline-start-color: var(--pd-warn);
+    background: color-mix(in oklab, var(--pd-warn) 8%, var(--pd-surface));
+  }
+  .disclaimer :global(strong) {
+    color: var(--pd-ink);
+  }
+</style>

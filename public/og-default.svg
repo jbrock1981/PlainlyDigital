@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F0F1A"/>
+      <stop offset="100%" stop-color="#2A1F5C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="20%" cy="20%" r="60%">
+      <stop offset="0%" stop-color="#6B5BFF" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#6B5BFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Logo block -->
+  <rect x="80" y="240" width="120" height="120" rx="28" fill="#6B5BFF"/>
+  <path d="M110 270h36a22 22 0 0 1 0 44h-18v26h-18v-70Zm18 14v18h16a8 8 0 0 0 0-18h-16Z" fill="#FAFAF7"/>
+  <path d="M156 270h22a32 32 0 0 1 0 64h-22v-64Zm14 12v40h6a20 20 0 0 0 0-40h-6Z" fill="#FAFAF7" opacity="0.92"/>
+  <circle cx="195" cy="245" r="6" fill="#FFB347"/>
+
+  <!-- Wordmark -->
+  <text x="240" y="305" font-family="Geist, Inter, sans-serif" font-size="56" font-weight="800" fill="#FAFAF7">Plainly Digital</text>
+  <text x="240" y="350" font-family="Inter, sans-serif" font-size="26" font-weight="500" fill="#C8C8D4">Apps that quietly make your day easier.</text>
+
+  <!-- Footer band -->
+  <rect x="0" y="560" width="1200" height="70" fill="#000" opacity="0.35"/>
+  <text x="80" y="603" font-family="Inter, sans-serif" font-size="22" font-weight="600" fill="#FAFAF7">plainlydigital.com</text>
+  <text x="1120" y="603" font-family="Inter, sans-serif" font-size="20" fill="#C8C8D4" text-anchor="end">ClearDoc · SitterSheet · and more</text>
+</svg>
