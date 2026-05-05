@@ -50,28 +50,56 @@ Anything not shipping in v1.0 of the marketing site lives here.
 
 ---
 
-## Plainly Digital LLC — operations
+## Plainly Digital LLC — master tracker (operations)
 
-These are NOT marketing-site tasks but live here because no other repo is the right home.
+NOT marketing-site work — lives here because no other repo is the right home. This is the running source of truth for the parent-company state.
+
+### Identity + email
+- ✅ **Domain `plainlydigital.com`** — registered. DNS migrated to Cloudflare nameservers.
+- ✅ **`apps@plainlydigital.com`** — single contact across all apps + legal docs. Hosted on **Microsoft 365** (Zoho was paid-only at the entry tier; M365 was the most reliable option).
+- ⏳ **DKIM / SPF / DMARC** — need to confirm M365's records are in Cloudflare DNS and that mail from `apps@plainlydigital.com` passes all three at gmail/outlook recipients before any launch announcements.
+
+### Marketing site (plainlydigital.com)
+- ✅ **Built + deployed 2026-05-04** to **Cloudflare Pages** from repo `jbrock1981/PlainlyDigital`. Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`.
+- ✅ **14 pages** built clean: home, 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon), per-app + parent privacy/ToS in MDX, /about. Tennessee governing law throughout.
+- ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons.
+- ✅ **CI**: minimal — build-only on PR + weekly `npm audit --audit-level=moderate` notification. Dependabot daily security PRs.
+- ⏳ **Real device screenshots** replace SVG mobile mockups after first EAS internal builds.
+- ⏳ **App Store + Play Store badge links** turn ON once apps are live.
+
+### Google Cloud / Firebase
+- ✅ **Google Cloud for Startups** — approved 2026-05-04. Credits awarded under `apps@plainlydigital.com`.
+- ✅ **Billing account** `019368-94B72C-5B073A` ("Plainly Digital LLC"). All Plainly Digital LLC GCP projects bill against this and consume the startup credits.
+- ✅ **Cloud Identity org `apps-org`** (auto-created by Google) — `611419173109`. apps@plainlydigital.com is `roles/resourcemanager.organizationAdmin` + `roles/billing.admin` + `roles/iam.workforcePoolAdmin` + `roles/resourcemanager.projectMover`.
+- ✅ **GCP project `cleardoc-plainlydigital`** (`872804656503`) — under `apps-org`, billing linked. Firebase added. Firestore Native (us-central1), rules + indexes deployed, 3 Cloud Functions deployed, secrets in Secret Manager.
+- ✅ **GCP project `sittersheet-plainlydigital`** (`116927353996`) — same shape, 5 Cloud Functions deployed.
+- ⚠️ **`project-b9104919-708e-4dd1-be2`** ("My First Project") — auto-created sandbox, not used. Delete or repurpose later.
+- ⏳ **GCP billing budgets** — set in Console → Billing → Budgets: `$50/mo` ClearDoc + `$30/mo` SitterSheet, alerts at 50%/90%/100% to apps@plainlydigital.com.
+- ⏳ **Firestore TTL on `ai_audit/{date}/calls/{requestId}`** — collection group `calls`, field `expiresAt`. Auto-delete 30d. Set per-project.
+- ⏳ **Anthropic keys** — currently both apps use a single shared key. Generate two project-scoped keys at console.anthropic.com and re-run `firebase functions:secrets:set ANTHROPIC_API_KEY` from each app's `functions/` directory.
 
 ### Apple Developer
-- Account is set up + paid (under JBrock dependent, "pending" approval as of 2026-05-03). Once approved, transfer / link to Plainly Digital LLC org.
-- Enroll in Apple Small Business Program (15% cut under $1M).
-- D-U-N-S verification for org-level account if needed.
+- ✅ **Account paid, pending approval** — enrolled under JBrock dependent (couldn't enroll directly: old Apple ID on phone number was disabled and unrecoverable, Google Voice number triggered captcha block). Once approved, transfer / link to Plainly Digital LLC.
+- ⏳ **Small Business Program enrollment** — 15% cut under $1M. Apply once main account is approved.
+- ⏳ **D-U-N-S verification** at the org-account level once the account transitions out of dependent ownership.
 
-### Google Cloud for Startups
-- Apply at `cloud.google.com/startup` for the AI Startups track (~$2K credits, possibly higher tier with Anthropic partnership). Plainly Digital qualifies as a pre-revenue startup with multiple GCP-billed projects.
-- Once approved, allocate credits across ClearDoc + SitterSheet projects in GCP Console → Billing → Credits.
+### Google Play Console
+- ⏳ **Account creation** — $25 one-time at play.google.com/console. Enroll as **Organization** with Plainly Digital LLC D-U-N-S. Use `apps@plainlydigital.com`. Same account is used for ClearDoc + SitterSheet (and future apps).
+
+### RevenueCat
+- ⏳ **Account creation** at revenuecat.com. Free until $2.5K MRR. Two separate projects under one account: "ClearDoc" + "SitterSheet".
+- ⏳ **Webhooks** point at the deployed Cloud Function URLs (in each app's `LAUNCH.md`). Bearer token rotated into Secret Manager `REVENUECAT_WEBHOOK_SECRET` after webhook is created.
+- ⏳ **Products configured** per `LAUNCH.md` of each app (ClearDoc: monthly + pack20; SitterSheet: unlock-only).
+
+### Anthropic
+- ✅ **Existing API key** — works, currently shared between apps.
+- ⏳ **Per-app key rotation** — generate `cleardoc-prod` and `sittersheet-prod` keys, scope each, blast-radius isolation.
 
 ### Self-hosted CI/CD on GCP (FUTURE)
-- Build a private CI/CD pipeline on Google Cloud Build / Cloud Run that all Plainly Digital repos use instead of GitHub Actions minutes. Reduces external dependency, lets us run ZAP / heavyweight scans without Actions runner limits, and keeps build secrets inside our own GCP perimeter.
-- Out of scope for v1.
+- Build a private CI/CD pipeline on Cloud Build / Cloud Run that all Plainly Digital repos use instead of GitHub Actions minutes. Reduces external dependency, lets us run ZAP + heavyweight scans without Actions runner limits, keeps build secrets inside the GCP perimeter.
+- Out of scope until apps are live + revenue-generating.
 
-### Trademark search + DBA registration
-- "Plainly Digital" trademark search (USPTO TESS). If clean, file ITU. ~$350 filing fee.
-- "ClearDoc" + "SitterSheet" trademark searches. Both are crowded namespaces — likely descriptive-mark strategy or alternative naming.
-- TN DBA registration if Plainly Digital LLC's articles don't already cover these app names.
-
-### M365 mailbox setup
-- `apps@plainlydigital.com` is the single contact across all apps + legal docs. Confirm M365 is delivering reliably (DKIM, SPF, DMARC) before launch.
-- DNS records for SPF/DKIM/DMARC need to land in Cloudflare DNS (since the domain moved to Cloudflare nameservers).
+### Trademark + DBA
+- ⏳ **"Plainly Digital"** trademark search (USPTO TESS). If clean, file ITU (~$350).
+- ⏳ **"ClearDoc"** + **"SitterSheet"** searches. Both are crowded namespaces — likely descriptive-mark strategy or alternative naming.
+- ⏳ **TN DBA registration** if Plainly Digital LLC's articles don't already cover these app names.
