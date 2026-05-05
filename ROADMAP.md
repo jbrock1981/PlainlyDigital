@@ -95,8 +95,50 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - ✅ **Existing API key** — works, currently shared between apps.
 - ⏳ **Per-app key rotation** — generate `cleardoc-prod` and `sittersheet-prod` keys, scope each, blast-radius isolation.
 
+### App migration: Vercel/Render → GCP (PLANNED)
+
+**Why:** every Plainly Digital LLC app should bill against the same GCP startup credits. Today the older apps run on Vercel + Render + Neon, which billed against personal cards before the LLC + credits existed. Migration consolidates: one bill, one identity perimeter, credits cover spend, and the self-hosted CI/CD plan above can target a single deployment surface.
+
+**Scope:** all Plainly Digital LLC apps. **CastFreely is explicitly excluded** — it's a separate LLC owned by Lauri Brock, stays on its current Vercel/Neon stack.
+
+**Apps to migrate, current state:**
+
+| App | Stack today | GCP target | Notes |
+|---|---|---|---|
+| **Plainly** (finlit) | Vercel (web) + Render (Node API) + Neon Postgres | Cloud Run for the Node API + Firebase Hosting (or Cloud CDN) for the Expo web build; **Neon stays** (managed Postgres at Neon is cheaper than Cloud SQL at our scale and works fine over the public internet from Cloud Run). | Plaid keys + Anthropic key follow into Secret Manager. Sentry stays where it is. |
+| **Vytally** (health) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run for the API + Firebase Hosting for the static export; **Supabase stays** for now (Auth + RLS migration is its own large project). | RLS hardening is a pre-launch blocker that must NOT be derailed by the migration. |
+| **Accomplishly** | Vercel + Neon | Cloud Run + Firebase Hosting; Neon stays. | Currently DEPLOYED & LIVE — migration must be zero-downtime via DNS cutover. |
+| **AI Life Advisor** (formerly 42ly) | Vercel (frontend at 42ly.vercel.app + API at 42ly-api.vercel.app) + Supabase | Cloud Run for the API + Firebase Hosting for the frontend. Supabase stays. | Despite the marketing site saying "coming soon," the underlying 42ly build is feature-complete and deployed in invite-only beta. Migration applies. |
+| **Tradingly** | Vercel (Next.js) + Render (FastAPI 512MB) + Neon Postgres + SQLite cache | Cloud Run for FastAPI (fixes Render 30s timeout pain point + the keep-alive sleep-on-Starter issue) + Firebase Hosting for the Next.js. Neon stays. SQLite cache is per-instance and can stay local in the container. | Phase 4B.3 already moved durable state to Postgres specifically because Render Starter ephemeral SQLite was breaking autopilot. The migration unblocks Phase 4E (live trading) since "backend reliability upgrade" is in the Phase 4E gate. |
+| **Scamly + Pillarly** | Phase 1 landing pages (validate-then-build via $50 Meta ads) | Born on GCP if/when they progress to MVP. | No migration step — gate on validation outcome first. |
+
+**Exclusions:**
+- **CastFreely** — separate LLC (Lauri Brock, CastFreely LLC pending). Stays on Vercel/Neon. CastFreely will get its own Google Cloud Startups application under Lauri's name when CastFreely LLC is formed; do NOT pull it onto the Plainly Digital billing.
+- **Advisedly** — separate LLC entirely. Already on its own infra path.
+
+**Migration order (riskiest last so we learn first on the lowest-stakes apps):**
+1. **AI Life Advisor** (42ly) — invite-only beta, lowest blast radius.
+2. **Plainly** (finlit) — pre-beta, no live users yet.
+3. **Tradingly** — small allow-listed user base (family + Papous), unblocks Phase 4E.
+4. **Vytally** — family beta, larger blast radius.
+5. **Accomplishly** — DEPLOYED & LIVE, zero-downtime cutover required, do this last after the pattern is proven.
+
+**Standard migration recipe (per app):**
+- Create `<app>-plainlydigital` GCP project under `apps-org`, link billing.
+- Containerize the API (Dockerfile if not already). Push to Artifact Registry, deploy to Cloud Run.
+- Frontend: replace Vercel build pipeline with Firebase Hosting deploy (or Cloud CDN if more dynamic).
+- Move secrets from Vercel/Render env vars → Secret Manager. Re-deploy with `--set-secrets`.
+- Verify the Postgres host (Neon/Supabase) is reachable from Cloud Run egress IP — usually fine, but Neon's IP allowlist may need updating.
+- Cutover DNS at Cloudflare (since all PD domains are already on Cloudflare) — Cloud Run domain mapping or Firebase Hosting custom domain. Keep Vercel/Render running until DNS propagates, then decommission.
+- Final step per migration: cancel Vercel + Render paid plans for that app, document in this tracker.
+
+**Out of scope for this migration (deferred):**
+- Moving Neon → Cloud SQL. Neon's serverless Postgres is cheaper at our scale and the dev experience is better. Re-evaluate after $1K MRR per app or when Neon throws scale issues.
+- Moving Supabase Auth → Firebase Auth or Identity Platform. Big refactor, not blocked by hosting migration.
+
 ### Self-hosted CI/CD on GCP (FUTURE)
 - Build a private CI/CD pipeline on Cloud Build / Cloud Run that all Plainly Digital repos use instead of GitHub Actions minutes. Reduces external dependency, lets us run ZAP + heavyweight scans without Actions runner limits, keeps build secrets inside the GCP perimeter.
+- Naturally builds on the migration above — once all PD apps deploy to GCP, the CI/CD pipeline lives next to them.
 - Out of scope until apps are live + revenue-generating.
 
 ### Trademark + DBA
