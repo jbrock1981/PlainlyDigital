@@ -129,3 +129,13 @@ Full operator runbook including DNS, cert renewal, and rollback: see `DEPLOY.md`
 ## Current priority
 
 GCP migration of the marketing site is COMPLETE (plan: `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`). Production traffic hits Firebase Hosting under `plainlydigital-www`. DNS authoritative on Cloud DNS (`plainlydigital-com` zone). Apex + www both serve from Firebase with Google Trust Services SSL.
+## Toolkit conventions (claude-code-toolkit)
+
+Multiagent + outcomes-based workflow. Subagents and slash commands live at `~/.claude/` (user-level, available across all repos):
+
+- `/team <description>` — runs planner ➜ advisor ➜ implementer(s) ➜ advisor ➜ grader for non-trivial work
+- `/advise [topic]` — pressure-test a plan, decision, or in-flight work
+- `/grade <rubric-name>` — score completed work against `.claude/outcomes/<name>.md`
+- `/dream` — consolidate this CLAUDE.md (remove stale facts, surface contradictions)
+
+Per-repo rubrics live in `.claude/outcomes/`. Add new rubrics here as recurring task types appear.
