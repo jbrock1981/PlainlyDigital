@@ -101,21 +101,23 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - ✅ **Existing API key** — works, currently shared between apps.
 - ⏳ **Per-app key rotation** — generate `cleardoc-prod` and `sittersheet-prod` keys, scope each, blast-radius isolation.
 
-### App migration: Vercel/Render → GCP (PLANNED)
+### App migration: Vercel/Render → GCP (IN FLIGHT)
 
-**Why:** every Plainly Digital LLC app should bill against the same GCP startup credits. Today the older apps run on Vercel + Render + Neon, which billed against personal cards before the LLC + credits existed. Migration consolidates: one bill, one identity perimeter, credits cover spend, and the self-hosted CI/CD plan above can target a single deployment surface.
+**Why:** every Plainly Digital LLC app should bill against the same GCP startup credits. Today the older apps run on Vercel + Render + Neon + Supabase, which billed against personal cards before the LLC + credits existed. Migration consolidates: one bill, one identity perimeter, credits cover spend.
 
-**Scope:** all Plainly Digital LLC apps. **CastFreely is explicitly excluded** — it's a separate LLC owned by Lauri Brock, stays on its current Vercel/Neon stack.
+**Scope expansion 2026-05-05:** original recipe was "compute migrates, DBs/Auth stay." With the **AI Startups credit pool at $350K** (granted because every PD app uses Claude AI — see `reference_plainly_gcp_billing.md`), the cost-saving rationale for keeping Neon/Supabase no longer applies. **For the Fiscus + Vitaliter sub-passes, scope is full GCP consolidation:** Cloud SQL replaces Neon (Fiscus) and Supabase Postgres (Vitaliter); Firebase Auth replaces Supabase Auth (Vitaliter); a hybrid GitHub Actions + Cloud Build CI/CD pipeline (originally "FUTURE", below) is pulled forward and built as a reusable template `plainlydigital-ci-templates`. Other apps (AI Life Advisor, Tradingly, Accomplishly) keep the original "compute-only" recipe until they hit a similar inflection point.
+
+Per-domain DNS authority is verified per migration via `dig <domain> NS +short` — the earlier "all PD domains already on Cloudflare DNS" claim was wrong. `plainlydigital.com` itself was on GoDaddy parking until 2026-05-05 and is migrating to **Cloud DNS** (managed zone `plainlydigital-com` in `plainlydigital-www`).
 
 **Apps to migrate, current state:**
 
 | App | Stack today | GCP target | Notes |
 |---|---|---|---|
-| **Plainly** (finlit) | Vercel (web) + Render (Node API) + Neon Postgres | Cloud Run for the Node API + Firebase Hosting (or Cloud CDN) for the Expo web build; **Neon stays** (managed Postgres at Neon is cheaper than Cloud SQL at our scale and works fine over the public internet from Cloud Run). | Plaid keys + Anthropic key follow into Secret Manager. Sentry stays where it is. |
-| **Vytally** (health) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run for the API + Firebase Hosting for the static export; **Supabase stays** for now (Auth + RLS migration is its own large project). | RLS hardening is a pre-launch blocker that must NOT be derailed by the migration. |
-| **Accomplishly** | Vercel + Neon | Cloud Run + Firebase Hosting; Neon stays. | Currently DEPLOYED & LIVE — migration must be zero-downtime via DNS cutover. |
-| **AI Life Advisor** (formerly 42ly) | Vercel (frontend at 42ly.vercel.app + API at 42ly-api.vercel.app) + Supabase | Cloud Run for the API + Firebase Hosting for the frontend. Supabase stays. | Despite the marketing site saying "coming soon," the underlying 42ly build is feature-complete and deployed in invite-only beta. Migration applies. |
-| **Tradingly** | Vercel (Next.js) + Render (FastAPI 512MB) + Neon Postgres + SQLite cache | Cloud Run for FastAPI (fixes Render 30s timeout pain point + the keep-alive sleep-on-Starter issue) + Firebase Hosting for the Next.js. Neon stays. SQLite cache is per-instance and can stay local in the container. | Phase 4B.3 already moved durable state to Postgres specifically because Render Starter ephemeral SQLite was breaking autopilot. The migration unblocks Phase 4E (live trading) since "backend reliability upgrade" is in the Phase 4E gate. |
+| **Fiscus** (formerly Plainly) | Vercel (web) + Render (Node API) + Neon Postgres | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** (replacing Neon). Domain `fiscus.app`. | Trademark search clean 2026-05-05 — rename + GCP migration bundled per plan `we-have-cleardoc-and-radiant-cookie.md`. Cross-platform web + mobile retained (Rocket Money pattern). Already on self-issued JWTs, no Auth swap needed. |
+| **Vitaliter** (formerly Vytally) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** + **Firebase Auth** + **mobile-only** (web stripped). No new domain — marketing landing is a section on `plainlydigital.com`. | Trademark search clean 2026-05-05. Web strip + Supabase Auth → Firebase Auth + Cloud SQL bundled in same plan. The **CRITICAL pre-launch RLS blocker is superseded** by the Auth swap: server-side authorization on Cloud SQL queries tied to Firebase UIDs replaces RLS. |
+| **Accomplishly** | Vercel + Neon | Cloud Run + Firebase Hosting; Neon stays (compute-only recipe). | Currently DEPLOYED & LIVE — migration must be zero-downtime via DNS cutover. Re-evaluate Cloud SQL once Fiscus pattern is proven. |
+| **AI Life Advisor** (formerly 42ly) | Vercel (frontend at 42ly.vercel.app + API at 42ly-api.vercel.app) + Supabase | Cloud Run + Firebase Hosting. Supabase stays (compute-only recipe). | Despite the marketing site saying "coming soon," the underlying 42ly build is feature-complete and deployed in invite-only beta. Migration applies. |
+| **Tradingly** | Vercel (Next.js) + Render (FastAPI 512MB) + Neon Postgres + SQLite cache | Cloud Run for FastAPI + Firebase Hosting for Next.js. Neon stays (compute-only recipe). | Cloud Run fixes Render 30s timeout + keep-alive idle sleep that breaks autopilot tick. Phase 4B.3 already moved durable state to Postgres specifically because of this. **Migration is REQUIRED before Phase 4E** (live trading) — backend reliability upgrade is in the Phase 4E legal gate. |
 | **Scamly + Pillarly** | Phase 1 landing pages (validate-then-build via $50 Meta ads) | Born on GCP if/when they progress to MVP. | No migration step — gate on validation outcome first. |
 
 **Exclusions:**
@@ -123,29 +125,45 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - **Advisedly** — separate LLC entirely. Already on its own infra path.
 
 **Migration order (riskiest last so we learn first on the lowest-stakes apps):**
-1. **AI Life Advisor** (42ly) — invite-only beta, lowest blast radius.
-2. **Plainly** (finlit) — pre-beta, no live users yet.
-3. **Tradingly** — small allow-listed user base (family + Papous), unblocks Phase 4E.
-4. **Vytally** — family beta, larger blast radius.
-5. **Accomplishly** — DEPLOYED & LIVE, zero-downtime cutover required, do this last after the pattern is proven.
+1. **AI Life Advisor** (42ly) — invite-only beta, lowest blast radius. Compute-only recipe.
+2. **Fiscus** (formerly Plainly) — pre-beta, no live users yet. **Full GCP consolidation** (Cloud SQL).
+3. **Tradingly** — small allow-listed user base (family + Papous), unblocks Phase 4E. Compute-only recipe.
+4. **Vitaliter** (formerly Vytally) — family beta. **Full GCP consolidation** (Cloud SQL + Firebase Auth + mobile-only).
+5. **Accomplishly** — DEPLOYED & LIVE, zero-downtime cutover required, do this last after the pattern is proven. Compute-only recipe.
 
-**Standard migration recipe (per app):**
-- Create `<app>-plainlydigital` GCP project under `apps-org`, link billing.
-- Containerize the API (Dockerfile if not already). Push to Artifact Registry, deploy to Cloud Run.
-- Frontend: replace Vercel build pipeline with Firebase Hosting deploy (or Cloud CDN if more dynamic).
-- Move secrets from Vercel/Render env vars → Secret Manager. Re-deploy with `--set-secrets`.
-- Verify the Postgres host (Neon/Supabase) is reachable from Cloud Run egress IP — usually fine, but Neon's IP allowlist may need updating.
-- Cutover DNS at the per-domain authoritative provider (verify with `dig <domain> NS +short` per domain — earlier "all PD domains on Cloudflare" claim was incorrect; `plainlydigital.com` itself is moving to Cloud DNS, not Cloudflare) — Cloud Run domain mapping or Firebase Hosting custom domain. Keep Vercel/Render running until DNS propagates, then decommission.
-- Final step per migration: cancel Vercel + Render paid plans for that app, document in this tracker.
+**Plans:**
+- Marketing site migration: `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`
+- Fiscus + Vitaliter combined plan: `C:\Users\jbroc\.claude\plans\we-have-cleardoc-and-radiant-cookie.md`
+- AI Life Advisor / Tradingly / Accomplishly plans: not yet drafted.
 
-**Out of scope for this migration (deferred):**
-- Moving Neon → Cloud SQL. Neon's serverless Postgres is cheaper at our scale and the dev experience is better. Re-evaluate after $1K MRR per app or when Neon throws scale issues.
-- Moving Supabase Auth → Firebase Auth or Identity Platform. Big refactor, not blocked by hosting migration.
+**Standard recipes:**
 
-### Self-hosted CI/CD on GCP (FUTURE)
-- Build a private CI/CD pipeline on Cloud Build / Cloud Run that all Plainly Digital repos use instead of GitHub Actions minutes. Reduces external dependency, lets us run ZAP + heavyweight scans without Actions runner limits, keeps build secrets inside the GCP perimeter.
-- Naturally builds on the migration above — once all PD apps deploy to GCP, the CI/CD pipeline lives next to them.
-- Out of scope until apps are live + revenue-generating.
+*Compute-only (AI Life Advisor, Tradingly, Accomplishly):*
+- New `<app>-plainlydigital` GCP project under `apps-org`, link billing.
+- Containerize the API. Push to Artifact Registry, deploy to Cloud Run.
+- Frontend: Firebase Hosting deploy (or Cloud CDN if more dynamic).
+- Secrets: Vercel/Render env vars → Secret Manager.
+- Verify Postgres host (Neon/Supabase) reachable from Cloud Run egress IP. Update IP allowlists if needed.
+- DNS cutover at the per-domain authoritative provider. Verify NS first.
+- Cancel Vercel + Render paid plans post-DNS propagation.
+
+*Full consolidation (Fiscus, Vitaliter):* compute-only steps PLUS:
+- Cloud SQL Postgres provisioning, schema migration via `pg_dump`/`pg_restore` (Fiscus from Neon, Vitaliter from Supabase).
+- Firebase Auth provisioning (Vitaliter only — Fiscus already on self-issued JWTs).
+- Hybrid CI/CD pipeline using the `plainlydigital-ci-templates` repo: GitHub Actions for tests + lint, Cloud Build for deploy.
+- Vitaliter only: strip the web layer (`apps/web/` → deleted), update repo to `mobile/` + `api/` + `migrations/` only.
+
+**Status (2026-05-06):**
+- ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.web.app/`, Cloud Build pipeline working manually. Custom domain cutover + GitHub trigger + Cloudflare Pages decom pending (see Identity + email + Marketing site sections above).
+- ⏳ **Fiscus** — plan exists, no execution started. Renamed local + GitHub repo not yet performed.
+- ⏳ **Vitaliter** — same status. `C:\Users\jbroc\Vytally` is empty locally; clone before any work.
+- ⏳ **AI Life Advisor / Tradingly / Accomplishly** — plans not drafted; original ordering still applies.
+
+### Self-hosted CI/CD on GCP (PARTIALLY IN FLIGHT)
+- ✅ **Marketing site (`plainlydigital-www`)** — Cloud Build pipeline working manually (deploy in 48s). GitHub trigger pending GitHub App authorization.
+- ⏳ **`plainlydigital-ci-templates` repo** — pulled forward from "FUTURE" as part of the Fiscus + Vitaliter sub-pass. Hybrid GitHub Actions (tests + lint) + Cloud Build (deploy). Reusable across all PD repos. Build during Fiscus migration so Vitaliter can adopt cleanly. Other apps (ClearDoc, SitterSheet, AI Life Advisor, Accomplishly, Tradingly) adopt later as they get re-deployed.
+- ⏳ **`plainlydigital-claude-config` template** — extract the PlainlyDigital repo's `CLAUDE.md` + `.claude/settings.json` + `.claude/hooks.json` + `.claude/skills/` (truncation guard, prettier auto-format, pre-commit build gate, deploy/dns/memory-sync skills) once validated. Adopters: ClearDoc, SitterSheet, Fiscus, Vitaliter, AI Life Advisor, Accomplishly, Tradingly.
+- ⏳ **Heavy-scan workloads** (OWASP ZAP, dep-graph SAST, etc.) move into Cloud Build once template is stable. Removes GitHub Actions runner-minute pressure and keeps build secrets inside the GCP perimeter.
 
 ### Trademark + DBA
 - ⏳ **"Plainly Digital"** trademark search (USPTO TESS). If clean, file ITU (~$350).
