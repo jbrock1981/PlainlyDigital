@@ -48,7 +48,7 @@ This is the only step that can break email + the site simultaneously. Do not ski
    plainlydigital.com.    AAAA  <Firebase IPv6 1>
    plainlydigital.com.    AAAA  <Firebase IPv6 2>
    plainlydigital.com.    TXT   "google-site-verification=<token>"
-   www.plainlydigital.com. CNAME <project>.web.app.
+   www.plainlydigital.com. CNAME plainlydigital.web.app.
    ```
 
 5. **Wait for Firebase to verify the TXT.** Since GoDaddy is still authoritative, Firebase will check via the resolver, which still queries GoDaddy. Add the TXT in BOTH GoDaddy AND Cloud DNS for this step (only briefly — remove from GoDaddy after).

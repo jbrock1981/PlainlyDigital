@@ -57,7 +57,7 @@ curl -I http://localhost:4321/
 
 For external (post-deploy) verification, use:
 ```bash
-curl -I https://plainlydigital-www.web.app/         # Firebase preview URL (always live)
+curl -I https://plainlydigital.web.app/         # Firebase preview URL (always live)
 curl -I https://plainlydigital.com/                 # production after DNS cutover
 ```
 

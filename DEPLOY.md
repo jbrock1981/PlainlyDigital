@@ -109,7 +109,7 @@ gcloud projects add-iam-policy-binding plainlydigital-www \
 
 ## DNS cutover (the high-stakes step)
 
-**Run only after** Firebase Hosting is up and the site is verified at `https://plainlydigital-www.web.app/`.
+**Run only after** Firebase Hosting is up and the site is verified at `https://plainlydigital.web.app/`.
 
 Sequence matters — wrong order = email outage. Full play-by-play in `.claude/skills/dns.md`. Short version:
 

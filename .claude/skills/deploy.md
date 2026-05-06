@@ -56,7 +56,7 @@ The preview URL is `https://plainlydigital-www--preview-<slug>-<hash>.web.app`. 
 After ANY deploy (production or preview), do all of these. Don't skip — header regressions are the most common silent breakage.
 
 ```bash
-URL="https://plainlydigital-www.web.app"   # for production, after DNS cutover use https://plainlydigital.com
+URL="https://plainlydigital.web.app"   # for production, after DNS cutover use https://plainlydigital.com
 
 # 1. Site responds 200
 curl -sI "$URL/" | head -1
