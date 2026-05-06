@@ -81,8 +81,7 @@ Once the GCP CI/CD pipeline (in ROADMAP.md as "Self-hosted CI/CD on GCP") is bui
 - `src/components/` — `Header`, `Footer`, `Hero`, `AppCard`, `PhoneMockup`, `Disclaimer`
 - `src/data/apps.ts` — single source of truth for app metadata + slug lookup
 - `src/styles/` — `tokens.css`, `global.css`
-- `public/_headers` — Cloudflare Pages security headers (kept until cutover, then deleted; firebase.json is the post-cutover source of truth)
-- `firebase.json` — Firebase Hosting config (replicates `_headers` post-cutover)
+- `firebase.json` — Firebase Hosting config: security headers (HSTS/CSP/X-Frame-Options/Referrer-Policy/Permissions-Policy/COOP/CORP), cache rules, and project link. Authoritative source for headers.
 - `cloudbuild.yaml` — Cloud Build pipeline
 - `DEPLOY.md` — operator runbook
 - `ROADMAP.md` — post-v1 work + LLC operations tracker
@@ -122,11 +121,11 @@ Full operator runbook including DNS, cert renewal, and rollback: see `DEPLOY.md`
 ## Rules
 
 1. All work goes to `main` — no feature branches unless asked.
-2. Never reference Cloudflare Pages as the live host — it is the pre-migration host being decommissioned.
+2. Cloudflare Pages was the pre-migration host (2026-05-04 scaffold deploy only, never resolved at the apex domain). Decommissioned 2026-05-06. Don't reference it as live.
 3. Never reference vendors like Anthropic/OpenAI in customer-facing copy on this site (the apps don't, the marketing site shouldn't either).
 4. Privacy/ToS MDX files cite Tennessee governing law — keep this consistent across all per-app legal docs.
 5. Zero third-party JS. No analytics, no fonts loaded from Google, no embedded scripts. Privacy-preserving cookieless analytics may be added per ROADMAP v1.x.
 
 ## Current priority
 
-GCP migration in progress (see plan `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`). Until DNS cutover, `plainlydigital.com` resolves to GoDaddy parking. Production traffic post-cutover hits Firebase Hosting under `plainlydigital-www`.
+GCP migration of the marketing site is COMPLETE (plan: `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`). Production traffic hits Firebase Hosting under `plainlydigital-www`. DNS authoritative on Cloud DNS (`plainlydigital-com` zone). Apex + www both serve from Firebase with Google Trust Services SSL.

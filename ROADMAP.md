@@ -63,7 +63,7 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 ### Marketing site (plainlydigital.com)
 - ✅ **Built + deployed 2026-05-04** to **Cloudflare Pages** from repo `jbrock1981/PlainlyDigital` — staging/scaffolding deploy only; site never resolved at `plainlydigital.com` (DNS still on GoDaddy parking). Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`.
 - ✅ **Migrated to Firebase Hosting 2026-05-05** under GCP project `plainlydigital-www` (apps-org). Site live at `https://plainlydigital.web.app/` (default site `plainlydigital`, derived from project ID with `-www` stripped). All 14 pages return 200, all 8 security headers present, Astro hashed assets cached 1y immutable, `/icons/*` cached 24h. First Cloud Build deploy SUCCEEDED in 48s.
-- 🔄 **Custom domain `plainlydigital.com`** — Firebase Console step pending (add custom domain → capture A/AAAA/TXT records → add to Cloud DNS → GoDaddy nameserver swap). Cloudflare Pages decommissioned post-cutover.
+- ✅ **Custom domain `plainlydigital.com` + `www.plainlydigital.com`** — cutover 2026-05-06. NS swapped from GoDaddy to Cloud DNS, all email-preserving records (MX/SPF/DMARC/autodiscover/M365 tenant TXT) migrated, Firebase custom domain verified, Google Trust Services cert provisioned (expires 2026-08-04, auto-renews). www 301-redirects to apex. Cloudflare Pages decommissioned same day.
 - 🔄 **Cloud Build trigger on push to main** — pipeline verified working via manual `gcloud builds submit`. Auto-deploy trigger pending Google Cloud Build GitHub App authorization for `jbrock1981` (browser step at https://github.com/marketplace/google-cloud-build).
 - ✅ **14 pages** built clean: home, 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon), per-app + parent privacy/ToS in MDX, /about. Tennessee governing law throughout.
 - ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons. PNG generation now part of Cloud Build pipeline (icons:build → build → lint:links → deploy).
@@ -154,7 +154,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 - Vitaliter only: strip the web layer (`apps/web/` → deleted), update repo to `mobile/` + `api/` + `migrations/` only.
 
 **Status (2026-05-06):**
-- ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.web.app/`, Cloud Build pipeline working manually. Custom domain cutover + GitHub trigger + Cloudflare Pages decom pending (see Identity + email + Marketing site sections above).
+- ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.com/` (cutover 2026-05-06), Cloud Build pipeline working manually. Cloudflare Pages decommissioned. GitHub auto-deploy trigger still pending (browser step).
 - ⏳ **Fiscus** — plan exists, no execution started. Renamed local + GitHub repo not yet performed.
 - ⏳ **Vitaliter** — same status. `C:\Users\jbroc\Vytally` is empty locally; clone before any work.
 - ⏳ **AI Life Advisor / Tradingly / Accomplishly** — plans not drafted; original ordering still applies.
