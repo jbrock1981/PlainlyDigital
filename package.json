@@ -12,7 +12,9 @@
     "audit": "npm audit --audit-level=high",
     "audit:full": "npm audit --audit-level=moderate",
     "lint:links": "linkinator dist --recurse --silent --skip \"^https?://(plainlydigital\\.com|www\\.|.*anthropic\\.com|.*revenuecat\\.com|.*expo\\.dev)\"",
-    "lighthouse": "npx --yes @lhci/cli@0.14.x autorun --config=./lighthouserc.json"
+    "lighthouse": "npx --yes @lhci/cli@0.14.x autorun --config=./lighthouserc.json",
+    "format": "prettier --write \"src/**/*.{astro,mdx,ts,tsx,css}\" \"*.{json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{astro,mdx,ts,tsx,css}\" \"*.{json,md}\""
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.14",
@@ -21,6 +23,8 @@
   "devDependencies": {
     "@resvg/resvg-js": "^2.6.2",
     "linkinator": "^7.6.1",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1",
     "typescript": "^5.7.3"
   },
   "engines": {

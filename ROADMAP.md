@@ -2,7 +2,7 @@
 
 Anything not shipping in v1.0 of the marketing site lives here.
 
-> **v1.0 ships:** Astro 5 + MDX static site at `plainlydigital.com`. Hero + 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon). Parent + per-app privacy/ToS. Tennessee law. Single contact `apps@plainlydigital.com`. Hand-rolled SVG logos + 1024px PNG export. Cloudflare Pages hosting with full security headers, RFC 9116 security.txt, no third-party JS. Build-only CI + Dependabot + weekly npm-audit notification.
+> **v1.0 ships:** Astro 5 + MDX static site at `plainlydigital.com`. Hero + 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon). Parent + per-app privacy/ToS. Tennessee law. Single contact `apps@plainlydigital.com`. Hand-rolled SVG logos + 1024px PNG export. Firebase Hosting (GCP project `plainlydigital-www` under `apps-org`) with full security headers, RFC 9116 security.txt, no third-party JS. Cloud Build CI/CD on push to main. Dependabot + weekly npm-audit notification.
 
 ---
 
@@ -55,12 +55,14 @@ Anything not shipping in v1.0 of the marketing site lives here.
 NOT marketing-site work — lives here because no other repo is the right home. This is the running source of truth for the parent-company state.
 
 ### Identity + email
-- ✅ **Domain `plainlydigital.com`** — registered. DNS migrated to Cloudflare nameservers.
+- ✅ **Domain `plainlydigital.com`** — registered at GoDaddy.
+- ⏳ **DNS authority** — moving to Cloud DNS managed zone `plainlydigital-com` in project `plainlydigital-www` as part of the GCP marketing-site migration (plan `we-need-to-move-silly-rose.md`). Until cutover, GoDaddy nameservers remain authoritative and `plainlydigital.com` resolves to GoDaddy parking — the site has NEVER been live at this domain. Earlier ROADMAP claims that DNS was already moved to Cloudflare were incorrect.
 - ✅ **`apps@plainlydigital.com`** — single contact across all apps + legal docs. Hosted on **Microsoft 365** (Zoho was paid-only at the entry tier; M365 was the most reliable option).
-- ⏳ **DKIM / SPF / DMARC** — need to confirm M365's records are in Cloudflare DNS and that mail from `apps@plainlydigital.com` passes all three at gmail/outlook recipients before any launch announcements.
+- ⏳ **DKIM / SPF / DMARC** — need to confirm M365's records are in Cloud DNS post-cutover and that mail from `apps@plainlydigital.com` passes all three at gmail/outlook recipients before any launch announcements.
 
 ### Marketing site (plainlydigital.com)
-- ✅ **Built + deployed 2026-05-04** to **Cloudflare Pages** from repo `jbrock1981/PlainlyDigital`. Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`.
+- ✅ **Built + deployed 2026-05-04** to **Cloudflare Pages** from repo `jbrock1981/PlainlyDigital` — staging/scaffolding deploy only; site never resolved at `plainlydigital.com` (DNS still on GoDaddy parking). Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`.
+- ⏳ **Migrating to Firebase Hosting** under GCP project `plainlydigital-www` (apps-org). Cloud Build CI/CD on push to main, Cloud DNS for the apex. Plan: `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`. Cloudflare Pages decommissioned post-cutover.
 - ✅ **14 pages** built clean: home, 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon), per-app + parent privacy/ToS in MDX, /about. Tennessee governing law throughout.
 - ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons.
 - ✅ **CI**: minimal — build-only on PR + weekly `npm audit --audit-level=moderate` notification. Dependabot daily security PRs.
@@ -129,7 +131,7 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - Frontend: replace Vercel build pipeline with Firebase Hosting deploy (or Cloud CDN if more dynamic).
 - Move secrets from Vercel/Render env vars → Secret Manager. Re-deploy with `--set-secrets`.
 - Verify the Postgres host (Neon/Supabase) is reachable from Cloud Run egress IP — usually fine, but Neon's IP allowlist may need updating.
-- Cutover DNS at Cloudflare (since all PD domains are already on Cloudflare) — Cloud Run domain mapping or Firebase Hosting custom domain. Keep Vercel/Render running until DNS propagates, then decommission.
+- Cutover DNS at the per-domain authoritative provider (verify with `dig <domain> NS +short` per domain — earlier "all PD domains on Cloudflare" claim was incorrect; `plainlydigital.com` itself is moving to Cloud DNS, not Cloudflare) — Cloud Run domain mapping or Firebase Hosting custom domain. Keep Vercel/Render running until DNS propagates, then decommission.
 - Final step per migration: cancel Vercel + Render paid plans for that app, document in this tracker.
 
 **Out of scope for this migration (deferred):**

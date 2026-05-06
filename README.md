@@ -6,7 +6,7 @@ Live at: https://plainlydigital.com
 
 ## What's here
 
-- Public marketing site (Astro + MDX, deployed to Cloudflare Pages)
+- Public marketing site (Astro + MDX, deployed to Firebase Hosting under GCP project `plainlydigital-www`)
 - Privacy policy + ToS for each Plainly Digital app (linked from the apps themselves)
 - Parent-company docs
 
@@ -23,9 +23,11 @@ Live at: https://plainlydigital.com
 
 ## Stack
 
-- Astro 4 + MDX
+- Astro 5 + MDX
 - Plain CSS with custom properties
-- Cloudflare Pages (hosting + WAF + DDoS)
+- Firebase Hosting (GCP project `plainlydigital-www` under `apps-org`)
+- Cloud DNS for `plainlydigital.com` authoritative DNS
+- Cloud Build CI/CD on push to `main`
 - Zero third-party JS
 
 ## Local development

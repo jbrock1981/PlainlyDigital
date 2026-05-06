@@ -9,6 +9,9 @@ dist/
 .wrangler/
 *.log
 
+# Claude Code local-only settings (machine-specific permissions)
+.claude/settings.local.json
+
 # Generated PNG icons (regenerate via npm run icons:build)
 public/icons/*.png
 public/icons/*.ico
