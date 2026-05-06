@@ -56,16 +56,19 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 
 ### Identity + email
 - ✅ **Domain `plainlydigital.com`** — registered at GoDaddy.
-- ⏳ **DNS authority** — moving to Cloud DNS managed zone `plainlydigital-com` in project `plainlydigital-www` as part of the GCP marketing-site migration (plan `we-need-to-move-silly-rose.md`). Until cutover, GoDaddy nameservers remain authoritative and `plainlydigital.com` resolves to GoDaddy parking — the site has NEVER been live at this domain. Earlier ROADMAP claims that DNS was already moved to Cloudflare were incorrect.
+- 🔄 **DNS authority** — Cloud DNS managed zone `plainlydigital-com` created 2026-05-05 in project `plainlydigital-www` with NS values `ns-cloud-a{1,2,3,4}.googledomains.com.`. **Pending GoDaddy nameserver swap** (browser step). Until then, GoDaddy nameservers remain authoritative and `plainlydigital.com` still resolves to GoDaddy parking. Plan: `we-need-to-move-silly-rose.md`.
 - ✅ **`apps@plainlydigital.com`** — single contact across all apps + legal docs. Hosted on **Microsoft 365** (Zoho was paid-only at the entry tier; M365 was the most reliable option).
-- ⏳ **DKIM / SPF / DMARC** — need to confirm M365's records are in Cloud DNS post-cutover and that mail from `apps@plainlydigital.com` passes all three at gmail/outlook recipients before any launch announcements.
+- ⏳ **DKIM / SPF / DMARC** — audit GoDaddy DNS export BEFORE the nameserver swap to capture any M365 records currently in place. Recreate in Cloud DNS pre-swap or mail breaks. After cutover, verify mail from `apps@plainlydigital.com` passes all three at gmail/outlook recipients.
 
 ### Marketing site (plainlydigital.com)
 - ✅ **Built + deployed 2026-05-04** to **Cloudflare Pages** from repo `jbrock1981/PlainlyDigital` — staging/scaffolding deploy only; site never resolved at `plainlydigital.com` (DNS still on GoDaddy parking). Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`.
-- ⏳ **Migrating to Firebase Hosting** under GCP project `plainlydigital-www` (apps-org). Cloud Build CI/CD on push to main, Cloud DNS for the apex. Plan: `C:\Users\jbroc\.claude\plans\we-need-to-move-silly-rose.md`. Cloudflare Pages decommissioned post-cutover.
+- ✅ **Migrated to Firebase Hosting 2026-05-05** under GCP project `plainlydigital-www` (apps-org). Site live at `https://plainlydigital.web.app/` (default site `plainlydigital`, derived from project ID with `-www` stripped). All 14 pages return 200, all 8 security headers present, Astro hashed assets cached 1y immutable, `/icons/*` cached 24h. First Cloud Build deploy SUCCEEDED in 48s.
+- 🔄 **Custom domain `plainlydigital.com`** — Firebase Console step pending (add custom domain → capture A/AAAA/TXT records → add to Cloud DNS → GoDaddy nameserver swap). Cloudflare Pages decommissioned post-cutover.
+- 🔄 **Cloud Build trigger on push to main** — pipeline verified working via manual `gcloud builds submit`. Auto-deploy trigger pending Google Cloud Build GitHub App authorization for `jbrock1981` (browser step at https://github.com/marketplace/google-cloud-build).
 - ✅ **14 pages** built clean: home, 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon), per-app + parent privacy/ToS in MDX, /about. Tennessee governing law throughout.
-- ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons.
-- ✅ **CI**: minimal — build-only on PR + weekly `npm audit --audit-level=moderate` notification. Dependabot daily security PRs.
+- ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons. PNG generation now part of Cloud Build pipeline (icons:build → build → lint:links → deploy).
+- ✅ **CI**: minimal — build-only on PR + weekly `npm audit --audit-level=moderate` notification. Dependabot daily security PRs. Production deploys via Cloud Build (manual until trigger is wired).
+- ✅ **Claude Code guardrails** — repo-level CLAUDE.md, .claude/settings.json (allow/deny), .claude/hooks.json (truncation guard, prettier auto-format, pre-commit build gate), .claude/skills/ (deploy.md, dns.md, memory-sync.md). Modeled on Advisedly. To be extracted as a `plainlydigital-claude-config` template once validated.
 - ⏳ **Real device screenshots** replace SVG mobile mockups after first EAS internal builds.
 - ⏳ **App Store + Play Store badge links** turn ON once apps are live.
 
@@ -75,6 +78,7 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - ✅ **Cloud Identity org `apps-org`** (auto-created by Google) — `611419173109`. apps@plainlydigital.com is `roles/resourcemanager.organizationAdmin` + `roles/billing.admin` + `roles/iam.workforcePoolAdmin` + `roles/resourcemanager.projectMover`.
 - ✅ **GCP project `cleardoc-plainlydigital`** (`872804656503`) — under `apps-org`, billing linked. Firebase added. Firestore Native (us-central1), rules + indexes deployed, 3 Cloud Functions deployed, secrets in Secret Manager.
 - ✅ **GCP project `sittersheet-plainlydigital`** (`116927353996`) — same shape, 5 Cloud Functions deployed.
+- ✅ **GCP project `plainlydigital-www`** (`331893043173`) — created 2026-05-05 under `apps-org`, billing linked. Firebase Hosting (default site `plainlydigital`), Cloud DNS zone `plainlydigital-com`, Cloud Build pipeline. **`addFirebase` CLI worked clean for this project** — the previous 403 gotcha appears scoped to projects moved between orgs, not new ones created under apps-org from the start. Compute SA (not Cloud Build SA) is what runs builds on new GCP projects post-2024 — granted `firebase.admin`, `firebasehosting.admin`, `cloudbuild.builds.builder`, `storage.objectViewer`, `logging.logWriter`.
 - ⚠️ **`project-b9104919-708e-4dd1-be2`** ("My First Project") — auto-created sandbox, not used. Delete or repurpose later.
 - ⏳ **GCP billing budgets** — set in Console → Billing → Budgets: `$50/mo` ClearDoc + `$30/mo` SitterSheet, alerts at 50%/90%/100% to apps@plainlydigital.com.
 - ⏳ **Firestore TTL on `ai_audit/{date}/calls/{requestId}`** — collection group `calls`, field `expiresAt`. Auto-delete 30d. Set per-project.
