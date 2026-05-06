@@ -64,7 +64,7 @@ NOT marketing-site work — lives here because no other repo is the right home. 
 - ✅ **Built 2026-05-04** from repo `jbrock1981/PlainlyDigital` — Astro 5 + MDX, no third-party JS, full security headers (HSTS, CSP, X-Frame-Options:DENY, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, COOP/CORP), RFC 9116 `/.well-known/security.txt`. (Note: an earlier ROADMAP entry claimed a Cloudflare Pages deploy on this date; verified 2026-05-06 that no Cloudflare project ever existed — that ✅ was optimistically marked. Site only ever deployed to Firebase Hosting.)
 - ✅ **Migrated to Firebase Hosting 2026-05-05** under GCP project `plainlydigital-www` (apps-org). Site live at `https://plainlydigital.web.app/` (default site `plainlydigital`, derived from project ID with `-www` stripped). All 14 pages return 200, all 8 security headers present, Astro hashed assets cached 1y immutable, `/icons/*` cached 24h. First Cloud Build deploy SUCCEEDED in 48s.
 - ✅ **Custom domain `plainlydigital.com` + `www.plainlydigital.com`** — cutover 2026-05-06. NS swapped from GoDaddy to Cloud DNS, all email-preserving records (MX/SPF/DMARC/autodiscover/M365 tenant TXT) migrated, Firebase custom domain verified, Google Trust Services cert provisioned (expires 2026-08-04, auto-renews). www 301-redirects to apex. Cloudflare Pages decommissioned same day.
-- 🔄 **Cloud Build trigger on push to main** — pipeline verified working via manual `gcloud builds submit`. Auto-deploy trigger pending Google Cloud Build GitHub App authorization for `jbrock1981` (browser step at https://github.com/marketplace/google-cloud-build).
+- ✅ **Cloud Build trigger on push to main** — `deploy-on-push-main` wired 2026-05-06. GitHub App authorized for `jbrock1981/PlainlyDigital`, trigger uses Compute Engine default SA, end-to-end test passed (42s build, immediate deploy). Every push to `main` now auto-deploys.
 - ✅ **14 pages** built clean: home, 6 app pages (ClearDoc + SitterSheet deep, 4 coming-soon), per-app + parent privacy/ToS in MDX, /about. Tennessee governing law throughout.
 - ✅ **7 SVG logos** + 1024×1024 PNG export script for app store icons. PNG generation now part of Cloud Build pipeline (icons:build → build → lint:links → deploy).
 - ✅ **CI**: minimal — build-only on PR + weekly `npm audit --audit-level=moderate` notification. Dependabot daily security PRs. Production deploys via Cloud Build (manual until trigger is wired).
@@ -154,13 +154,13 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 - Vitaliter only: strip the web layer (`apps/web/` → deleted), update repo to `mobile/` + `api/` + `migrations/` only.
 
 **Status (2026-05-06):**
-- ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.com/` (cutover 2026-05-06), Cloud Build pipeline working manually. Cloudflare Pages decommissioned. GitHub auto-deploy trigger still pending (browser step).
+- ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.com/` (cutover 2026-05-06), Cloud Build auto-deploy on push to main (`deploy-on-push-main` trigger wired 2026-05-06).
 - ⏳ **Fiscus** — plan exists, no execution started. Renamed local + GitHub repo not yet performed.
 - ⏳ **Vitaliter** — same status. `C:\Users\jbroc\Vytally` is empty locally; clone before any work.
 - ⏳ **AI Life Advisor / Tradingly / Accomplishly** — plans not drafted; original ordering still applies.
 
 ### Self-hosted CI/CD on GCP (PARTIALLY IN FLIGHT)
-- ✅ **Marketing site (`plainlydigital-www`)** — Cloud Build pipeline working manually (deploy in 48s). GitHub trigger pending GitHub App authorization.
+- ✅ **Marketing site (`plainlydigital-www`)** — Cloud Build auto-deploy on push to main wired 2026-05-06 (`deploy-on-push-main`, ~42s end-to-end).
 - ⏳ **`plainlydigital-ci-templates` repo** — pulled forward from "FUTURE" as part of the Fiscus + Vitaliter sub-pass. Hybrid GitHub Actions (tests + lint) + Cloud Build (deploy). Reusable across all PD repos. Build during Fiscus migration so Vitaliter can adopt cleanly. Other apps (ClearDoc, SitterSheet, AI Life Advisor, Accomplishly, Tradingly) adopt later as they get re-deployed.
 - ⏳ **`plainlydigital-claude-config` template** — extract the PlainlyDigital repo's `CLAUDE.md` + `.claude/settings.json` + `.claude/hooks.json` + `.claude/skills/` (truncation guard, prettier auto-format, pre-commit build gate, deploy/dns/memory-sync skills) once validated. Adopters: ClearDoc, SitterSheet, Fiscus, Vitaliter, AI Life Advisor, Accomplishly, Tradingly.
 - ⏳ **Heavy-scan workloads** (OWASP ZAP, dep-graph SAST, etc.) move into Cloud Build once template is stable. Removes GitHub Actions runner-minute pressure and keeps build secrets inside the GCP perimeter.
