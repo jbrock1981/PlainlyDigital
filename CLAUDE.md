@@ -121,7 +121,7 @@ Full operator runbook including DNS, cert renewal, and rollback: see `DEPLOY.md`
 ## Rules
 
 1. All work goes to `main` — no feature branches unless asked.
-2. Cloudflare Pages was the pre-migration host (2026-05-04 scaffold deploy only, never resolved at the apex domain). Decommissioned 2026-05-06. Don't reference it as live.
+2. Cloudflare Pages was named in earlier ROADMAP entries as the pre-migration host but no Cloudflare deploy ever actually happened (verified 2026-05-06: no project on user's Cloudflare account). Don't reference it as a real prior host — Firebase Hosting is the only host this site has ever had.
 3. Never reference vendors like Anthropic/OpenAI in customer-facing copy on this site (the apps don't, the marketing site shouldn't either).
 4. Privacy/ToS MDX files cite Tennessee governing law — keep this consistent across all per-app legal docs.
 5. Zero third-party JS. No analytics, no fonts loaded from Google, no embedded scripts. Privacy-preserving cookieless analytics may be added per ROADMAP v1.x.
