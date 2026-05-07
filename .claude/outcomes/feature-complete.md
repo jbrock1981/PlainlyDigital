@@ -1,6 +1,6 @@
 # Rubric: feature-complete
 
-**When to apply:** Use to grade whether a feature branch is shippable to staging. This is a generic baseline — most features should add 2-4 feature-specific criteria on top.
+**When to apply:** Generic baseline — use to grade whether a feature is shippable. Most features should add 2-4 feature-specific criteria on top of this.
 
 **Verdict thresholds:**
 - PASS: every criterion PASS
@@ -11,51 +11,51 @@
 
 ### 1. Functionality
 - **Statement:** The feature does what the spec / plan said it would do.
-- **How to verify:** Read the original plan, walk through each user-facing behavior, confirm by running the app or reading test cases.
-- **Pass evidence example:** "Plan called for OAuth login → screen at /login completes Google sign-in, lands on /dashboard. Verified manually + via e2e test test_oauth_happy_path."
-- **Fail evidence example:** "Plan called for refresh token rotation; no rotation logic in src/auth/. Test for it is missing."
+- **How to verify:** Read the original plan or task description. Walk through each user-facing behavior. Confirm by running the app or reading test cases.
+- **Pass evidence example:** "Plan called for adding `/api/foo`; route exists, returns expected shape, smoke test asserts 200."
+- **Fail evidence example:** "Plan called for refresh-token rotation; no rotation logic in `src/auth/`. Test missing."
 
 ### 2. Tests
-- **Statement:** New or modified code paths have tests covering happy path AND at least one error/edge case.
-- **How to verify:** Run the test suite. Check coverage of the new files via `git diff --stat` cross-referenced to test files.
-- **Pass evidence example:** "src/auth/oauth.ts changes mirrored by tests in test/auth/oauth.test.ts; tests pass; covers success + expired token + missing scope."
-- **Fail evidence example:** "src/auth/oauth.ts has no corresponding test file. Or tests exist but cover only happy path."
+- **Statement:** New or modified code paths have tests covering happy path AND at least one error/edge case. Conventions to honor: new page → smoke test, new form → interaction test, new route → unit test, bug fix → regression test.
+- **How to verify:** Run the project's test suite (`<your unit-test runner>`, `<your e2e runner>`). Cross-reference `git diff --stat` against test files.
+- **Pass evidence example:** "Route `src/routes/foo.ts` mirrored by tests in `src/routes/__tests__/foo.test.ts`; covers 200, 401, 422 paths; tests green."
+- **Fail evidence example:** "New route has no test file. Or tests exist but cover only happy path."
 
-### 3. Error handling
-- **Statement:** All external calls (network, DB, third-party APIs) handle failure explicitly. No silent catches.
-- **How to verify:** Grep for try/catch, fetch, await on external APIs. Check each has a defined failure path.
-- **Pass evidence example:** "All Supabase calls in src/db/ wrapped in try/catch with logged error + user-facing fallback."
-- **Fail evidence example:** "fetch() in src/api/checkout.ts has no .catch and no try/catch wrapper."
+### 3. Type-checks pass
+- **Statement:** Both backend and frontend (if applicable) type-check clean.
+- **How to verify:** Run your project's type-check commands.
+- **Pass evidence example:** "Both type-check commands exit 0."
+- **Fail evidence example:** "Type-checker reports 3 errors in `src/routes/foo.ts`."
 
-### 4. Logs and observability
-- **Statement:** Important state transitions and errors are logged at appropriate levels. No PII or secrets in logs.
-- **How to verify:** Read added logging statements; grep for `console.log` / `console.error`. Verify no req.body, no passwords, no tokens.
-- **Pass evidence example:** "Auth events logged with userId only; errors include error.message but not stack traces with secrets."
-- **Fail evidence example:** "console.log(req.headers) in middleware leaks Authorization header."
+### 4. Logger and observability
+- **Statement:** Important state transitions and errors use the project's structured logger. No `console.log` (or `print`) in production paths. No PII or secrets in logs.
+- **How to verify:** Grep diff for `console.log`, `console.error`, raw `print` calls. Read added logging statements for secret/PII leakage.
+- **Pass evidence example:** "All logging via the project logger; no req.body or auth headers in messages."
+- **Fail evidence example:** "`console.log(req.headers)` in middleware leaks Authorization header."
 
-### 5. Docs
-- **Statement:** If the feature changes an API, env var, or user-facing behavior, the relevant doc is updated. CLAUDE.md updated if a convention changed.
-- **How to verify:** Check docs/, README.md, CLAUDE.md, .env.example for references that should now exist.
-- **Pass evidence example:** "Added GOOGLE_OAUTH_CLIENT_ID to .env.example and README setup section. CLAUDE.md notes auth approach."
-- **Fail evidence example:** "Feature adds new env var but .env.example unchanged."
+### 5. Pre-commit checks clean
+- **Statement:** Project pre-commit suite passes (lints, formatters, custom enforcers).
+- **How to verify:** Run `<your pre-commit composite command>`.
+- **Pass evidence example:** "All pre-commit checks return clean."
+- **Fail evidence example:** "Linter flags 2 violations in changed files."
 
-### 6. No regression
+### 6. CLAUDE.md / docs updated if conventions or systems changed
+- **Statement:** If this change adds an env var, a new architectural block, a deployment-mode gate, or a new convention, CLAUDE.md and any relevant docs are updated. New routes / migrations don't require CLAUDE.md updates by themselves.
+- **How to verify:** Inspect diff. If a new env var was added, confirm `.env.example` and CLAUDE.md reflect it. If a deployment gate was introduced, confirm CLAUDE.md documents it.
+- **Pass evidence example:** "Added env var `<VAR_NAME>`; documented in CLAUDE.md and `docs/deployment/ENVIRONMENT.md`."
+- **Fail evidence example:** "Added a new top-level system but no architectural block in CLAUDE.md."
+
+### 7. No regression
 - **Statement:** Existing tests still pass. No removed functionality unless explicitly noted in the plan.
 - **How to verify:** Run full test suite. Compare git diff for deletions.
-- **Pass evidence example:** "Full suite green; deletions limited to dead code identified in plan."
-- **Fail evidence example:** "test_billing_upgrade fails after changes; was not addressed in plan."
-
-### 7. Type safety / lint
-- **Statement:** Build passes; type-checker passes; linter passes.
-- **How to verify:** Run `npm run build`, `npm run typecheck`, `npm run lint` (or repo equivalents).
-- **Pass evidence example:** "All three commands exit 0."
-- **Fail evidence example:** "tsc reports 3 errors in src/auth/oauth.ts."
+- **Pass evidence example:** "Full test suite green; deletions limited to dead code."
+- **Fail evidence example:** "`tests/billing.test.ts` fails after changes; not addressed in plan."
 
 ## Notes for the grader
 
-- If a criterion doesn't apply (e.g., a frontend-only repo with no DB calls for criterion 3), mark it PASS with a note "N/A — no external calls in this change."
-- For repos without a test framework, criterion 2 grades against "manual reproduction steps documented in PR description" instead.
+- If a criterion doesn't apply (e.g., a docs-only PR has nothing to type-check), mark it PASS with a note like "N/A — docs-only change."
+- For repos without a test framework (rare), criterion 2 grades against documented manual reproduction steps in the PR description.
 
 ## Revision history
 
-- 2026-05-06 — initial draft
+- <YYYY-MM-DD> — initial draft

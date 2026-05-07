@@ -35,4 +35,3 @@
 ## Revision history
 
 - <YYYY-MM-DD> — initial draft
-- <YYYY-MM-DD> — added criterion N because <reason>
