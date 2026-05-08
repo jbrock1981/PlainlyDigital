@@ -1,6 +1,6 @@
 # Plainly Digital LLC — Master Tracker
 
-**Last Updated:** April 4, 2026 (late night — all truncations resolved, Tradingly rebranded + optimized, Vytally user tested)
+**Last Updated:** April 4, 2026 (late night — all truncations resolved, Tradingly rebranded + optimized, Vinla user tested)
 **Parent Entity:** Plainly Digital LLC (Tennessee, manager-managed, EIN: 41-4877857, SOS #002094776)
 **Owner:** Jonathan Brock
 **Address:** 1309 Case Rd, Prospect, TN 38477
@@ -18,7 +18,7 @@
 | Entity | Type | Status | Repo | Local Path |
 |--------|------|--------|------|-----------|
 | Plainly | DBA under Plainly Digital | ~95%, pre-beta | jbrock1981/Plainly | C:\Users\jbroc\Plainly |
-| Vytally | DBA under Plainly Digital | ~70%, family beta | jbrock1981/vytally | C:\Users\jbroc\vytally |
+| Vinla | DBA under Plainly Digital | ~70%, family beta | jbrock1981/vytally | C:\Users\jbroc\vinla |
 | 42ly | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
 | Accomplishly | Under Plainly Digital | All 4 phases, deployed & live | jbrock1981/Accomplishly | C:\Users\jbroc\Accomplishly |
 | Tradingly | Under Plainly Digital | Deployed, 37+ endpoints, rebranded, perf optimized | jbrock1981/DayTradeScreener | C:\Users\jbroc\DayTradeScreener |
@@ -118,7 +118,7 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 
 ---
 
-## VYTALLY — Personal Health Intelligence App
+## VINLA — Personal Health Intelligence App
 
 ### Dev Status: ~70% COMPLETE — Family beta | All truncations fixed, 290 tests passing
 
@@ -156,7 +156,7 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 - [ ] AI medical disclaimer in chat UI
 - [ ] Age gate (18+ or 13+ with parental consent)
 - [ ] Insurance (GL + Cyber + E&O)
-- [ ] Rename Vercel project health-ai → vytally
+- [ ] Rename Vercel project health-ai → vinla
 - [ ] Fill eas.json, RevenueCat integration
 
 **Key threat:** Apple Health+ launching mid-late 2026 — must establish users first.
@@ -188,7 +188,7 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 - Weekly Life Review, Voice Mode, Share-Worthy Insights
 - Personality Calibration ("Train the AI": 12-question bank)
 - Monetization Infrastructure, Multi-Language (EN/ES)
-- Ecosystem Integration (Vytally/Plainly sync), Year in Review
+- Ecosystem Integration (Vinla/Plainly sync), Year in Review
 - NIST AI RMF governance, Sage 3-Layer Architecture
 - Server hardening: JWT, 3-tier rate limiting, cost-guard, CORS, 50KB limit
 
@@ -356,7 +356,7 @@ Medium/Legal:
 | IP Assignment Agreement | Exists |
 | NDA | Exists |
 | Plainly Terms of Service + Privacy Policy | Exists, needs review |
-| Vytally Terms of Service + Privacy Policy | Exists, needs review |
+| Vinla Terms of Service + Privacy Policy | Exists, needs review |
 
 ### Still needed:
 - [ ] 42ly Terms of Service + Privacy Policy
@@ -375,7 +375,7 @@ All consumer apps share the Sage AI personality system:
 
 **Layer 2 — Domain Expertise (unique per app):**
 - **42ly:** Life advisor — most direct ("tough love dad energy")
-- **Vytally:** Health coach — direct but health-sensitive, mood-adaptive, eating disorder aware
+- **Vinla:** Health coach — direct but health-sensitive, mood-adaptive, eating disorder aware
 - **Plainly:** Financial coach — warm older-sibling energy, makes money approachable
 - **Accomplishly:** Self-worth coach — warmest variant, celebration-focused, validation-first
 - **Tradingly:** Trading assistant — data-driven, risk-aware, confidence-graded (A+ to D)
@@ -411,7 +411,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 | Product | Dev % | Tests | Status | Biggest Blocker |
 |---------|-------|-------|--------|-----------------|
 | **Plainly** | ~95% | 493+ | Truncations fixed, AsyncStorage migrated, needs push+rebuild | Push to remote, Render env vars, eas.json, RevenueCat |
-| **Vytally** | ~70% | 290 | All truncations fixed, 290 tests passing, user tested (all 5 tabs working) | SQLite→Supabase migration, age gate, insurance |
+| **Vinla** | ~70% | 290 | All truncations fixed, 290 tests passing, user tested (all 5 tabs working) | SQLite→Supabase migration, age gate, insurance |
 | **42ly** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
 | **Accomplishly** | All 4 phases | 379 | All truncations fixed, 0 TS errors, deployed | RevenueCat, Apple Dev account, domain |
 | **Tradingly** | ~92% | 34 | All truncations fixed, rebranded, perf optimized, deployed | Push rebrand+perf commits, Render rename |
@@ -429,9 +429,9 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 | Blocker | Affects | Action |
 |---------|---------|--------|
 | **No attorney review** | ALL | Consumer apps: Termly ($10/mo/site). CastFreely: entertainment attorney ($2K-5K) |
-| **No insurance** | Vytally, CastFreely | E&O + GL + Cyber quotes (Hiscox, Hartford, CoverWallet) |
-| **Apple/Google dev accounts** | Plainly, Vytally, 42ly, Accomplishly | $99 Apple + $25 Google, covers all apps |
-| **Trademark filings** | Vytally, 42ly, Accomplishly, CastFreely | ~$350/class each |
+| **No insurance** | Vinla, CastFreely | E&O + GL + Cyber quotes (Hiscox, Hartford, CoverWallet) |
+| **Apple/Google dev accounts** | Plainly, Vinla, 42ly, Accomplishly | $99 Apple + $25 Google, covers all apps |
+| **Trademark filings** | Vinla, 42ly, Accomplishly, CastFreely | ~$350/class each |
 | **CastFreely LLC not formed** | CastFreely | $300 TN filing + EIN + bank |
 | **42ly DBA not registered** | 42ly | File DBA under Plainly Digital LLC |
 | **RevenueCat not set up** | ALL consumer apps | One account, wire into all 4 apps |
@@ -464,12 +464,12 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 
 ### Next 2 Weeks
 1. RevenueCat setup (one account, wire into all apps: Free/$2.99/$6.99 + boost packs)
-2. File Vytally + 42ly + Accomplishly trademarks ($350/class each)
+2. File Vinla + 42ly + Accomplishly trademarks ($350/class each)
 3. CastFreely LLC formation ($300) + EIN
 4. 42ly DBA registration under Plainly Digital
 
 ### Ongoing
-- Vytally Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
+- Vinla Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
 - All apps: Sage 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
 - Plainly: Plaid production access (apply 1-2 weeks before public launch)
 - Legal docs needed for 42ly, Accomplishly, Tradingly, CastFreely
@@ -494,7 +494,7 @@ These are the canonical reference docs across all repos. Everything else has bee
 | Competitive Intelligence | `COMPETITIVE_INTELLIGENCE_REPORT.md` | AI coach apps comparison (Cleo, etc.) |
 | Competitive Content Analysis | `docs/competitive-content-analysis.md` | Educational content comparison (Khan, Acorns) |
 | Budget/Neobank Analysis | `docs/competitive-intelligence-report.md` | YNAB, Credit Karma, Cash App comparison |
-| Vytally Competitive Analysis | `HEALTH_WELLNESS_COMPETITIVE_ANALYSIS.md` | 25 health/wellness apps analyzed |
+| Vinla Competitive Analysis | `HEALTH_WELLNESS_COMPETITIVE_ANALYSIS.md` | 25 health/wellness apps analyzed |
 | Finlit App Plan | `docs/finlit-app-plan.md` | Original Plainly product strategy |
 | Gen Z Market Research | `docs/gen-z-market-research-2025.md` | Target demographic research |
 | Lesson/Module Structure | `docs/lesson-module-structure.md` | Content architecture (18 modules, 121 lessons) |
@@ -529,4 +529,4 @@ These are the canonical reference docs across all repos. Everything else has bee
 
 ---
 
-*Updated April 4, 2026 (late night) — ALL truncation damage resolved across all 6 products. Accomplishly: 2 files restored (b648bf9), 0 TS errors. Vytally: 7 files restored (f06c5aa), 290 tests passing, user tested all 5 tabs. Tradingly: 9 Python files restored (91a17c5), rebrand complete (a781241), performance optimization with React.memo + custom hooks (681834e). Plainly truncations fixed earlier (bd6472f). Combined: 6 products, 2,310+ tests. All apps compile/parse clean. No broken builds remain. Testing mode active on all apps (pro_plus for all users). Next steps: push commits from local terminals, Render/Vercel rebuilds, then business blockers (Apple Dev, RevenueCat, insurance, legal).*
+*Updated April 4, 2026 (late night) — ALL truncation damage resolved across all 6 products. Accomplishly: 2 files restored (b648bf9), 0 TS errors. Vinla: 7 files restored (f06c5aa), 290 tests passing, user tested all 5 tabs. Tradingly: 9 Python files restored (91a17c5), rebrand complete (a781241), performance optimization with React.memo + custom hooks (681834e). Plainly truncations fixed earlier (bd6472f). Combined: 6 products, 2,310+ tests. All apps compile/parse clean. No broken builds remain. Testing mode active on all apps (pro_plus for all users). Next steps: push commits from local terminals, Render/Vercel rebuilds, then business blockers (Apple Dev, RevenueCat, insurance, legal).*

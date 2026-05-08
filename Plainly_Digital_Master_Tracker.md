@@ -11,7 +11,7 @@
 | Product | Repo | Stack | Deploy | Status |
 |---------|------|-------|--------|--------|
 | **Plainly** (finlit) | jbrock1981/Plainly | React Native (Expo 55) + Express + Neon PG | Vercel + Render + Neon | ~75% complete, pre-beta |
-| **Vytally** (health) | jbrock1981/vytally | React Native (Expo 53) + Zustand + Supabase + SQLite | Vercel + Supabase | ~70% complete, family beta |
+| **Vinla** (health) | jbrock1981/vytally | React Native (Expo 53) + Zustand + Supabase + SQLite | Vercel + Supabase | ~70% complete, family beta |
 | **42ly** (life advisor) | jbrock1981/42ly | React Native (Expo 55) + Express + Supabase PG | Vercel (42ly.vercel.app + 42ly-api.vercel.app) | MVP complete, invite beta |
 | **Accomplishly** (wins) | jbrock1981/Accomplishly | React Native (Expo 53) + Express + Neon PG + Vite web | Render (API) + Vercel (web) | Feature complete, deployed |
 | **Fraus** (AI scam detector) | jbrock1981/Scamly (private; rename pending) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
@@ -85,18 +85,18 @@ All apps share the same AI personality brand:
 
 **Verified NOT bugs (agents were wrong):** Crisis banner API blocking (already correct), "kill this debt" false positive (regex actually requires "myself"/"my life"), voice input bypass (routes through full pipeline), affiliate `/redirect` no-auth (intentional deep link, UID already hashed), webhook 200-on-error (Plaid retry policy requires it).
 
-### Vytally (AI Health Intelligence)
+### Vinla (AI Health Intelligence)
 - Food/water/sleep/mood/exercise logging
 - AI photo food recognition (Claude Vision)
 - Deep nutrient tracking (USDA FoodData Central, 29 nutrients)
 - Cross-domain intelligence (correlations, patterns, forecasts)
 - PHQ-2/GAD-2 screening, Gentle Mode
-- Bloom virtual garden, Vytally Wrapped
+- Bloom virtual garden, Vinla Wrapped
 - 290 tests passing (14 suites), TS clean
 - **Blockers:** Data still in local SQLite (need Supabase sync), no payment processor, no age gate
-- **Audit findings (2026-04-11):** 17 verified issues — 3 Critical, 9 High, 5 Medium, 2 Low. See `USER_TESTING_FINDINGS_2026-04-11.md` for details and `CLI_PROMPTS_TO_FIX_FINDINGS.md` for ready-to-paste CLI tasks (both in Vytally repo).
+- **Audit findings (2026-04-11):** 17 verified issues — 3 Critical, 9 High, 5 Medium, 2 Low. See `USER_TESTING_FINDINGS_2026-04-11.md` for details and `CLI_PROMPTS_TO_FIX_FINDINGS.md` for ready-to-paste CLI tasks (both in Vinla repo).
 
-#### Vytally Family-Beta Issue Todo (2026-04-11 audit)
+#### Vinla Family-Beta Issue Todo (2026-04-11 audit)
 
 **Critical — must fix before expanding beta:**
 - [ ] **C1** — Client owns the AI system prompt end-to-end (api/chat.ts:26 accepts `system` from body); any user can bypass all Sage personality + guardrails. Move prompt assembly server-side.
@@ -152,7 +152,7 @@ All apps share the same AI personality brand:
 #### Accomplishly Pre-Beta Issue Todo (2026-04-11 audit)
 
 **Critical — must fix before expanding beta beyond family cohort:**
-- [ ] **C1** — Cost-guard check-then-act race (server/src/lib/cost-guard.ts:256-354) — same shape as Plainly H2, Vytally C3; needs atomic `UPDATE ... WHERE ... RETURNING`
+- [ ] **C1** — Cost-guard check-then-act race (server/src/lib/cost-guard.ts:256-354) — same shape as Plainly H2, Vinla C3; needs atomic `UPDATE ... WHERE ... RETURNING`
 - [ ] **C2** — Email webhook secret compared with non-timing-safe `!==` (server/src/routes/webhooks.ts:104) — use `crypto.timingSafeEqual`
 
 **High — fix before app-store submission:**
@@ -170,7 +170,7 @@ All apps share the same AI personality brand:
 - [ ] **M4** — Dynamic SQL in PATCH /me (auth.ts:202-217) — no injection today but fragile; switch to explicit allowlist
 - [ ] **M5** — Cost guard daily reset uses UTC only (cost-guard.ts:252) — same shape as Plainly M4
 
-**Verified NOT bugs (agents were wrong):** rate limiting IS present on /register, /login, /refresh (index.ts:107-118); JWT_SECRET length IS validated (middleware/auth.ts:8-10, unlike Plainly/Vytally); `personalization` and `memoryContext` ARE sanitized via `sanitizePromptInput` (system-prompt.ts:40-53); system prompt IS built server-side (not Vytally C1 shape); `getChatModel` IS tier-aware (chat.ts:21-24); crisis detection runs BEFORE Claude call; input guardrails check ALL user messages (multi-turn injection covered); `authStore.ts` JSON.parse IS wrapped in try/catch; `streaming.ts` JSON.parse IS wrapped; Slack HMAC IS timing-safe (lib/slack.ts); `costGuardIncrement` IS exported from cost-guard.ts:201; mobile app uses contexts/hooks (no Zustand) so Vytally M1 shape does not apply.
+**Verified NOT bugs (agents were wrong):** rate limiting IS present on /register, /login, /refresh (index.ts:107-118); JWT_SECRET length IS validated (middleware/auth.ts:8-10, unlike Plainly/Vinla); `personalization` and `memoryContext` ARE sanitized via `sanitizePromptInput` (system-prompt.ts:40-53); system prompt IS built server-side (not Vinla C1 shape); `getChatModel` IS tier-aware (chat.ts:21-24); crisis detection runs BEFORE Claude call; input guardrails check ALL user messages (multi-turn injection covered); `authStore.ts` JSON.parse IS wrapped in try/catch; `streaming.ts` JSON.parse IS wrapped; Slack HMAC IS timing-safe (lib/slack.ts); `costGuardIncrement` IS exported from cost-guard.ts:201; mobile app uses contexts/hooks (no Zustand) so Vinla M1 shape does not apply.
 
 ### Fraus (AI Scam Detector — Quick-Revenue Bet, 2026-04-17)
 - **Target:** Boomers + older adults + adult children who worry about them
@@ -258,8 +258,8 @@ All apps share the same AI personality brand:
 ### Short-Term
 - [ ] Configure Plainly server env vars on Render (Plaid, Google OAuth, internal API key)
 - [ ] 42ly Privacy Policy + Terms of Service
-- [ ] Vytally: Supabase data sync + RLS policies
-- [ ] Public beta launches: Plainly, Vytally
+- [ ] Vinla: Supabase data sync + RLS policies
+- [ ] Public beta launches: Plainly, Vinla
 - [ ] Fraus + Pillarly $50/48hr Meta ad validation runs — decide MVP green-light
 
 ### Medium-Term
@@ -288,9 +288,9 @@ See each entity's own repo for their master tracker.
 - IP Assignment Agreement
 - NDA template
 - Plainly Terms of Service
-- Vytally Terms of Service
+- Vinla Terms of Service
 - Plainly Privacy Policy
-- Vytally Privacy Policy
+- Vinla Privacy Policy
 
 ### Missing Legal
 - [ ] 42ly Terms of Service

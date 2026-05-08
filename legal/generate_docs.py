@@ -1,6 +1,6 @@
 """
 Generate all legal documents in DOCX format for attorney review.
-Documents cover the Gen Z app studio LLC and its products: Plainly & Vytally.
+Documents cover the Gen Z app studio LLC and its products: Plainly & Vinla.
 """
 
 from docx import Document
@@ -16,7 +16,7 @@ STATE = "Tennessee"
 MEMBER = "Jonathan Brock"
 MEMBER_ADDRESS = "1309 Case Rd, Prospect, TN 38477"
 EMAIL_PLAINLY = "legal@plainly.app"
-EMAIL_VYTALLY = "legal@vytally.app"
+EMAIL_VINLA = "legal@<your vinla domain>"
 
 
 # ─── Helpers ────────────────────────────────────────────────────────────────
@@ -149,7 +149,7 @@ def make_operating_agreement():
     add_body(doc, "4.2  Authority. The Member is authorized to: (a) execute contracts and agreements; (b) open and manage bank accounts; (c) hire and terminate employees and contractors; (d) incur indebtedness; (e) acquire and dispose of property; (f) make all business decisions on behalf of the Company.")
     add_body(doc, "4.3  Products and Trade Names. The Company currently operates or intends to operate the following products under the Company's ownership, using DBA (doing business as) trade names registered in accordance with applicable state law:")
     add_body(doc, "         (a) Plainly — a financial literacy and AI coaching application targeting young adults;")
-    add_body(doc, "         (b) Vytally — a personal health intelligence application for logging food, water, exercise, and sleep with AI-generated insights;")
+    add_body(doc, "         (b) Vinla — a personal health intelligence application for logging food, water, exercise, and sleep with AI-generated insights;")
     add_body(doc, "         (c) Any additional products developed or acquired by the Company from time to time.")
     add_body(doc, "All intellectual property, revenue, and assets associated with each product are owned exclusively by the Company.")
 
@@ -361,23 +361,23 @@ def make_plainly_tos():
     print("✓ Plainly Terms of Service")
 
 
-# ─── 5. Vytally Terms of Service ──────────────────────────────────────────
+# ─── 5. Vinla Terms of Service ──────────────────────────────────────────
 
-def make_vytally_tos():
-    doc = new_doc("Vytally ToS")
+def make_vinla_tos():
+    doc = new_doc("Vinla ToS")
     add_title(doc, "HEALTH-AI — TERMS OF SERVICE")
     add_subtitle(doc, f"Operated by {COMPANY}")
     add_subtitle(doc, f"Last Updated: {TODAY}")
     doc.add_paragraph()
     add_attorney_note(doc)
 
-    add_body(doc, f"These Terms of Service (\"Terms\") govern your use of the Vytally mobile application and related services (\"Service\"), operated by {COMPANY} (\"we,\" \"us,\" or \"our\"). By using the Service you agree to these Terms.")
+    add_body(doc, f"These Terms of Service (\"Terms\") govern your use of the Vinla mobile application and related services (\"Service\"), operated by {COMPANY} (\"we,\" \"us,\" or \"our\"). By using the Service you agree to these Terms.")
 
     add_section(doc, 1, "ELIGIBILITY")
     add_body(doc, "You must be at least 18 years of age to use the Service. By using the Service, you represent that you are 18 or older. The Service is not directed to children under 13.")
 
     add_section(doc, 2, "NOT MEDICAL ADVICE — CRITICAL DISCLAIMER")
-    add_body(doc, "IMPORTANT: Vytally is a personal wellness tracking and informational tool only. Nothing in the Service — including AI-generated insights, nutritional analysis, exercise recommendations, sleep analysis, or any other feature — constitutes medical advice, clinical diagnosis, medical treatment, or healthcare services of any kind.")
+    add_body(doc, "IMPORTANT: Vinla is a personal wellness tracking and informational tool only. Nothing in the Service — including AI-generated insights, nutritional analysis, exercise recommendations, sleep analysis, or any other feature — constitutes medical advice, clinical diagnosis, medical treatment, or healthcare services of any kind.")
     add_body(doc, "We are not a healthcare provider, medical device manufacturer, or licensed health professional. The AI-generated insights are automated outputs based on data you log and are not reviewed by medical professionals. They are not a substitute for advice from a qualified physician, dietitian, or other licensed healthcare provider.")
     add_body(doc, "NEVER disregard or delay seeking professional medical advice because of something you read in the Service. If you have or suspect a medical condition, consult a licensed healthcare provider immediately. In an emergency, call 911 or your local emergency services.")
     add_body(doc, "The Service is not a medical device and has not been evaluated or approved by the U.S. Food and Drug Administration (FDA) or any other regulatory authority.")
@@ -391,10 +391,10 @@ def make_vytally_tos():
     add_body(doc, "AI-generated insights are based solely on data you provide and general wellness information in the model's training. Insights: (a) may be inaccurate or incomplete; (b) do not account for your full health history or medical conditions; (c) are not personalized medical recommendations; (d) should not be acted upon without consulting a healthcare professional for medical matters.")
 
     add_section(doc, 5, "ACCOUNT REGISTRATION")
-    add_body(doc, "You must provide accurate registration information and maintain the confidentiality of your credentials. You are responsible for all activity under your account. Notify us at legal@vytally.app of any unauthorized access.")
+    add_body(doc, "You must provide accurate registration information and maintain the confidentiality of your credentials. You are responsible for all activity under your account. Notify us at legal@<your vinla domain> of any unauthorized access.")
 
     add_section(doc, 6, "SUBSCRIPTION AND PAYMENT")
-    add_body(doc, "6.1  Vytally offers a free tier and optional paid subscription for premium features. Premium features are described in-app.")
+    add_body(doc, "6.1  Vinla offers a free tier and optional paid subscription for premium features. Premium features are described in-app.")
     add_body(doc, "6.2  Subscriptions are billed through the Apple App Store or Google Play. We do not directly process payment card information.")
     add_body(doc, "6.3  Subscriptions auto-renew unless cancelled at least 24 hours before renewal. Manage cancellations through your app store account.")
 
@@ -402,7 +402,7 @@ def make_vytally_tos():
     add_body(doc, "You agree not to: (a) use the Service for any unlawful purpose; (b) submit false or misleading health data; (c) attempt to reverse-engineer the Service; (d) use the Service to diagnose, treat, or provide health services to third parties; (e) scrape or harvest data.")
 
     add_section(doc, 8, "INTELLECTUAL PROPERTY")
-    add_body(doc, f"The Service and all content — including software, design, AI model configurations, and the Vytally brand — are owned by {COMPANY}. You receive a limited personal license to use the Service. No other rights are granted.")
+    add_body(doc, f"The Service and all content — including software, design, AI model configurations, and the Vinla brand — are owned by {COMPANY}. You receive a limited personal license to use the Service. No other rights are granted.")
 
     add_section(doc, 9, "THIRD-PARTY INTEGRATIONS")
     add_body(doc, "The Service may integrate with third-party platforms (e.g., Apple HealthKit, Google Fit, wearable devices). Such integrations are subject to the third party's terms and privacy policies. We are not responsible for third-party services.")
@@ -420,10 +420,10 @@ def make_vytally_tos():
     add_body(doc, "We may update these Terms at any time with notice via the app or email. We may suspend or terminate your account for violation of these Terms.")
 
     add_section(doc, 14, "CONTACT")
-    add_body(doc, f"Legal notices: {COMPANY}, {MEMBER_ADDRESS}. Email: {EMAIL_VYTALLY}")
+    add_body(doc, f"Legal notices: {COMPANY}, {MEMBER_ADDRESS}. Email: {EMAIL_VINLA}")
 
-    doc.save("/home/user/Claude-/legal/05_Vytally_Terms_of_Service.docx")
-    print("✓ Vytally Terms of Service")
+    doc.save("/home/user/Claude-/legal/05_Vinla_Terms_of_Service.docx")
+    print("✓ Vinla Terms of Service")
 
 
 # ─── 6. Plainly Privacy Policy ──────────────────────────────────────────────
@@ -514,17 +514,17 @@ def make_plainly_privacy():
     print("✓ Plainly Privacy Policy")
 
 
-# ─── 7. Vytally Privacy Policy ────────────────────────────────────────────
+# ─── 7. Vinla Privacy Policy ────────────────────────────────────────────
 
-def make_vytally_privacy():
-    doc = new_doc("Vytally Privacy Policy")
+def make_vinla_privacy():
+    doc = new_doc("Vinla Privacy Policy")
     add_title(doc, "HEALTH-AI — PRIVACY POLICY")
     add_subtitle(doc, f"Operated by {COMPANY}")
     add_subtitle(doc, f"Last Updated: {TODAY}")
     doc.add_paragraph()
     add_attorney_note(doc)
 
-    add_body(doc, f"This Privacy Policy explains how {COMPANY} (\"we,\" \"us,\" \"our\") collects, uses, shares, and protects information through the Vytally mobile application (\"Service\"). Health data is especially sensitive — we treat it with the highest level of care. By using the Service, you agree to this Privacy Policy.")
+    add_body(doc, f"This Privacy Policy explains how {COMPANY} (\"we,\" \"us,\" \"our\") collects, uses, shares, and protects information through the Vinla mobile application (\"Service\"). Health data is especially sensitive — we treat it with the highest level of care. By using the Service, you agree to this Privacy Policy.")
 
     add_section(doc, 1, "INFORMATION WE COLLECT")
     add_subsection(doc, "1.1  Health and Wellness Data You Log")
@@ -591,13 +591,13 @@ def make_vytally_privacy():
     add_body(doc, "• Delete your account and all associated data")
     add_body(doc, "• Revoke access to connected health platforms (Apple Health, Google Fit)")
     add_body(doc, "• Opt out of non-essential notifications")
-    add_body(doc, f"To exercise data rights: {EMAIL_VYTALLY}. We respond within 30 days.")
+    add_body(doc, f"To exercise data rights: {EMAIL_VINLA}. We respond within 30 days.")
 
     add_section(doc, 7, "CALIFORNIA RESIDENTS (CCPA)")
     add_body(doc, "California residents have the right to know, delete, and opt out of sale of personal information. We do not sell personal information or health data. Contact us to exercise your rights. We will not discriminate against you.")
 
     add_section(doc, 8, "SECURITY")
-    add_body(doc, "We implement encryption, access controls, regular security assessments, and secure development practices. Despite these measures, no system is 100% secure. Notify us immediately at legal@vytally.app of any suspected breach.")
+    add_body(doc, "We implement encryption, access controls, regular security assessments, and secure development practices. Despite these measures, no system is 100% secure. Notify us immediately at legal@<your vinla domain> of any suspected breach.")
 
     add_section(doc, 9, "CHILDREN'S PRIVACY")
     add_body(doc, "The Service is not directed to persons under 18. We do not knowingly collect health data from children under 13. Contact us immediately if you believe a child's data has been submitted.")
@@ -606,10 +606,10 @@ def make_vytally_privacy():
     add_body(doc, "We will provide 30 days advance notice of material changes via in-app notification or email.")
 
     add_section(doc, 11, "CONTACT")
-    add_body(doc, f"{COMPANY} | {MEMBER_ADDRESS} | {EMAIL_VYTALLY}")
+    add_body(doc, f"{COMPANY} | {MEMBER_ADDRESS} | {EMAIL_VINLA}")
 
-    doc.save("/home/user/Claude-/legal/07_Vytally_Privacy_Policy.docx")
-    print("✓ Vytally Privacy Policy")
+    doc.save("/home/user/Claude-/legal/07_Vinla_Privacy_Policy.docx")
+    print("✓ Vinla Privacy Policy")
 
 
 # ─── Run all ─────────────────────────────────────────────────────────────────
@@ -620,7 +620,7 @@ if __name__ == "__main__":
     make_ip_assignment()
     make_nda()
     make_plainly_tos()
-    make_vytally_tos()
+    make_vinla_tos()
     make_plainly_privacy()
-    make_vytally_privacy()
+    make_vinla_privacy()
     print("\nAll 7 documents generated in /legal/")

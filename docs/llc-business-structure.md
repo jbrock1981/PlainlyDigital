@@ -40,7 +40,7 @@ One LLC:
 PLAINLY DIGITAL LLC  ←  parent legal entity
     │
     ├── Plainly          (DBA — financial literacy app for Gen Z)
-    ├── Vytally          (DBA — personal health intelligence app)
+    ├── Vinla            (DBA — personal health intelligence app)
     └── Advisedly        (DBA — AI-augmented cybersecurity compliance consulting)
 ```
 
@@ -53,7 +53,7 @@ PLAINLY DIGITAL LLC  ←  parent legal entity
 ## LLC Name
 
 **Plainly Digital LLC** is the parent studio entity for all products in the portfolio.
-Each brand (Plainly, Vytally, Advisedly) operates as a DBA under this entity.
+Each brand (Plainly, Vinla, Advisedly) operates as a DBA under this entity.
 
 Registering each name as a DBA (also called a "trade name" or "assumed name") in
 Tennessee lets you open bank accounts, sign contracts, and accept payments under each
@@ -61,7 +61,7 @@ brand while the legal entity remains Plainly Digital LLC.
 
 **Registered DBAs (pending TN SOS filing):**
 - **Plainly** — financial literacy app
-- **Vytally** — personal health intelligence app
+- **Vinla** — personal health intelligence app
 - **Advisedly** — AI-augmented cybersecurity compliance consulting
 
 ---
@@ -79,7 +79,7 @@ brand while the legal entity remains Plainly Digital LLC.
   - Plaid integration requires clear privacy disclosures
   - Required disclaimers: "Not financial advice" in coach responses and app
 
-### 2. Vytally — Personal Health Intelligence App
+### 2. Vinla — Personal Health Intelligence App
 - **Target:** Ages 18–28, health-conscious Gen Z users
 - **Core:** Logging (food, water, exercise, sleep) + AI-powered insights + trends
 - **Revenue model:** Freemium subscription (~$9.99/month)
@@ -109,7 +109,7 @@ brand while the legal entity remains Plainly Digital LLC.
 | Product | Data Type | Key Regulation | What You Must Do |
 |---|---|---|---|
 | Plainly | Bank/financial data | Plaid TOS, state money transmission laws | Don't hold funds; "not financial advice" |
-| Vytally | Health/biometric data | FTC Act, state privacy laws | Strong privacy policy; no diagnostic claims |
+| Vinla | Health/biometric data | FTC Act, state privacy laws | Strong privacy policy; no diagnostic claims |
 | Advisedly | Client CUI/compliance data | CMMC, NIST 800-171, DFARS | Handle client data per contractual requirements |
 | All | Personal data | COPPA (if under 13), CCPA (California) | Age gate at 13+; honor deletion requests |
 
@@ -123,7 +123,7 @@ This is the correct order. Each step depends on the previous one.
 Go to **tnsos.gov** → Business Services → Trade Name Registration.
 File under Plainly Digital LLC EIN (41-4877857). Register:
 - `Plainly`
-- `Vytally`
+- `Vinla`
 - `Advisedly`
 
 ### Step 2 — Register Domains (can do simultaneously with DBAs)
@@ -131,7 +131,7 @@ File under Plainly Digital LLC EIN (41-4877857). Register:
 | Brand | Primary Domain | Alternatives |
 |---|---|---|
 | Advisedly | `advisedly.ai` | `advisedly.com` |
-| Vytally | `vytally.com` | `vytally.health`, `vytally.app` |
+| Vinla | `<your vinla domain>` | `<your vinla domain>` |
 | Plainly | `plainly.app` | `getplainly.com` |
 
 Register at Namecheap or Google Domains (~$10–15/year each). Also claim matching
@@ -143,7 +143,7 @@ social handles (Instagram, TikTok, X) even if not yet active — establishes pri
 |---|---|---|---|
 | Advisedly | Google Workspace on `advisedly.ai` | ~$6/mo | Now (needed for partner portals) |
 | Advisedly (long-term) | Microsoft 365 GCC High | ~$57/user/mo | Before first DoD-adjacent client |
-| Vytally / Plainly | Google Workspace on their domains | ~$6/mo | Before public launch |
+| Vinla / Plainly | Google Workspace on their domains | ~$6/mo | Before public launch |
 
 Use `jonathan@advisedly.ai` (or similar) for the Anthropic Claude Partner Portal application.
 
@@ -157,7 +157,7 @@ everything lives under one company account instead of a personal account.
 ```
 github.com/PlainlyDigital/
   ├── business      (LLC docs, legal, roadmaps — contents of this repo)
-  ├── vytally       (health app — currently jbrock1981/health-ai)
+  ├── vinla         (health app — currently jbrock1981/health-ai)
   ├── plainly       (finlit app — currently jbrock1981/Plainly)
   └── advisedly     (consulting — currently jbrock1981/Advisedly)
 ```
@@ -168,7 +168,7 @@ All four repos should be private until public launch — budget ~$4–8/month.
 **Migration steps (do when ready to go public or onboard collaborators):**
 1. Create `PlainlyDigital` organization at github.com/organizations/new
 2. Transfer each repo: repo Settings → Danger Zone → Transfer ownership → PlainlyDigital
-3. Rename repos on transfer: `health-ai` → `vytally`, `Claude-` → `business`, etc.
+3. Rename repos on transfer: `health-ai` → `vinla`, `Claude-` → `business`, etc.
 4. Update any Vercel / CI links that reference the old repo paths
 5. Update README cross-links between repos
 
@@ -178,7 +178,7 @@ All four repos should be private until public launch — budget ~$4–8/month.
 |---|---|---|
 | `PlainlyDigital/business` | `jbrock1981/Claude-` | Business docs live here |
 | `PlainlyDigital/plainly` | `jbrock1981/Plainly` | App code moved here ✓ |
-| `PlainlyDigital/vytally` | `jbrock1981/health-ai` | In private beta |
+| `PlainlyDigital/vinla` | `jbrock1981/health-ai` | In private beta |
 | `PlainlyDigital/advisedly` | `jbrock1981/Advisedly` | Active |
 
 ---
@@ -202,7 +202,7 @@ Even as a single-member LLC, write an operating agreement that addresses:
 |---|---|
 | Main LLC business checking | Operating expenses |
 | Advisedly sub-account | Consulting revenue |
-| Vytally sub-account | App subscription revenue |
+| Vinla sub-account | App subscription revenue |
 | Plainly sub-account | App subscription revenue |
 | LLC savings/reserve | 3-month operating reserve |
 
@@ -225,10 +225,10 @@ Mercury (mercury.com) allows sub-accounts under one LLC — recommended.
 - [x] Get EIN from IRS — EIN: 41-4877857
 - [x] File Articles of Amendment — renamed to PLAINLY DIGITAL LLC (Control # 002094776)
 - [ ] Register DBA — "Plainly" in Tennessee (tnsos.gov)
-- [ ] Register DBA — "Vytally" in Tennessee (tnsos.gov)
+- [ ] Register DBA — "Vinla" in Tennessee (tnsos.gov)
 - [x] Register DBA — "Advisedly" in Tennessee (tnsos.gov)
 - [ ] Register DBA — "Plainly" in Tennessee (tnsos.gov)
-- [ ] Register DBA — "Vytally" in Tennessee (tnsos.gov)
+- [ ] Register DBA — "Vinla" in Tennessee (tnsos.gov)
 - [ ] **FILE NOW: FinCEN BOI report** — fincen.gov/boi, required within 90 days of LLC formation, civil/criminal penalties for non-compliance
 - [ ] Sign and execute LLC Operating Agreement (draft in `legal/01_LLC_Operating_Agreement.docx`)
 - [ ] Obtain Giles County local business license (~$15/year)
@@ -237,17 +237,17 @@ Mercury (mercury.com) allows sub-accounts under one LLC — recommended.
 
 ### Domains & Identity
 - [x] Register `advisedly.ai` — purchased via GoDaddy
-- [ ] Register `vytally.com` (and `.health` or `.app`)
+- [ ] Register `<your vinla domain>` (and `.health` or `.app`)
 - [ ] Register `plainly.app` (or `getplainly.com`)
 - [ ] Claim social handles for all three brands (Instagram, TikTok, X)
 - [x] Set up Microsoft 365 Business Standard on `advisedly.ai` — `jbrock@advisedly.ai`
 
 ### Trademarks
 - [x] Search USPTO TESS for "Plainly" — clear in Class 009 & 042
-- [x] Search USPTO TESS for "Vytally" — completely clear
+- [x] Search USPTO TESS for "Vinla" — completely clear
 - [ ] Search USPTO TESS for "Advisedly"
 - [ ] File ITU trademark for "Plainly" — Class 042 (~$350), Class 009 at launch (~$350)
-- [ ] File ITU trademark for "Vytally" — Class 042 (~$350), Class 009 at launch (~$350)
+- [ ] File ITU trademark for "Vinla" — Class 042 (~$350), Class 009 at launch (~$350)
 - [ ] File Statement of Use for each mark after launch (~$100/class)
 
 ### Advisedly Consulting Launch
@@ -274,7 +274,7 @@ Mercury (mercury.com) allows sub-accounts under one LLC — recommended.
 - [ ] Add "Powered by Claude" to App Store listing description
 - [ ] Complete Apple App Store Privacy Nutrition Label
 
-### Vytally App Launch
+### Vinla App Launch
 - [x] App built and in private beta (`jbrock1981/health-ai`)
 - [x] Privacy policy and ToS drafted (`jbrock1981/Claude-/legal/`)
 - [x] "AI-generated · Not medical advice" label on all AI responses
@@ -302,7 +302,7 @@ File ITU (Intent to Use) applications as soon as brands are in active developmen
 this locks in your priority date before launch.
 
 **Budget:** ~$700–$1,400 per brand (two classes each), or ~$2,100–$4,200 for all three brands.
-Consider prioritizing Advisedly and Vytally first (most distinctive; least likely USPTO challenge).
+Consider prioritizing Advisedly and Vinla first (most distinctive; least likely USPTO challenge).
 
 ---
 

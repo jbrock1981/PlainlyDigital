@@ -17,7 +17,7 @@ Live at: https://plainlydigital.com
 | ClearDoc | Pre-launch (mobile) | Snap any document, get plain-English answers |
 | SitterSheet | Pre-launch (mobile) | AI-generated pet/house-sitter guide, one shareable link |
 | Plainly | Coming soon | Financial literacy for Gen Z |
-| Vytally | Coming soon | Health intelligence with N-of-1 experiments |
+| Vinla | Coming soon | Health intelligence with N-of-1 experiments |
 | Accomplishly | Coming soon | Daily wins tracker with AI-powered remixes |
 | AI Life Advisor | Coming soon | Personal AI advisor for life questions (name TBD) |
 

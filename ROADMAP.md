@@ -114,7 +114,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 | App | Stack today | GCP target | Notes |
 |---|---|---|---|
 | **Fiscus** (formerly Plainly) | Vercel (web) + Render (Node API) + Neon Postgres | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** (replacing Neon). Domain `fiscus.app`. | Trademark search clean 2026-05-05 — rename + GCP migration bundled per plan `we-have-cleardoc-and-radiant-cookie.md`. Cross-platform web + mobile retained (Rocket Money pattern). Already on self-issued JWTs, no Auth swap needed. |
-| **Vitaliter** (formerly Vytally) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** + **Firebase Auth** + **mobile-only** (web stripped). No new domain — marketing landing is a section on `plainlydigital.com`. | Trademark search clean 2026-05-05. Web strip + Supabase Auth → Firebase Auth + Cloud SQL bundled in same plan. The **CRITICAL pre-launch RLS blocker is superseded** by the Auth swap: server-side authorization on Cloud SQL queries tied to Firebase UIDs replaces RLS. |
+| **Vitaliter** (formerly Vinla) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** + **Firebase Auth** + **mobile-only** (web stripped). No new domain — marketing landing is a section on `plainlydigital.com`. | Trademark search clean 2026-05-05. Web strip + Supabase Auth → Firebase Auth + Cloud SQL bundled in same plan. The **CRITICAL pre-launch RLS blocker is superseded** by the Auth swap: server-side authorization on Cloud SQL queries tied to Firebase UIDs replaces RLS. |
 | **Accomplishly** | Vercel + Neon | Cloud Run + Firebase Hosting; Neon stays (compute-only recipe). | Currently DEPLOYED & LIVE — migration must be zero-downtime via DNS cutover. Re-evaluate Cloud SQL once Fiscus pattern is proven. |
 | **AI Life Advisor** (formerly 42ly) | Vercel (frontend at 42ly.vercel.app + API at 42ly-api.vercel.app) + Supabase | Cloud Run + Firebase Hosting. Supabase stays (compute-only recipe). | Despite the marketing site saying "coming soon," the underlying 42ly build is feature-complete and deployed in invite-only beta. Migration applies. |
 | **Tradingly** | Vercel (Next.js) + Render (FastAPI 512MB) + Neon Postgres + SQLite cache | Cloud Run for FastAPI + Firebase Hosting for Next.js. Neon stays (compute-only recipe). | Cloud Run fixes Render 30s timeout + keep-alive idle sleep that breaks autopilot tick. Phase 4B.3 already moved durable state to Postgres specifically because of this. **Migration is REQUIRED before Phase 4E** (live trading) — backend reliability upgrade is in the Phase 4E legal gate. |
@@ -128,7 +128,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 1. **AI Life Advisor** (42ly) — invite-only beta, lowest blast radius. Compute-only recipe.
 2. **Fiscus** (formerly Plainly) — pre-beta, no live users yet. **Full GCP consolidation** (Cloud SQL).
 3. **Tradingly** — small allow-listed user base (family + Papous), unblocks Phase 4E. Compute-only recipe.
-4. **Vitaliter** (formerly Vytally) — family beta. **Full GCP consolidation** (Cloud SQL + Firebase Auth + mobile-only).
+4. **Vitaliter** (formerly Vinla) — family beta. **Full GCP consolidation** (Cloud SQL + Firebase Auth + mobile-only).
 5. **Accomplishly** — DEPLOYED & LIVE, zero-downtime cutover required, do this last after the pattern is proven. Compute-only recipe.
 
 **Plans:**
@@ -156,7 +156,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 **Status (2026-05-06):**
 - ✅ **Marketing site sub-pass (`plainlydigital-www`)** — site live at `https://plainlydigital.com/` (cutover 2026-05-06), Cloud Build auto-deploy on push to main (`deploy-on-push-main` trigger wired 2026-05-06).
 - ⏳ **Fiscus** — plan exists, no execution started. Renamed local + GitHub repo not yet performed.
-- ⏳ **Vitaliter** — same status. `C:\Users\jbroc\Vytally` is empty locally; clone before any work.
+- ⏳ **Vitaliter** — same status. `C:\Users\jbroc\Vinla` is empty locally; clone before any work.
 - ⏳ **AI Life Advisor / Tradingly / Accomplishly** — plans not drafted; original ordering still applies.
 
 ### Self-hosted CI/CD on GCP (PARTIALLY IN FLIGHT)

@@ -77,8 +77,8 @@ export const APPS: IAppMeta[] = [
     iconSlug: "plainly",
   },
   {
-    slug: "vytally",
-    name: "Vytally",
+    slug: "vinla",
+    name: "Vinla",
     tagline: "Track your health like a scientist.",
     description:
       "Run N-of-1 health experiments on yourself with statistical rigor. Persistent AI memory, food vision, and Health Connect integration — without the wellness-industrial-complex sales pitch.",
@@ -89,9 +89,9 @@ export const APPS: IAppMeta[] = [
       "Food vision (barcode + photo)",
       "Crisis routing always free",
     ],
-    primary: "var(--app-vytally)",
-    primaryBg: "var(--app-vytally-bg)",
-    iconSlug: "vytally",
+    primary: "var(--app-vinla)",
+    primaryBg: "var(--app-vinla-bg)",
+    iconSlug: "vinla",
   },
   {
     slug: "accomplishly",

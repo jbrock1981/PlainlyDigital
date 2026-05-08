@@ -220,7 +220,7 @@ Same pricing structure as Plainly. Accomplishly already has this implemented.
 
 ---
 
-# 3. VYTALLY — Health & Wellness App
+# 3. VINLA — Health & Wellness App
 
 ## AI Call Sites (8 endpoints)
 
@@ -260,7 +260,7 @@ Same pricing structure as Plainly. Accomplishly already has this implemented.
 | Founding annual | $2.33/mo | $0.22 | **$2.11 (91%)** | $0.58 | **$1.75 (75%)** |
 
 ### 2. Boost Packs
-Same structure. Vytally's health-focused power users (meal plan generation, daily photo logging) are likely boost buyers.
+Same structure. Vinla's health-focused power users (meal plan generation, daily photo logging) are likely boost buyers.
 
 ### 3. Special Pricing Tiers
 - **Student** ($39.99/yr = $2.33/mo net after store fee): Healthy margins even for engaged users
@@ -271,7 +271,7 @@ Same structure. Vytally's health-focused power users (meal plan generation, dail
 - Nutritionist referral partnerships
 - Corporate wellness programs
 
-## Vytally Break-Even & Projections
+## Vinla Break-Even & Projections
 
 **Break-even:** $74 ÷ $4.19 = **18 Pro monthly subscribers**
 
@@ -341,7 +341,7 @@ Same structure. Vytally's health-focused power users (meal plan generation, dail
 - Currently included in Pro. Could be standalone upsell ($2.99 one-time?) or exclusive to Pro Max.
 
 ### 4. Ecosystem Integration
-- Cross-app data sync (Vytally health, Plainly finance)
+- Cross-app data sync (Vinla health, Plainly finance)
 - Future: unified dashboard across all Plainly Digital apps
 - Potential bundle pricing: all 4 apps for $14.99/mo
 
@@ -368,7 +368,7 @@ Same structure. Vytally's health-focused power users (meal plan generation, dail
 
 ## Combined Revenue Projections
 
-| Month | Plainly | Accomplishly | Vytally | 42ly | **Portfolio MRR** | **Portfolio Net** |
+| Month | Plainly | Accomplishly | Vinla | 42ly | **Portfolio MRR** | **Portfolio Net** |
 |-------|---------|-------------|---------|------|------------------|------------------|
 | 3 | $308 | $192 | $183 | $168 | **$851** | **$555** |
 | 6 | $966 | $505 | $546 | $495 | **$2,512** | **$2,216** |
@@ -429,7 +429,7 @@ $296/month for 4 apps is nothing. At 100 total paying subscribers (easily achiev
 A future "Plainly Digital All-Access" bundle across all 4 apps:
 - **$14.99/mo** — Pro Max on all 4 apps (vs. $39.96 if purchased separately)
 - 63% discount drives adoption across the portfolio
-- Cross-app ecosystem (42ly syncs with Vytally health data, Plainly finance data)
+- Cross-app ecosystem (42ly syncs with Vinla health data, Plainly finance data)
 - At 500 bundle subscribers: $7,500 MRR with portfolio-level Sonnet cap (200 total across apps)
 
 ---

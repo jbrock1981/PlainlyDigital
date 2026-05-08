@@ -28,7 +28,7 @@ Shipped landing-page scaffolds 2026-04-17. Owner must execute the validation gat
 - [ ] RevenueCat integration across apps with paid tiers
 - [ ] Configure Plainly server env vars on Render (Plaid, Google OAuth, internal API key)
 - [ ] Plainly audit C1/C2/C3 (test suite regression; Plaid revocation on delete; pdf-parse crash)
-- [ ] Vytally audit C1/C2/C3 (server-side prompt assembly; Sonnet tier enforcement; cost-guard race)
+- [ ] Vinla audit C1/C2/C3 (server-side prompt assembly; Sonnet tier enforcement; cost-guard race)
 - [ ] Accomplishly audit C1/C2 (cost-guard race; timing-safe webhook)
 - [ ] 42ly Privacy Policy + ToS
 - [ ] 42ly DBA registration under Plainly Digital LLC
@@ -52,7 +52,7 @@ Pillarly adds two hard legal gates before public launch:
 
 ### Core four — public beta
 - [ ] Plainly public beta
-- [ ] Vytally public beta (requires Supabase sync + age gate)
+- [ ] Vinla public beta (requires Supabase sync + age gate)
 - [ ] 42ly invite beta → public beta
 - [ ] Accomplishly domain purchase + App Store submission
 
