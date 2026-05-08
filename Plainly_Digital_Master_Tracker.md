@@ -21,9 +21,9 @@
 
 ## Shared Architecture
 
-### Sage AI (Three-Layer System)
+### Notch AI (Three-Layer System)
 All apps share the same AI personality brand:
-- **Layer 1 (Shared):** Brand personality — tone, values, communication style (docs/SAGE-BRAND-PERSONALITY.md)
+- **Layer 1 (Shared):** Brand personality — tone, values, communication style (docs/NOTCH-BRAND-PERSONALITY.md)
 - **Layer 2 (App-specific):** Domain expertise per app
 - **Layer 3 (Per-user):** Personalization, conversation history, user context
 
@@ -99,7 +99,7 @@ All apps share the same AI personality brand:
 #### Vinla Family-Beta Issue Todo (2026-04-11 audit)
 
 **Critical — must fix before expanding beta:**
-- [ ] **C1** — Client owns the AI system prompt end-to-end (api/chat.ts:26 accepts `system` from body); any user can bypass all Sage personality + guardrails. Move prompt assembly server-side.
+- [ ] **C1** — Client owns the AI system prompt end-to-end (api/chat.ts:26 accepts `system` from body); any user can bypass all Notch personality + guardrails. Move prompt assembly server-side.
 - [ ] **C2** — `maxSonnetCallsPerMonth = 50` defined but never enforced; api/chat.ts:95 hardcodes Sonnet for every tier. Free/Pro users get $0.06/call instead of $0.005/call (12x cost overrun); Pro+ has no cap.
 - [ ] **C3** — Cost guard check-then-act race (cost-guard.ts:104-202) — same bug shape as Plainly H2; needs atomic `UPDATE ... WHERE ... RETURNING`.
 
@@ -201,7 +201,7 @@ All apps share the same AI personality brand:
 - FastAPI backend on Render (512MB), Next.js frontend on Vercel
 - Neon Postgres for auth, SQLite for ephemeral/paper-trading data
 - Finnhub WebSocket → SSE real-time prices
-- Sage AI scoring engine (Claude Haiku 4.5), paper trading, smart alerts, multi-timeframe analysis
+- Notch AI scoring engine (Claude Haiku 4.5), paper trading, smart alerts, multi-timeframe analysis
 - Tier model: Free / Pro / Pro Max
 - Deployed to production via Render + Vercel
 - **Baseline health (2026-04-11):** All 11 previously-truncated files restored (commit 91a17c5). Core auth/database layers sound. No test suite — manual verification only.
@@ -222,7 +222,7 @@ All apps share the same AI personality brand:
 - [ ] **H4** — Register SELECT-then-INSERT race (auth.py:239-244) — concurrent registrations with same email both pass pre-check, second INSERT raises raw asyncpg/sqlite exception instead of clean 409; bcrypt DoS amplifier
 - [ ] **H5** — CSP allows `'unsafe-inline'` AND `'unsafe-eval'` in script-src (main.py:160-168) — effectively disables XSS protection. TODO.md tracks style-src only, not script-src
 - [ ] **H6** — Request body size limit bypass (main.py:177-189) — chunked-encoding requests omit Content-Length and sail through; attacker can upload 500MB JSON before FastAPI parses
-- [ ] **H7** — Sage AI trade advice has no output guardrails for financial-advice liability (ai_sage.py:77-82) — "Give a 2-3 sentence actionable take for a day trader. Be direct." with no disclaimer, no output-side check, user-provided `news_summary` concatenated raw into Claude prompt (prompt injection vector for retail-facing financial product)
+- [ ] **H7** — Notch AI trade advice has no output guardrails for financial-advice liability (ai_sage.py:77-82) — "Give a 2-3 sentence actionable take for a day trader. Be direct." with no disclaimer, no output-side check, user-provided `news_summary` concatenated raw into Claude prompt (prompt injection vector for retail-facing financial product)
 - [ ] **H8** — `ai_earnings_summary` has no auth or cost guard (ai_sage.py:140-164) — no user_id, no check_ai_limit, no record_ai_call; transcript_text[:3000] injected directly into prompt (second prompt injection vector); 5-min cache is only mitigation
 
 **Medium — first post-production sprint:**

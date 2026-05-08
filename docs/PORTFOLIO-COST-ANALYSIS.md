@@ -72,7 +72,7 @@ Based on Winlet's proven model, all apps standardize on:
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Sage Coach chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
+| Notch Coach chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
 | Coach nudge (lesson/milestone) | Haiku | $0.001 | 1/day | 3/day |
 | Weekly summary | Haiku | $0.001 | 1/week | 1/week |
 | Personalized feed | Haiku | $0.002 | 1/day (cached 12h) | 1/day |
@@ -162,7 +162,7 @@ Based on Winlet's proven model, all apps standardize on:
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Sage Chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 2/day | 8/day |
+| Notch Chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 2/day | 8/day |
 | Pattern analysis | Sonnet | $0.014 | 1/week | 2/week |
 | Reflection prompt | Sonnet | $0.008 | 1/week | 1/day |
 | Weekly summary | Sonnet | $0.012 | 1/week | 1/week |
@@ -226,7 +226,7 @@ Same pricing structure as Plainly. Winlet already has this implemented.
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Sage Health Coach | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
+| Notch Health Coach | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
 | Food photo vision | Haiku (vision) | $0.003 | 0/day | 3/day |
 | Weekly insights | Sonnet | $0.014 | 1/week | 1/week |
 | Health signals | Haiku | $0.002 | 1/day (cached) | 1/day |
@@ -293,7 +293,7 @@ Same structure. Vinla's health-focused power users (meal plan generation, daily 
 
 | Category | Endpoints | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-----------|-------|-----------|--------------------|--------------------|
-| Sage Chat | 1 | Haiku/Sonnet | $0.002/$0.026 | 3/day | 10/day |
+| Notch Chat | 1 | Haiku/Sonnet | $0.002/$0.026 | 3/day | 10/day |
 | Career tools | 3 (resume, interview, cover letter) | Sonnet | $0.018 avg | 0/week | 2/week |
 | Money tools | 4 (budget, debt, explain, invest) | Sonnet | $0.014 avg | 0/week | 1/week |
 | Relationship tools | 4 (conflict, breakup, family, friendship) | Sonnet | $0.014 avg | 0/week | 1/week |

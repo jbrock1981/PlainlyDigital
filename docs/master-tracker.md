@@ -36,14 +36,14 @@
 
 **Deployed:** plainly-psi.vercel.app (web), plainly-c8jw.onrender.com (API), Neon (DB)
 **Stack:** Expo RN + Express + Neon PostgreSQL + Claude AI
-**Target:** Ages 18-28 | 18 modules, 121 lessons, ~240 quizzes | Claude AI coach "Sage"
+**Target:** Ages 18-28 | 18 modules, 121 lessons, ~240 quizzes | Claude AI coach "Notch"
 **Tests:** 493+ Jest tests passing (24+ test suites)
 **Routes:** 19 server route files | **Hooks:** 11 frontend hooks | **Components:** 18
 
 **What's built:**
 - Full auth (email/password + Google OAuth + Apple Sign-In)
 - 18 modules, 121 lessons, ~240 quiz cards
-- AI Coach "Sage" (streaming Claude Sonnet 4.6, personality, follow-up chips, lesson nudges, voice input/output)
+- AI Coach "Notch" (streaming Claude Sonnet 4.6, personality, follow-up chips, lesson nudges, voice input/output)
 - Voice coaching: Whisper API STT, expo-speech TTS, full voice conversation mode
 - 5 interactive calculators (compound interest, debt payoff, emergency fund, 50/30/20, rent)
 - "What If" spending simulation engine (7 scenario types, Plaid-powered)
@@ -52,18 +52,18 @@
 - AI-personalized micro-content feed (Claude Haiku, 5 card types, 12hr cache)
 - "Your Week in Money" AI-generated weekly summary cards
 - Push notifications, real-time spending alerts (Plaid webhook → pattern detection → push)
-- Embedded finance / affiliate system (11 curated products, Sage-aware, disclosure on every card)
+- Embedded finance / affiliate system (11 curated products, Notch-aware, disclosure on every card)
 - Certification: "Plainly Certified — Personal Finance Foundations" (50-question bank, verifiable credential)
 - Free/Pro/Pro+ monetization ($0/$2.99/$6.99)
 - Plaid Link SDK + AES-256-GCM token encryption
 - Internationalization (EN/ES), anti-gamification, UX polish
-- AI Cost Guard (all endpoints), Sage 3-Layer Architecture, NIST AI RMF governance
+- AI Cost Guard (all endpoints), Notch 3-Layer Architecture, NIST AI RMF governance
 - Financial health score (0-100), Salary Explorer with negotiation practice
 - 15 money scenarios, goal tracking with templates
 - **NEW (April 3-4):** Bank statement ingestion (PDF/CSV/Excel upload, multer, AI categorization)
 - **NEW:** Spending Trends (monthly breakdowns, category insights, AI analysis)
 - **NEW:** Budgets (create, track vs actuals, AI auto-generate via 50/30/20)
-- **NEW:** Subscription detection (recurring charge identification, Sage evaluation)
+- **NEW:** Subscription detection (recurring charge identification, Notch evaluation)
 - **NEW:** Credit Score tracking (with AI tips)
 - **NEW:** Income Tracker (payroll vs freelance, 6-month trends)
 - **NEW:** Side Hustle ROI calculator
@@ -83,7 +83,7 @@
 - Home: Personalized greeting, life moment card, stats, daily quiz, seasonal tip — all working
 - Learn: 18 modules/121 lessons loading, lesson viewer with card UI and progress bar — working
 - Tools: All calculators functional (compound interest live-calculating), new money tools visible — working
-- Coach: Sage responding with streaming, follow-up chips, AI badge, speaker/bookmark icons — working
+- Coach: Notch responding with streaming, follow-up chips, AI badge, speaker/bookmark icons — working
 - Profile: Progress stats, milestones, Money Personality, settings, account management — working
 - Issues found:
   - Coach markdown not rendering (raw `**bold**` showing instead of bold text) — react-markdown may not be wired for coach bubbles
@@ -114,7 +114,7 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 - [ ] Fix follow-up chip context (chips should match conversation topic)
 - [ ] Plaid production access (apply 1-2 weeks before launch)
 - [ ] Short-form video on lesson hooks
-- [ ] Pro+ tier with Sonnet-powered Sage
+- [ ] Pro+ tier with Sonnet-powered Notch
 
 ---
 
@@ -128,21 +128,21 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 **Supabase:** ohnoaetkvkevkvrdpwmp.supabase.co
 **Status:** Private family beta — daughter actively testing
 **Tests:** 290 Jest tests passing (14 test suites)
-**User Test (April 4):** All 5 tabs verified working — Dashboard, Log, Sage AI coach, Community, More
+**User Test (April 4):** All 5 tabs verified working — Dashboard, Log, Notch AI coach, Community, More
 
 **What's built (Waves 0-7 + security hardening):**
 - Dashboard with Bloom garden, streak badge, daily checklist, signals carousel
 - Multi-type logging (food, water, sleep, mood/energy/stress/anxiety/gratitude, exercise)
 - 4 food input methods: manual + barcode (Open Food Facts) + photo (Claude Vision) + conversational AI
 - Deep nutrient tracking (USDA FoodData Central, 29 nutrients, RDA dashboard)
-- AI Coach "Sage" (streaming Sonnet 4.6, 30-day context, mood-adaptive)
+- AI Coach "Notch" (streaming Sonnet 4.6, 30-day context, mood-adaptive)
 - 2-layer crisis detection (hardened against Unicode/homoglyph/l33tspeak)
 - Input/output guardrails, prompt sanitization, per-user AI cost guard (fail-closed)
 - Auth improvements, Supabase migration, Free/Pro/Pro+ gating
 - Cross-domain intelligence engine, PHQ-2/GAD-2 screening, Gentle Mode
 - Bloom virtual wellness garden, Apple Health / Health Connect
 - Push notifications, subscription system, privacy/consent flow
-- Sage 3-Layer Architecture + NIST AI RMF governance
+- Notch 3-Layer Architecture + NIST AI RMF governance
 - **NEW (April 4):** Security hardening — rate limiting, security headers, input validation
 
 **CLI Truncation Damage: RESOLVED** (commit f06c5aa restored all 7 files from git history)
@@ -169,12 +169,12 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 
 **Deployed:** notch.vercel.app | notch-api.vercel.app
 **Stack:** React Native/Expo 55 + Express + Supabase + Claude AI
-**Target:** Gen Z (16-27), "Sage" AI life advisor
+**Target:** Gen Z (16-27), "Notch" AI life advisor
 **Supabase:** vyparqcxakpzddmrjyin (us-east-1)
 **Tests:** 718 tests passing (318 app + 400 server, 61 test files)
 
 **What's built (Waves 0-8):**
-- Streaming chat UI with Claude AI "Sage" (toughest variant: "tough love dad energy")
+- Streaming chat UI with Claude AI "Notch" (toughest variant: "tough love dad energy")
 - Express API on Vercel, Supabase auth with email allowlist gate
 - 14 tables with RLS + 3 migrations
 - Journal (mood, AI reflections, cross-entry patterns, life review reports)
@@ -189,7 +189,7 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 - Personality Calibration ("Train the AI": 12-question bank)
 - Monetization Infrastructure, Multi-Language (EN/ES)
 - Ecosystem Integration (Vinla/Plainly sync), Year in Review
-- NIST AI RMF governance, Sage 3-Layer Architecture
+- NIST AI RMF governance, Notch 3-Layer Architecture
 - Server hardening: JWT, 3-tier rate limiting, cost-guard, CORS, 50KB limit
 
 **What's NOT built yet:**
@@ -218,11 +218,11 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 **What's built:**
 - Full auth, Wins CRUD + "Lift Me Up" random retrieval + cumulative stats
 - Log Win modal with celebration animation, photo attachments, voice capture
-- Calendar heatmap (GitHub-style), AI pattern insights + Sage AI chat with crisis detection
+- Calendar heatmap (GitHub-style), AI pattern insights + Notch AI chat with crisis detection
 - Proof folder, Life Resume & Year in Review, shareable win cards (4 templates)
 - Dark mode (WCAG AA), push notifications, team/family spaces, web companion
 - Integrations (Slack, email, calendar), GDPR export, account deletion
-- AI Cost Guard (centralized), Sage 3-Layer (warmest variant), NIST AI RMF
+- AI Cost Guard (centralized), Notch 3-Layer (warmest variant), NIST AI RMF
 - **NEW (April 4):** Security hardening (SAST/DAST/STIG), Send Hype UI, circle streaks, Wrapped share, NIST governance docs, legal docs (Privacy Policy + ToS), hype_drops table, 6 market-disrupting features (Wrapped, Screenshot Dump, Hype Circle, etc.)
 
 **CLI Truncation Damage: RESOLVED** (commit b648bf9 restored space-detail.tsx and spaces.tsx from git history)
@@ -240,7 +240,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 
 ## TRADINGLY — AI-Powered Day Trading Screener
 
-### Dev Status: DEPLOYED — 37+ endpoints, Sage AI scoring, Finnhub real-time | All truncations fixed, rebranded, performance optimized
+### Dev Status: DEPLOYED — 37+ endpoints, Notch AI scoring, Finnhub real-time | All truncations fixed, rebranded, performance optimized
 
 **Domain:** tradingly.app (purchasing via GoDaddy)
 **Live Frontend:** frontend-iota-livid-71.vercel.app → tradingly.app (Vercel, rename pending)
@@ -251,7 +251,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 **Rebrand commit:** `1d72df4` — display names, meta tags, manifest, legal docs, render.yaml, CORS, package.json all updated. localStorage keys kept as `dts-` for backward compat.
 
 **What's built:**
-- **Sage AI Trading Assistant:** Sage Score (0-100, A+ to D), multi-factor confluence scoring
+- **Notch AI Trading Assistant:** Notch Score (0-100, A+ to D), multi-factor confluence scoring
 - Signal narration (plain-English trade thesis), risk guardrails, What-If scenarios
 - Live Signal Dashboard (auto-refreshing Buy/Sell scanning ~540 tickers)
 - 9 technical indicators: VWAP, RSI, MACD, Bollinger, EMA 9/21, ATR, RVOL, Stochastic RSI, OBV
@@ -269,7 +269,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 - Options: GEX analysis, unusual flow scanner, multi-leg strategy builder
 - JWT auth (local + Neon Postgres) + Stripe subscription (Free/Pro/Pro Max)
 - Invite-only whitelist (5 emails)
-- **NEW (April 4):** Phase 9 — AI Sage integration, advanced math, trader workflow, legal infrastructure. Rebrand DayTradeScreener → Tradingly complete.
+- **NEW (April 4):** Phase 9 — AI Notch integration, advanced math, trader workflow, legal infrastructure. Rebrand DayTradeScreener → Tradingly complete.
 - **NEW (April 4 late):** Performance optimization — React.memo on TickerTable rows, 4 custom hooks extracted from page.tsx (useScreenerState, useChartState, useAuthState, useAutoRefresh), 200ms debounced ticker search with useMemo. 0 new TS errors.
 
 **CLI Truncation Damage: RESOLVED**
@@ -367,9 +367,9 @@ Medium/Legal:
 
 ---
 
-## SAGE 3-LAYER ARCHITECTURE (Cross-Portfolio)
+## NOTCH 3-LAYER ARCHITECTURE (Cross-Portfolio)
 
-All consumer apps share the Sage AI personality system:
+All consumer apps share the Notch AI personality system:
 
 **Layer 1 — Brand Personality (identical across all apps):** Direct, warm but not soft, practical, no judgment, humor as tool. 8th-grade reading level, casual tone, under 200 words, 4-part structure (direct answer → why → applied to user → one next action).
 
@@ -470,7 +470,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 
 ### Ongoing
 - Vinla Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
-- All apps: Sage 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
+- All apps: Notch 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
 - Plainly: Plaid production access (apply 1-2 weeks before public launch)
 - Legal docs needed for Notch, Winlet, Tradingly, CastFreely
 
@@ -485,10 +485,10 @@ These are the canonical reference docs across all repos. Everything else has bee
 ### Plainly Repo (jbrock1981/Plainly)
 | Doc | Location | Purpose |
 |-----|----------|---------|
-| Sage Brand Personality | `docs/SAGE-BRAND-PERSONALITY.md` | Layer 1 personality spec (shared across all apps) |
+| Notch Brand Personality | `docs/NOTCH-BRAND-PERSONALITY.md` | Layer 1 personality spec (shared across all apps) |
 | Portfolio Cost Analysis | `docs/PORTFOLIO-COST-ANALYSIS.md` | AI API cost projections across all apps |
 | NIST AI Governance | `docs/NIST-AI-GOVERNANCE.md` | NIST AI RMF compliance documentation |
-| AI Coach Spec | `docs/ai-coach-spec.md` | Sage coach role definition for Plainly |
+| AI Coach Spec | `docs/ai-coach-spec.md` | Notch coach role definition for Plainly |
 | API Cost Model | `docs/api-cost-model.md` | Per-endpoint cost estimates |
 | Anthropic API Compliance | `docs/anthropic-api-compliance.md` | API usage compliance notes |
 | Competitive Intelligence | `COMPETITIVE_INTELLIGENCE_REPORT.md` | AI coach apps comparison (Cleo, etc.) |
@@ -513,7 +513,7 @@ These are the canonical reference docs across all repos. Everything else has bee
 | Advanced Features Research | `ADVANCED_FEATURES_RESEARCH.md` | GEX, dark pools, AI/ML, sentiment — API costs and feasibility |
 | Final Features Research | `FINAL_FEATURES_RESEARCH.md` | Paper trading, trade journal, position calc implementation |
 | Final Edge Research | `FINAL_EDGE_RESEARCH.md` | Premium features for free positioning strategy |
-| Phase 9 Build Plan | `CLI_PHASE9_AND_AI.md` | Active build plan (Sage AI, cost guards, Stripe, legal) |
+| Phase 9 Build Plan | `CLI_PHASE9_AND_AI.md` | Active build plan (Notch AI, cost guards, Stripe, legal) |
 
 ### Claude- Repo (jbrock1981/Claude-)
 | Doc | Location | Purpose |

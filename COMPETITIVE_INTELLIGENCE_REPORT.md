@@ -345,7 +345,7 @@ Plainly doesn't compete head-to-head with Cleo or Monarch. It creates a new cate
 
 1. **Learn it:** 18 modules, 121 lessons teach financial concepts with quiz reinforcement
 2. **Live it:** Plaid integration connects lessons to real spending data
-3. **Coach it:** Sage AI personalizes guidance based on what you've learned AND what you're spending
+3. **Coach it:** Notch AI personalizes guidance based on what you've learned AND what you're spending
 4. **Prove it:** Certification system lets users demonstrate financial literacy (resume-worthy, publicly verifiable)
 
 No competitor has all four layers.
@@ -381,13 +381,13 @@ Cleo paid $17M to the FTC. Albert faces cancellation complaints. Greenlight face
 ## Recommended Actions
 
 ### Immediate (Pre-Beta)
-1. **Nail Sage's personality** — Cleo proves personality drives $280M ARR. Sage should be the "supportive older sibling" — warm, direct, never condescending, occasionally funny. Not sassy like Cleo, but not sterile like Monarch.
+1. **Nail Notch's personality** — Cleo proves personality drives $280M ARR. Notch should be the "supportive older sibling" — warm, direct, never condescending, occasionally funny. Not sassy like Cleo, but not sterile like Monarch.
 2. **Ship free tier with Module 1** — let users experience the education + AI coaching loop before asking for money
 3. **Price at $4.99/mo Pro** — undercut every competitor while delivering more value
 
 ### Growth Phase
 4. **Proactive AI spending insights** — "You spent $47 at Starbucks this week. Module 3 covers the Latte Factor — want to check it out?" This learn-then-do loop is unique to Plainly.
-5. **Conversation memory marketing** — Cleo charges $8.99 just for memory. Plainly already stores conversation history. Make sure Sage uses it and market it as included in Pro.
+5. **Conversation memory marketing** — Cleo charges $8.99 just for memory. Plainly already stores conversation history. Make sure Notch uses it and market it as included in Pro.
 6. **Contextual "Spending Moment" nudges** — real-time awareness tied to lessons (P2 feature)
 
 ### Moat Building

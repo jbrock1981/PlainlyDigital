@@ -71,7 +71,7 @@ Salvis adds two hard legal gates before public launch:
 ## Standing gates (portfolio-wide)
 
 - Every customer-facing app must have ToS + Privacy Policy before public launch
-- Every AI-backed feature must go through Sage 3-layer architecture + NIST AI RMF docs (see `SAGE-BRAND-PERSONALITY.md`, `NIST-AI-GOVERNANCE.md`)
+- Every AI-backed feature must go through Notch 3-layer architecture + NIST AI RMF docs (see `NOTCH-BRAND-PERSONALITY.md`, `NIST-AI-GOVERNANCE.md`)
 - No Supabase auth on new apps — custom JWT per the Winlet pattern (portfolio decision locked 2026-04-17)
 - Google + Apple sign-in added only **after** email/password MVP is live in App Store + Play Store
 - USPTO intent-to-use filings before public ad spend on any new brand
