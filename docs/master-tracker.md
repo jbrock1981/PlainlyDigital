@@ -19,7 +19,7 @@
 |--------|------|--------|------|-----------|
 | Plainly | DBA under Plainly Digital | ~95%, pre-beta | jbrock1981/Plainly | C:\Users\jbroc\Plainly |
 | Vinla | DBA under Plainly Digital | ~70%, family beta | jbrock1981/vytally | C:\Users\jbroc\vinla |
-| 42ly | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
+| Notch | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
 | Winlet | Under Plainly Digital | All 4 phases, deployed & live | jbrock1981/Accomplishly | C:\Users\jbroc\Accomplishly |
 | Tradingly | Under Plainly Digital | Deployed, 37+ endpoints, rebranded, perf optimized | jbrock1981/DayTradeScreener | C:\Users\jbroc\DayTradeScreener |
 | CastFreely | Separate entity (LLC NOT YET FORMED) | ~75-80%, all 9 waves, 423 tests | jbrock1981/CastFreely | C:\Users\jbroc\CastFreely |
@@ -163,11 +163,11 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 
 ---
 
-## 42ly — AI Life Advisor App
+## Notch — AI Life Advisor App
 
 ### Dev Status: ALL WAVES COMPLETE (0-8) — 718 tests, deployed
 
-**Deployed:** 42ly.vercel.app | 42ly-api.vercel.app
+**Deployed:** notch.vercel.app | notch-api.vercel.app
 **Stack:** React Native/Expo 55 + Express + Supabase + Claude AI
 **Target:** Gen Z (16-27), "Sage" AI life advisor
 **Supabase:** vyparqcxakpzddmrjyin (us-east-1)
@@ -195,7 +195,7 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 **What's NOT built yet:**
 - [ ] Parental controls enforcement
 - [ ] Privacy Policy + Terms of Service
-- [ ] Register 42ly DBA under Plainly Digital LLC
+- [ ] Register Notch DBA under Plainly Digital LLC
 - [ ] USPTO trademark check + filing
 - [ ] Google OAuth provider config in Supabase
 - [ ] eas.json credentials, RevenueCat integration
@@ -359,7 +359,7 @@ Medium/Legal:
 | Vinla Terms of Service + Privacy Policy | Exists, needs review |
 
 ### Still needed:
-- [ ] 42ly Terms of Service + Privacy Policy
+- [ ] Notch Terms of Service + Privacy Policy
 - [ ] Winlet Terms of Service + Privacy Policy
 - [ ] Tradingly Terms of Service + Privacy Policy
 - [ ] CastFreely Terms of Service + Privacy Policy + Operating Agreement (Lauri Brock)
@@ -374,13 +374,13 @@ All consumer apps share the Sage AI personality system:
 **Layer 1 — Brand Personality (identical across all apps):** Direct, warm but not soft, practical, no judgment, humor as tool. 8th-grade reading level, casual tone, under 200 words, 4-part structure (direct answer → why → applied to user → one next action).
 
 **Layer 2 — Domain Expertise (unique per app):**
-- **42ly:** Life advisor — most direct ("tough love dad energy")
+- **Notch:** Life advisor — most direct ("tough love dad energy")
 - **Vinla:** Health coach — direct but health-sensitive, mood-adaptive, eating disorder aware
 - **Plainly:** Financial coach — warm older-sibling energy, makes money approachable
 - **Winlet:** Self-worth coach — warmest variant, celebration-focused, validation-first
 - **Tradingly:** Trading assistant — data-driven, risk-aware, confidence-graded (A+ to D)
 
-**Layer 3 — User Personalization (per user, per app):** Unique context injection (onboarding, usage patterns, domain-specific signals). 42ly Layer 3 intentionally NOT shared with other apps (regulatory/bias risk, NIST AI RMF MAP 2.3).
+**Layer 3 — User Personalization (per user, per app):** Unique context injection (onboarding, usage patterns, domain-specific signals). Notch Layer 3 intentionally NOT shared with other apps (regulatory/bias risk, NIST AI RMF MAP 2.3).
 
 ---
 
@@ -412,7 +412,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 |---------|-------|-------|--------|-----------------|
 | **Plainly** | ~95% | 493+ | Truncations fixed, AsyncStorage migrated, needs push+rebuild | Push to remote, Render env vars, eas.json, RevenueCat |
 | **Vinla** | ~70% | 290 | All truncations fixed, 290 tests passing, user tested (all 5 tabs working) | SQLite→Supabase migration, age gate, insurance |
-| **42ly** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
+| **Notch** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
 | **Winlet** | All 4 phases | 379 | All truncations fixed, 0 TS errors, deployed | RevenueCat, Apple Dev account, domain |
 | **Tradingly** | ~92% | 34 | All truncations fixed, rebranded, perf optimized, deployed | Push rebrand+perf commits, Render rename |
 | **CastFreely** | ~75-80% | 423 | All 9 waves, deployed | LLC formation, SAG-AFTRA legal, Stripe |
@@ -430,10 +430,10 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 |---------|---------|--------|
 | **No attorney review** | ALL | Consumer apps: Termly ($10/mo/site). CastFreely: entertainment attorney ($2K-5K) |
 | **No insurance** | Vinla, CastFreely | E&O + GL + Cyber quotes (Hiscox, Hartford, CoverWallet) |
-| **Apple/Google dev accounts** | Plainly, Vinla, 42ly, Winlet | $99 Apple + $25 Google, covers all apps |
-| **Trademark filings** | Vinla, 42ly, Winlet, CastFreely | ~$350/class each |
+| **Apple/Google dev accounts** | Plainly, Vinla, Notch, Winlet | $99 Apple + $25 Google, covers all apps |
+| **Trademark filings** | Vinla, Notch, Winlet, CastFreely | ~$350/class each |
 | **CastFreely LLC not formed** | CastFreely | $300 TN filing + EIN + bank |
-| **42ly DBA not registered** | 42ly | File DBA under Plainly Digital LLC |
+| **Notch DBA not registered** | Notch | File DBA under Plainly Digital LLC |
 | **RevenueCat not set up** | ALL consumer apps | One account, wire into all 4 apps |
 
 ---
@@ -464,15 +464,15 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 
 ### Next 2 Weeks
 1. RevenueCat setup (one account, wire into all apps: Free/$2.99/$6.99 + boost packs)
-2. File Vinla + 42ly + Winlet trademarks ($350/class each)
+2. File Vinla + Notch + Winlet trademarks ($350/class each)
 3. CastFreely LLC formation ($300) + EIN
-4. 42ly DBA registration under Plainly Digital
+4. Notch DBA registration under Plainly Digital
 
 ### Ongoing
 - Vinla Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
 - All apps: Sage 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
 - Plainly: Plaid production access (apply 1-2 weeks before public launch)
-- Legal docs needed for 42ly, Winlet, Tradingly, CastFreely
+- Legal docs needed for Notch, Winlet, Tradingly, CastFreely
 
 **CLI MITIGATION STRATEGY:** For any file over ~80 lines, use Cowork (Edit tool) instead of CLI. CLI's truncation risk scales with file size. Use CLI only for builds, tests, git operations, and small file edits.
 

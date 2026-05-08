@@ -30,8 +30,8 @@ Shipped landing-page scaffolds 2026-04-17. Owner must execute the validation gat
 - [ ] Plainly audit C1/C2/C3 (test suite regression; Plaid revocation on delete; pdf-parse crash)
 - [ ] Vinla audit C1/C2/C3 (server-side prompt assembly; Sonnet tier enforcement; cost-guard race)
 - [ ] Winlet audit C1/C2 (cost-guard race; timing-safe webhook)
-- [ ] 42ly Privacy Policy + ToS
-- [ ] 42ly DBA registration under Plainly Digital LLC
+- [ ] Notch Privacy Policy + ToS
+- [ ] Notch DBA registration under Plainly Digital LLC
 
 ---
 
@@ -53,7 +53,7 @@ Pillarly adds two hard legal gates before public launch:
 ### Core four — public beta
 - [ ] Plainly public beta
 - [ ] Vinla public beta (requires Supabase sync + age gate)
-- [ ] 42ly invite beta → public beta
+- [ ] Notch invite beta → public beta
 - [ ] Winlet domain purchase (<your winlet domain>) + App Store submission
 
 ---

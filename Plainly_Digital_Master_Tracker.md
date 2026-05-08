@@ -12,7 +12,7 @@
 |---------|------|-------|--------|--------|
 | **Plainly** (finlit) | jbrock1981/Plainly | React Native (Expo 55) + Express + Neon PG | Vercel + Render + Neon | ~75% complete, pre-beta |
 | **Vinla** (health) | jbrock1981/vytally | React Native (Expo 53) + Zustand + Supabase + SQLite | Vercel + Supabase | ~70% complete, family beta |
-| **42ly** (life advisor) | jbrock1981/42ly | React Native (Expo 55) + Express + Supabase PG | Vercel (42ly.vercel.app + 42ly-api.vercel.app) | MVP complete, invite beta |
+| **Notch** (life advisor) | jbrock1981/42ly | React Native (Expo 55) + Express + Supabase PG | Vercel (notch.vercel.app + notch-api.vercel.app) | MVP complete, invite beta |
 | **Winlet** (wins) | jbrock1981/Accomplishly | React Native (Expo 53) + Express + Neon PG + Vite web | Render (API) + Vercel (web) | Feature complete, deployed |
 | **Fraus** (AI scam detector) | jbrock1981/Scamly (private; rename pending) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
 | **Pillarly** (senior medication assistant) | jbrock1981/Pillarly (private) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
@@ -127,12 +127,12 @@ All apps share the same AI personality brand:
 
 **Verified NOT bugs (agents were wrong):** authStore.ts JSON.parse IS wrapped in try/catch; insights endpoint returns plain text not JSON (no parse bug); crisis detection ED patterns ARE complete (purge/fast/starve/laxatives covered); classifyCrisisWithAI retry would add latency for no safety benefit (current fallback to 'concerning' is correct); prompt caching in chat.ts is correctly wrapped in ephemeral cache_control.
 
-### 42ly (AI Life Advisor)
+### Notch (AI Life Advisor)
 - 6 life domains: Career, Relationships, Finances, Health, Personal Growth, Purpose
 - Decision Engine with scenario modeling
 - Persistent Memory with growth timeline
 - Action Quest system
-- Personality training (12-question calibration, unique to 42ly)
+- Personality training (12-question calibration, unique to Notch)
 - 718 tests (318 app + 400 server)
 - **Blockers:** Parental consent flow incomplete, no Privacy Policy/ToS, DBA not registered
 
@@ -250,14 +250,14 @@ All apps share the same AI personality brand:
 ### Immediate
 - [ ] Apple Developer account ($99/yr) — needed for all 4 core apps + future Fraus/Pillarly MVPs
 - [ ] RevenueCat integration — needed for all apps with paid tiers
-- [ ] Register 42ly DBA under Plainly Digital LLC
+- [ ] Register Notch DBA under Plainly Digital LLC
 - [ ] Deploy Fraus landing page (Neon + Vercel + Meta Pixel) — quick-revenue validation gate
 - [ ] Deploy Pillarly landing page (Neon + Vercel + Meta Pixel) — quick-revenue validation gate
 - [ ] USPTO intent-to-use filings for Fraus + Pillarly ($350 each) before public ad spend
 
 ### Short-Term
 - [ ] Configure Plainly server env vars on Render (Plaid, Google OAuth, internal API key)
-- [ ] 42ly Privacy Policy + Terms of Service
+- [ ] Notch Privacy Policy + Terms of Service
 - [ ] Vinla: Supabase data sync + RLS policies
 - [ ] Public beta launches: Plainly, Vinla
 - [ ] Fraus + Pillarly $50/48hr Meta ad validation runs — decide MVP green-light
@@ -293,8 +293,8 @@ See each entity's own repo for their master tracker.
 - Vinla Privacy Policy
 
 ### Missing Legal
-- [ ] 42ly Terms of Service
-- [ ] 42ly Privacy Policy
+- [ ] Notch Terms of Service
+- [ ] Notch Privacy Policy
 - [ ] Winlet Terms of Service
 - [ ] Winlet Privacy Policy
 - [ ] Fraus Terms of Service (landing page currently has no legal pages)

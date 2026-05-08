@@ -116,7 +116,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 | **Fiscus** (formerly Plainly) | Vercel (web) + Render (Node API) + Neon Postgres | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** (replacing Neon). Domain `fiscus.app`. | Trademark search clean 2026-05-05 — rename + GCP migration bundled per plan `we-have-cleardoc-and-radiant-cookie.md`. Cross-platform web + mobile retained (Rocket Money pattern). Already on self-issued JWTs, no Auth swap needed. |
 | **Vitaliter** (formerly Vinla) | Vercel (Next-style + serverless) + Supabase Postgres + Supabase Auth | Cloud Run + Firebase Hosting + **Cloud SQL Postgres** + **Firebase Auth** + **mobile-only** (web stripped). No new domain — marketing landing is a section on `plainlydigital.com`. | Trademark search clean 2026-05-05. Web strip + Supabase Auth → Firebase Auth + Cloud SQL bundled in same plan. The **CRITICAL pre-launch RLS blocker is superseded** by the Auth swap: server-side authorization on Cloud SQL queries tied to Firebase UIDs replaces RLS. |
 | **Winlet** (formerly Accomplishly) | Vercel + Neon | Cloud Run + Firebase Hosting; Neon stays (compute-only recipe). | Currently DEPLOYED & LIVE — migration must be zero-downtime via DNS cutover. Re-evaluate Cloud SQL once Fiscus pattern is proven. |
-| **AI Life Advisor** (formerly 42ly) | Vercel (frontend at 42ly.vercel.app + API at 42ly-api.vercel.app) + Supabase | Cloud Run + Firebase Hosting. Supabase stays (compute-only recipe). | Despite the marketing site saying "coming soon," the underlying 42ly build is feature-complete and deployed in invite-only beta. Migration applies. |
+| **AI Life Advisor** (Notch, formerly 42ly) | Vercel (frontend at notch.vercel.app + API at notch-api.vercel.app) + Supabase | Cloud Run + Firebase Hosting. Supabase stays (compute-only recipe). | Despite the marketing site saying "coming soon," the underlying Notch build is feature-complete and deployed in invite-only beta. Migration applies. |
 | **Tradingly** | Vercel (Next.js) + Render (FastAPI 512MB) + Neon Postgres + SQLite cache | Cloud Run for FastAPI + Firebase Hosting for Next.js. Neon stays (compute-only recipe). | Cloud Run fixes Render 30s timeout + keep-alive idle sleep that breaks autopilot tick. Phase 4B.3 already moved durable state to Postgres specifically because of this. **Migration is REQUIRED before Phase 4E** (live trading) — backend reliability upgrade is in the Phase 4E legal gate. |
 | **Fraus + Pillarly** | Phase 1 landing pages (validate-then-build via $50 Meta ads) | Born on GCP if/when they progress to MVP. | No migration step — gate on validation outcome first. |
 
@@ -125,7 +125,7 @@ Per-domain DNS authority is verified per migration via `dig <domain> NS +short` 
 - **Advisedly** — separate LLC entirely. Already on its own infra path.
 
 **Migration order (riskiest last so we learn first on the lowest-stakes apps):**
-1. **AI Life Advisor** (42ly) — invite-only beta, lowest blast radius. Compute-only recipe.
+1. **AI Life Advisor** (Notch) — invite-only beta, lowest blast radius. Compute-only recipe.
 2. **Fiscus** (formerly Plainly) — pre-beta, no live users yet. **Full GCP consolidation** (Cloud SQL).
 3. **Tradingly** — small allow-listed user base (family + Papous), unblocks Phase 4E. Compute-only recipe.
 4. **Vitaliter** (formerly Vinla) — family beta. **Full GCP consolidation** (Cloud SQL + Firebase Auth + mobile-only).
