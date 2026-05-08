@@ -24,9 +24,9 @@
 | Tradingly | Under Plainly Digital | Deployed, 37+ endpoints, rebranded, perf optimized | jbrock1981/DayTradeScreener | C:\Users\jbroc\DayTradeScreener |
 | CastFreely | Separate entity (LLC NOT YET FORMED) | ~75-80%, all 9 waves, 423 tests | jbrock1981/CastFreely | C:\Users\jbroc\CastFreely |
 | Fraus | Under Plainly Digital | Phase 1 landing scaffold only (2026-04-17), not deployed | jbrock1981/Scamly (private; rename pending) | C:\Users\jbroc\Scamly |
-| Pillarly | Under Plainly Digital | Phase 1 landing scaffold only (2026-04-17), not deployed | jbrock1981/Pillarly (private) | C:\Users\jbroc\Pillarly |
+| Salvis | Under Plainly Digital | Phase 1 landing scaffold only (2026-04-17), not deployed | jbrock1981/Pillarly (private) | C:\Users\jbroc\Pillarly |
 
-> **Note (2026-04-17):** This document is the older detailed tracker. The actively maintained master is `../Plainly_Digital_Master_Tracker.md` at the repo root. See that doc for full Fraus + Pillarly details, quick-revenue validation strategy (landing-page ads → MVP green-light thresholds), and updated Cross-Product Action Items.
+> **Note (2026-04-17):** This document is the older detailed tracker. The actively maintained master is `../Plainly_Digital_Master_Tracker.md` at the repo root. See that doc for full Fraus + Salvis details, quick-revenue validation strategy (landing-page ads → MVP green-light thresholds), and updated Cross-Product Action Items.
 
 ---
 

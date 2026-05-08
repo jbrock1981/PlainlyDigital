@@ -15,7 +15,7 @@
 | **Notch** (life advisor) | jbrock1981/42ly | React Native (Expo 55) + Express + Supabase PG | Vercel (notch.vercel.app + notch-api.vercel.app) | MVP complete, invite beta |
 | **Winlet** (wins) | jbrock1981/Accomplishly | React Native (Expo 53) + Express + Neon PG + Vite web | Render (API) + Vercel (web) | Feature complete, deployed |
 | **Fraus** (AI scam detector) | jbrock1981/Scamly (private; rename pending) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
-| **Pillarly** (senior medication assistant) | jbrock1981/Pillarly (private) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
+| **Salvis** (senior medication assistant) | jbrock1981/Pillarly (private) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
 
 ---
 
@@ -184,7 +184,7 @@ All apps share the same AI personality brand:
 - **Differentiators vs T-Mobile Scam Shield / Truecaller:** not a call-blocker; paste-any-message; family alerts; boomer-friendly UX; plain-English explanations
 - See `jbrock1981/Scamly` (rename pending) repo: `TODO.md`, `CLAUDE.md`, `DEPLOY.md`
 
-### Pillarly (Senior Medication Assistant — Quick-Revenue Bet, 2026-04-17)
+### Salvis (Senior Medication Assistant — Quick-Revenue Bet, 2026-04-17)
 - **Target:** Seniors (60+) managing multiple medications + their adult-child caregivers
 - **Model:** Free (up to 3 meds) + Pro $7.99/mo (unlimited + voice + full interactions) + Family Pro+ $14.99/mo (5 members + missed-dose alerts)
 - **Core value:** Point phone at pill bottle → OCR + plain-English explanation + reminders + interaction/allergy checks; family dashboard for adult children
@@ -192,10 +192,10 @@ All apps share the same AI personality brand:
 - **Phase 2 MVP (not started):** Mirror Winlet — Express + JWT + Claude Vision for OCR + RxNorm (free NIH) / DrugBank (paid) for interactions + Expo mobile (voice-first)
 - **Strategy:** Validate-then-build. Green-light MVP only if Meta ad CPL < $4; reposition if CPL > $10.
 - **Naming cleared 2026-04-17:** avoided "Pill Buddy" (multiple iOS conflicts) and "Dosely" (Skidoosh Games LLC)
-- **Blocked on owner:** Neon project, Meta Pixel, domain purchase (pillarly.com/.app), USPTO intent-to-use ($350), first `npx vercel --prod`
+- **Blocked on owner:** Neon project, Meta Pixel, domain purchase (<your salvis domain>), USPTO intent-to-use ($350), first `npx vercel --prod`
 - **Legal pre-launch gates (HARD BLOCKERS):** HIPAA review before shipping family tier (covered-entity risk); Apple medical-app guideline review (app must never recommend dosages); interaction output must never say "safe to take" — always defer to pharmacist
 - **Differentiators vs Medisafe / MyTherapy / Pill Buddy:** OCR-first capture (not manual entry); voice-first; adult-child family dashboard with alerts; plain-English explanations via Claude
-- See `jbrock1981/Pillarly` repo: `TODO.md`, `CLAUDE.md`, `DEPLOY.md`
+- See `jbrock1981/Pillarly` repo (Salvis): `TODO.md`, `CLAUDE.md`, `DEPLOY.md`
 
 ### Tradingly (Day Trade Screener / FastAPI + Next.js — NOT Plainly Digital LLC; tracked here because audit was part of the same 2026-04-11 portfolio sweep)
 - FastAPI backend on Render (512MB), Next.js frontend on Vercel
@@ -248,26 +248,26 @@ All apps share the same AI personality brand:
 ## Cross-Product Action Items
 
 ### Immediate
-- [ ] Apple Developer account ($99/yr) — needed for all 4 core apps + future Fraus/Pillarly MVPs
+- [ ] Apple Developer account ($99/yr) — needed for all 4 core apps + future Fraus/Salvis MVPs
 - [ ] RevenueCat integration — needed for all apps with paid tiers
 - [ ] Register Notch DBA under Plainly Digital LLC
 - [ ] Deploy Fraus landing page (Neon + Vercel + Meta Pixel) — quick-revenue validation gate
-- [ ] Deploy Pillarly landing page (Neon + Vercel + Meta Pixel) — quick-revenue validation gate
-- [ ] USPTO intent-to-use filings for Fraus + Pillarly ($350 each) before public ad spend
+- [ ] Deploy Salvis landing page (Neon + Vercel + Meta Pixel) — quick-revenue validation gate
+- [ ] USPTO intent-to-use filings for Fraus + Salvis ($350 each) before public ad spend
 
 ### Short-Term
 - [ ] Configure Plainly server env vars on Render (Plaid, Google OAuth, internal API key)
 - [ ] Notch Privacy Policy + Terms of Service
 - [ ] Vinla: Supabase data sync + RLS policies
 - [ ] Public beta launches: Plainly, Vinla
-- [ ] Fraus + Pillarly $50/48hr Meta ad validation runs — decide MVP green-light
+- [ ] Fraus + Salvis $50/48hr Meta ad validation runs — decide MVP green-light
 
 ### Medium-Term
 - [ ] App Store submissions (all apps need eas.json credentials)
 - [ ] Winlet domain purchase (<your winlet domain>)
-- [ ] Fraus + Pillarly domain purchases (contingent on ad validation)
+- [ ] Fraus + Salvis domain purchases (contingent on ad validation)
 - [ ] Marketing / ASO strategy
-- [ ] Pillarly HIPAA review + Apple medical-app guideline review (HARD gates for MVP launch)
+- [ ] Salvis HIPAA review + Apple medical-app guideline review (HARD gates for MVP launch)
 
 ---
 
@@ -299,6 +299,6 @@ See each entity's own repo for their master tracker.
 - [ ] Winlet Privacy Policy
 - [ ] Fraus Terms of Service (landing page currently has no legal pages)
 - [ ] Fraus Privacy Policy (forwarded scam content may contain third-party PII — needs counsel)
-- [ ] Pillarly Terms of Service (MUST include "not a medical device" + "not medical advice" carve-outs)
-- [ ] Pillarly Privacy Policy (medication names + schedules are sensitive health info)
-- [ ] Pillarly HIPAA review (family sharing creates covered-entity risk surface)
+- [ ] Salvis Terms of Service (MUST include "not a medical device" + "not medical advice" carve-outs)
+- [ ] Salvis Privacy Policy (medication names + schedules are sensitive health info)
+- [ ] Salvis HIPAA review (family sharing creates covered-entity risk surface)
