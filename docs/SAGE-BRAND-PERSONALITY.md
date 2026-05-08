@@ -16,13 +16,13 @@ Layer 2: Domain Expertise (unique per app)
   - 42ly:         Life advisor across 6 domains (Career, Relationships, Finances, Health, Growth, Purpose)
   - Vinla:      Health & wellness coach (sleep, nutrition, mood, exercise, stress connections)
   - Plainly:      Financial literacy coach (18 modules, 121 lessons, spending data integration)
-  - Accomplishly: Self-worth & accomplishment coach (celebration, reflection, pattern recognition)
+  - Winlet: Self-worth & accomplishment coach (celebration, reflection, pattern recognition)
 
 Layer 3: User Personalization (unique per user, per app)
   - 42ly:         Onboarding + 12-question personality training + custom overrides (unique to 42ly)
   - Vinla:      Health profile (age, sex, height, weight, goals, dietary prefs) + 7-day health log
   - Plainly:      Financial onboarding (situation, worry, snapshot) + Plaid spending data
-  - Accomplishly: Win history patterns + reflection context + accomplishment categories
+  - Winlet: Win history patterns + reflection context + accomplishment categories
 ```
 
 **Key principle:** Layer 1 defines WHO Sage is. Layer 2 defines WHAT Sage knows. Layer 3 defines WHO Sage is talking to.
@@ -102,7 +102,7 @@ Direct and warm, but aware that health topics carry emotional weight. Connects d
 ### Plainly (Financial Coach) — Warm Older-Sibling
 "A slightly older sibling who's been through it and wants to save you from the same mistakes." Slightly softer delivery because financial anxiety is real and pervasive in Gen Z. Makes money feel approachable, not scary. Explains concepts before giving advice. Uses the user's real financial data to make it personal.
 
-### Accomplishly (Self-Worth Coach) — Warmest Variant
+### Winlet (Self-Worth Coach) — Warmest Variant
 Celebration-focused, validation-first. This is where Sage leads with recognition and reflection. "You say it's 'just' a small thing, but showing up consistently IS the thing." Helps users see patterns in their accomplishments and build lasting self-worth. Gently pushes back when users minimize their wins. Never guilt-trips about inactivity.
 
 **This modulation is NOT a contradiction.** It's the same person (Sage) reading the room differently in different contexts — exactly how a good human advisor would behave.
@@ -152,7 +152,7 @@ When a question exceeds Sage's domain:
 **This feature is intentionally NOT shared with other apps.** Rationale:
 1. **Regulatory risk** — Sage sounding like a specific person giving financial/health guidance blurs advisory disclaimers
 2. **NIST AI RMF compliance** — Single-person training data introduces documented bias (MAP 2.3)
-3. **Scalability** — Public apps (Plainly, Vinla, Accomplishly) serve diverse users; one person's worldview doesn't scale
+3. **Scalability** — Public apps (Plainly, Vinla, Winlet) serve diverse users; one person's worldview doesn't scale
 4. **Product fit** — 42ly's purpose IS to be a personalized life advisor; the other apps are domain expert coaches
 
 The other apps personalize Sage through their domain-specific data (financial situation, health profile, accomplishment patterns) — not through personality training.
@@ -166,7 +166,7 @@ The other apps personalize Sage through their domain-specific data (financial si
 | 42ly | `server/system-prompt.ts` | `server/routes/personality.ts` + `lib/personalization.ts` |
 | Vinla | `src/ai/prompts.ts` | `buildProfileContext()` + `buildHealthContext()` |
 | Plainly | `server/src/routes/coach.ts` (inline) | `buildSystemPrompt()` with financial profile |
-| Accomplishly | `server/src/lib/system-prompt.ts` | `buildSystemPrompt(personalization, memoryContext)` |
+| Winlet | `server/src/lib/system-prompt.ts` | `buildSystemPrompt(personalization, memoryContext)` |
 
 ---
 

@@ -4,7 +4,7 @@
 
 Static marketing + legal-docs site for **Plainly Digital LLC** at `https://plainlydigital.com`. Astro 5 + MDX, hosted on **Firebase Hosting** under GCP project `plainlydigital-www` (apps-org, billing `019368-94B72C-5B073A`). Authoritative DNS lives in **Cloud DNS**. CI/CD runs through **Cloud Build** on push to `main` (no GitHub Actions deploy).
 
-The site holds privacy policy + ToS for every Plainly Digital app (ClearDoc, SitterSheet, Plainly, Vinla, Accomplishly, AI Life Advisor) plus the parent-LLC about/landing pages.
+The site holds privacy policy + ToS for every Plainly Digital app (ClearDoc, SitterSheet, Plainly, Vinla, Winlet, AI Life Advisor) plus the parent-LLC about/landing pages.
 
 ## The bar for this repo
 
@@ -76,7 +76,7 @@ Once the GCP CI/CD pipeline (in ROADMAP.md as "Self-hosted CI/CD on GCP") is bui
 
 ## Key paths
 
-- `src/pages/` — 14 routes total (8 Astro, 6 MDX). Top-level: `index`, `about`, `privacy`, `terms`. Per-app subdirs: `cleardoc/{index,privacy,terms}`, `sittersheet/{index,privacy,terms}`, plus coming-soon stubs for `plainly/`, `vinla/`, `accomplishly/`, `ai-life-advisor/`.
+- `src/pages/` — 14 routes total (8 Astro, 6 MDX). Top-level: `index`, `about`, `privacy`, `terms`. Per-app subdirs: `cleardoc/{index,privacy,terms}`, `sittersheet/{index,privacy,terms}`, plus coming-soon stubs for `plainly/`, `vinla/`, `winlet/`, `ai-life-advisor/`.
 - `src/layouts/` — `BaseLayout`, `LegalLayout`, `ComingSoonLayout`
 - `src/components/` — `Header`, `Footer`, `Hero`, `AppCard`, `PhoneMockup`, `Disclaimer`
 - `src/data/apps.ts` — single source of truth for app metadata + slug lookup

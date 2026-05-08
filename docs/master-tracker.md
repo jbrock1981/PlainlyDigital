@@ -20,7 +20,7 @@
 | Plainly | DBA under Plainly Digital | ~95%, pre-beta | jbrock1981/Plainly | C:\Users\jbroc\Plainly |
 | Vinla | DBA under Plainly Digital | ~70%, family beta | jbrock1981/vytally | C:\Users\jbroc\vinla |
 | 42ly | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
-| Accomplishly | Under Plainly Digital | All 4 phases, deployed & live | jbrock1981/Accomplishly | C:\Users\jbroc\Accomplishly |
+| Winlet | Under Plainly Digital | All 4 phases, deployed & live | jbrock1981/Accomplishly | C:\Users\jbroc\Accomplishly |
 | Tradingly | Under Plainly Digital | Deployed, 37+ endpoints, rebranded, perf optimized | jbrock1981/DayTradeScreener | C:\Users\jbroc\DayTradeScreener |
 | CastFreely | Separate entity (LLC NOT YET FORMED) | ~75-80%, all 9 waves, 423 tests | jbrock1981/CastFreely | C:\Users\jbroc\CastFreely |
 | Fraus | Under Plainly Digital | Phase 1 landing scaffold only (2026-04-17), not deployed | jbrock1981/Scamly (private; rename pending) | C:\Users\jbroc\Scamly |
@@ -203,14 +203,14 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 
 ---
 
-## ACCOMPLISHLY — Personal Wins Tracker
+## WINLET — Personal Wins Tracker
 
 ### Dev Status: ALL 4 PHASES COMPLETE — 379 tests, deployed & live | All truncations fixed
 
-**Deployed:** API: accomplishly-api.onrender.com | Web: web-two-lac-36.vercel.app
+**Deployed:** API: winlet-api.onrender.com | Web: web-two-lac-36.vercel.app
 **Stack:** React Native (Expo SDK 53) + Express/Node + Neon PostgreSQL + Claude API
 **Target:** Adults — self-doubt, imposter syndrome, career transitions, caregivers
-**Database:** Neon (project: accomplishly, 13 tables, 14 indexes)
+**Database:** Neon (project: winlet, 13 tables, 14 indexes)
 **Tests:** 379 passing (204 server + 125 mobile + 25 web + 25 cost guard)
 
 **Core concept:** Backward-looking accomplishments app. Not goals or habits — things you did that mattered. Cumulative, never punitive. No streaks, no guilt.
@@ -360,7 +360,7 @@ Medium/Legal:
 
 ### Still needed:
 - [ ] 42ly Terms of Service + Privacy Policy
-- [ ] Accomplishly Terms of Service + Privacy Policy
+- [ ] Winlet Terms of Service + Privacy Policy
 - [ ] Tradingly Terms of Service + Privacy Policy
 - [ ] CastFreely Terms of Service + Privacy Policy + Operating Agreement (Lauri Brock)
 - [ ] All docs need attorney review before commercial use
@@ -377,7 +377,7 @@ All consumer apps share the Sage AI personality system:
 - **42ly:** Life advisor — most direct ("tough love dad energy")
 - **Vinla:** Health coach — direct but health-sensitive, mood-adaptive, eating disorder aware
 - **Plainly:** Financial coach — warm older-sibling energy, makes money approachable
-- **Accomplishly:** Self-worth coach — warmest variant, celebration-focused, validation-first
+- **Winlet:** Self-worth coach — warmest variant, celebration-focused, validation-first
 - **Tradingly:** Trading assistant — data-driven, risk-aware, confidence-graded (A+ to D)
 
 **Layer 3 — User Personalization (per user, per app):** Unique context injection (onboarding, usage patterns, domain-specific signals). 42ly Layer 3 intentionally NOT shared with other apps (regulatory/bias risk, NIST AI RMF MAP 2.3).
@@ -413,7 +413,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 | **Plainly** | ~95% | 493+ | Truncations fixed, AsyncStorage migrated, needs push+rebuild | Push to remote, Render env vars, eas.json, RevenueCat |
 | **Vinla** | ~70% | 290 | All truncations fixed, 290 tests passing, user tested (all 5 tabs working) | SQLite→Supabase migration, age gate, insurance |
 | **42ly** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
-| **Accomplishly** | All 4 phases | 379 | All truncations fixed, 0 TS errors, deployed | RevenueCat, Apple Dev account, domain |
+| **Winlet** | All 4 phases | 379 | All truncations fixed, 0 TS errors, deployed | RevenueCat, Apple Dev account, domain |
 | **Tradingly** | ~92% | 34 | All truncations fixed, rebranded, perf optimized, deployed | Push rebrand+perf commits, Render rename |
 | **CastFreely** | ~75-80% | 423 | All 9 waves, deployed | LLC formation, SAG-AFTRA legal, Stripe |
 
@@ -430,8 +430,8 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 |---------|---------|--------|
 | **No attorney review** | ALL | Consumer apps: Termly ($10/mo/site). CastFreely: entertainment attorney ($2K-5K) |
 | **No insurance** | Vinla, CastFreely | E&O + GL + Cyber quotes (Hiscox, Hartford, CoverWallet) |
-| **Apple/Google dev accounts** | Plainly, Vinla, 42ly, Accomplishly | $99 Apple + $25 Google, covers all apps |
-| **Trademark filings** | Vinla, 42ly, Accomplishly, CastFreely | ~$350/class each |
+| **Apple/Google dev accounts** | Plainly, Vinla, 42ly, Winlet | $99 Apple + $25 Google, covers all apps |
+| **Trademark filings** | Vinla, 42ly, Winlet, CastFreely | ~$350/class each |
 | **CastFreely LLC not formed** | CastFreely | $300 TN filing + EIN + bank |
 | **42ly DBA not registered** | 42ly | File DBA under Plainly Digital LLC |
 | **RevenueCat not set up** | ALL consumer apps | One account, wire into all 4 apps |
@@ -455,7 +455,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 2. Rename Vercel project "frontend" → "tradingly", connect tradingly.app domain
 3. Rename Render service → "tradingly-api", update ALLOWED_ORIGINS
 
-**Accomplishly — Push truncation fix:**
+**Winlet — Push truncation fix:**
 1. `cd C:\Users\jbroc\Accomplishly && git pull && git push origin main` (space-detail.tsx + spaces.tsx fix)
 
 ### This Week
@@ -464,7 +464,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 
 ### Next 2 Weeks
 1. RevenueCat setup (one account, wire into all apps: Free/$2.99/$6.99 + boost packs)
-2. File Vinla + 42ly + Accomplishly trademarks ($350/class each)
+2. File Vinla + 42ly + Winlet trademarks ($350/class each)
 3. CastFreely LLC formation ($300) + EIN
 4. 42ly DBA registration under Plainly Digital
 
@@ -472,7 +472,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 - Vinla Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
 - All apps: Sage 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
 - Plainly: Plaid production access (apply 1-2 weeks before public launch)
-- Legal docs needed for 42ly, Accomplishly, Tradingly, CastFreely
+- Legal docs needed for 42ly, Winlet, Tradingly, CastFreely
 
 **CLI MITIGATION STRATEGY:** For any file over ~80 lines, use Cowork (Edit tool) instead of CLI. CLI's truncation risk scales with file size. Use CLI only for builds, tests, git operations, and small file edits.
 
@@ -529,4 +529,4 @@ These are the canonical reference docs across all repos. Everything else has bee
 
 ---
 
-*Updated April 4, 2026 (late night) — ALL truncation damage resolved across all 6 products. Accomplishly: 2 files restored (b648bf9), 0 TS errors. Vinla: 7 files restored (f06c5aa), 290 tests passing, user tested all 5 tabs. Tradingly: 9 Python files restored (91a17c5), rebrand complete (a781241), performance optimization with React.memo + custom hooks (681834e). Plainly truncations fixed earlier (bd6472f). Combined: 6 products, 2,310+ tests. All apps compile/parse clean. No broken builds remain. Testing mode active on all apps (pro_plus for all users). Next steps: push commits from local terminals, Render/Vercel rebuilds, then business blockers (Apple Dev, RevenueCat, insurance, legal).*
+*Updated April 4, 2026 (late night) — ALL truncation damage resolved across all 6 products. Winlet: 2 files restored (b648bf9), 0 TS errors. Vinla: 7 files restored (f06c5aa), 290 tests passing, user tested all 5 tabs. Tradingly: 9 Python files restored (91a17c5), rebrand complete (a781241), performance optimization with React.memo + custom hooks (681834e). Plainly truncations fixed earlier (bd6472f). Combined: 6 products, 2,310+ tests. All apps compile/parse clean. No broken builds remain. Testing mode active on all apps (pro_plus for all users). Next steps: push commits from local terminals, Render/Vercel rebuilds, then business blockers (Apple Dev, RevenueCat, insurance, legal).*

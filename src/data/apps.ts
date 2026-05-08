@@ -94,8 +94,8 @@ export const APPS: IAppMeta[] = [
     iconSlug: "vinla",
   },
   {
-    slug: "accomplishly",
-    name: "Accomplishly",
+    slug: "winlet",
+    name: "Winlet",
     tagline: "Celebrate your wins. Then remix them.",
     description:
       "Log daily wins (or let AI extract them from screenshots), get monthly Wrapped-style recaps, and share with a Hype Circle of people who actually want you to win.",
@@ -106,9 +106,9 @@ export const APPS: IAppMeta[] = [
       "Hype Circles for invite-only celebration",
       "Win remixes (tweet/meme/affirmation)",
     ],
-    primary: "var(--app-accomplishly)",
-    primaryBg: "var(--app-accomplishly-bg)",
-    iconSlug: "accomplishly",
+    primary: "var(--app-winlet)",
+    primaryBg: "var(--app-winlet-bg)",
+    iconSlug: "winlet",
   },
   {
     slug: "ai-life-advisor",

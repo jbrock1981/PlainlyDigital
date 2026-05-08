@@ -13,7 +13,7 @@
 | **Plainly** (finlit) | jbrock1981/Plainly | React Native (Expo 55) + Express + Neon PG | Vercel + Render + Neon | ~75% complete, pre-beta |
 | **Vinla** (health) | jbrock1981/vytally | React Native (Expo 53) + Zustand + Supabase + SQLite | Vercel + Supabase | ~70% complete, family beta |
 | **42ly** (life advisor) | jbrock1981/42ly | React Native (Expo 55) + Express + Supabase PG | Vercel (42ly.vercel.app + 42ly-api.vercel.app) | MVP complete, invite beta |
-| **Accomplishly** (wins) | jbrock1981/Accomplishly | React Native (Expo 53) + Express + Neon PG + Vite web | Render (API) + Vercel (web) | Feature complete, deployed |
+| **Winlet** (wins) | jbrock1981/Accomplishly | React Native (Expo 53) + Express + Neon PG + Vite web | Render (API) + Vercel (web) | Feature complete, deployed |
 | **Fraus** (AI scam detector) | jbrock1981/Scamly (private; rename pending) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
 | **Pillarly** (senior medication assistant) | jbrock1981/Pillarly (private) | Next.js 14 (landing) → Phase 2: Express + Neon + Expo | Pending Vercel | **Phase 1 landing scaffold only (2026-04-17)** — not deployed, no MVP |
 
@@ -136,7 +136,7 @@ All apps share the same AI personality brand:
 - 718 tests (318 app + 400 server)
 - **Blockers:** Parental consent flow incomplete, no Privacy Policy/ToS, DBA not registered
 
-### Accomplishly (Personal Wins Tracker)
+### Winlet (Personal Wins Tracker)
 - Quick-capture wins, timeline, calendar heatmap
 - Lift Me Up (random past win surfacing)
 - Life Resume + Year in Review (Claude narratives)
@@ -147,9 +147,9 @@ All apps share the same AI personality brand:
 - 379 tests (229 server + 125 mobile + 25 web), TS clean across app/server/web
 - **Baseline health (2026-04-11):** app 14/14 suites green (166 tests), web TS clean, server 13/14 suites green (226/227 tests) — 1 failing resume test is a test-mock gap, NOT a runtime bug (see M2 below)
 - **Blockers:** RevenueCat not connected, no Apple Developer account, domain not purchased
-- **Audit findings (2026-04-11):** 13 verified issues — 2 Critical, 6 High, 5 Medium. See `USER_TESTING_FINDINGS_2026-04-11.md` for details and `CLI_PROMPTS_TO_FIX_FINDINGS.md` for ready-to-paste CLI tasks (both in Accomplishly repo).
+- **Audit findings (2026-04-11):** 13 verified issues — 2 Critical, 6 High, 5 Medium. See `USER_TESTING_FINDINGS_2026-04-11.md` for details and `CLI_PROMPTS_TO_FIX_FINDINGS.md` for ready-to-paste CLI tasks (both in Winlet repo).
 
-#### Accomplishly Pre-Beta Issue Todo (2026-04-11 audit)
+#### Winlet Pre-Beta Issue Todo (2026-04-11 audit)
 
 **Critical — must fix before expanding beta beyond family cohort:**
 - [ ] **C1** — Cost-guard check-then-act race (server/src/lib/cost-guard.ts:256-354) — same shape as Plainly H2, Vinla C3; needs atomic `UPDATE ... WHERE ... RETURNING`
@@ -177,7 +177,7 @@ All apps share the same AI personality brand:
 - **Model:** Family-pay ($9.99/mo for 5 seats) + individual ($4.99/mo) + free tier (5 checks/mo)
 - **Core value:** Paste a text/email/voicemail → instant Safe/Suspicious/Scam verdict in plain English with red flags + next steps
 - **Phase 1 shipped (2026-04-17):** Next.js 14 landing page + waitlist (Neon, auto-creating table) + Meta Pixel. Typecheck + build clean. Private GitHub repo. NOT deployed.
-- **Phase 2 MVP (not started):** Mirror Accomplishly — Express + JWT + Claude (Haiku default, Sonnet for image/URL deep dives) + Expo mobile + RevenueCat
+- **Phase 2 MVP (not started):** Mirror Winlet — Express + JWT + Claude (Haiku default, Sonnet for image/URL deep dives) + Expo mobile + RevenueCat
 - **Strategy:** Validate-then-build. Green-light MVP only if Meta ad CPL < $3 on 55+ audience; reposition if CPL > $8.
 - **Naming cleared 2026-04-17:** avoided "ScamShield" (Singapore GovTech + T-Mobile trademarks)
 - **Blocked on owner:** Neon project, Meta Pixel, domain purchase (<your fraus domain>), USPTO intent-to-use ($350), first `npx vercel --prod`
@@ -189,7 +189,7 @@ All apps share the same AI personality brand:
 - **Model:** Free (up to 3 meds) + Pro $7.99/mo (unlimited + voice + full interactions) + Family Pro+ $14.99/mo (5 members + missed-dose alerts)
 - **Core value:** Point phone at pill bottle → OCR + plain-English explanation + reminders + interaction/allergy checks; family dashboard for adult children
 - **Phase 1 shipped (2026-04-17):** Next.js 14 landing page + waitlist + Meta Pixel. Senior-friendly defaults (18px base, 1.6 line-height, big buttons). Disclaimer "assistant, not a medical device." Typecheck + build clean. Private GitHub repo. NOT deployed.
-- **Phase 2 MVP (not started):** Mirror Accomplishly — Express + JWT + Claude Vision for OCR + RxNorm (free NIH) / DrugBank (paid) for interactions + Expo mobile (voice-first)
+- **Phase 2 MVP (not started):** Mirror Winlet — Express + JWT + Claude Vision for OCR + RxNorm (free NIH) / DrugBank (paid) for interactions + Expo mobile (voice-first)
 - **Strategy:** Validate-then-build. Green-light MVP only if Meta ad CPL < $4; reposition if CPL > $10.
 - **Naming cleared 2026-04-17:** avoided "Pill Buddy" (multiple iOS conflicts) and "Dosely" (Skidoosh Games LLC)
 - **Blocked on owner:** Neon project, Meta Pixel, domain purchase (pillarly.com/.app), USPTO intent-to-use ($350), first `npx vercel --prod`
@@ -264,7 +264,7 @@ All apps share the same AI personality brand:
 
 ### Medium-Term
 - [ ] App Store submissions (all apps need eas.json credentials)
-- [ ] Accomplishly domain purchase
+- [ ] Winlet domain purchase (<your winlet domain>)
 - [ ] Fraus + Pillarly domain purchases (contingent on ad validation)
 - [ ] Marketing / ASO strategy
 - [ ] Pillarly HIPAA review + Apple medical-app guideline review (HARD gates for MVP launch)
@@ -295,8 +295,8 @@ See each entity's own repo for their master tracker.
 ### Missing Legal
 - [ ] 42ly Terms of Service
 - [ ] 42ly Privacy Policy
-- [ ] Accomplishly Terms of Service
-- [ ] Accomplishly Privacy Policy
+- [ ] Winlet Terms of Service
+- [ ] Winlet Privacy Policy
 - [ ] Fraus Terms of Service (landing page currently has no legal pages)
 - [ ] Fraus Privacy Policy (forwarded scam content may contain third-party PII — needs counsel)
 - [ ] Pillarly Terms of Service (MUST include "not a medical device" + "not medical advice" carve-outs)

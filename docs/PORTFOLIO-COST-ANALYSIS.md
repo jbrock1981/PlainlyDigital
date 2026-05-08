@@ -5,7 +5,7 @@
 
 ## Pricing Standard (All 4 Apps)
 
-Based on Accomplishly's proven model, all apps standardize on:
+Based on Winlet's proven model, all apps standardize on:
 
 | Tier | Monthly | Annual | AI Calls/Day | AI Calls/Month | Chat Model |
 |------|---------|--------|-------------|---------------|------------|
@@ -156,7 +156,7 @@ Based on Accomplishly's proven model, all apps standardize on:
 
 ---
 
-# 2. ACCOMPLISHLY — Achievement Tracking App
+# 2. WINLET — Achievement Tracking App
 
 ## AI Call Sites (9 endpoints)
 
@@ -195,7 +195,7 @@ Based on Accomplishly's proven model, all apps standardize on:
 | Pro Max monthly | $6.99 | $1.36 | **$5.63 (81%)** | $4.82 | **$2.17 (31%)** |
 
 ### 2. Boost Packs
-Same pricing structure as Plainly. Accomplishly already has this implemented.
+Same pricing structure as Plainly. Winlet already has this implemented.
 
 ### 3. Premium Exports (Future Upsell Potential)
 - **Life Resume** — polished HTML export of accomplishments. Could be $4.99 one-time or included in Pro Max.
@@ -206,7 +206,7 @@ Same pricing structure as Plainly. Accomplishly already has this implemented.
 - Employee wellness programs (accomplishment tracking for teams)
 - White-label for HR platforms
 
-## Accomplishly Break-Even & Projections
+## Winlet Break-Even & Projections
 
 **Break-even:** $74 ÷ $4.19 = **18 Pro monthly subscribers**
 
@@ -368,7 +368,7 @@ Same structure. Vinla's health-focused power users (meal plan generation, daily 
 
 ## Combined Revenue Projections
 
-| Month | Plainly | Accomplishly | Vinla | 42ly | **Portfolio MRR** | **Portfolio Net** |
+| Month | Plainly | Winlet | Vinla | 42ly | **Portfolio MRR** | **Portfolio Net** |
 |-------|---------|-------------|---------|------|------------------|------------------|
 | 3 | $308 | $192 | $183 | $168 | **$851** | **$555** |
 | 6 | $966 | $505 | $546 | $495 | **$2,512** | **$2,216** |

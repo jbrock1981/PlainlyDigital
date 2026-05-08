@@ -29,7 +29,7 @@ Shipped landing-page scaffolds 2026-04-17. Owner must execute the validation gat
 - [ ] Configure Plainly server env vars on Render (Plaid, Google OAuth, internal API key)
 - [ ] Plainly audit C1/C2/C3 (test suite regression; Plaid revocation on delete; pdf-parse crash)
 - [ ] Vinla audit C1/C2/C3 (server-side prompt assembly; Sonnet tier enforcement; cost-guard race)
-- [ ] Accomplishly audit C1/C2 (cost-guard race; timing-safe webhook)
+- [ ] Winlet audit C1/C2 (cost-guard race; timing-safe webhook)
 - [ ] 42ly Privacy Policy + ToS
 - [ ] 42ly DBA registration under Plainly Digital LLC
 
@@ -38,7 +38,7 @@ Shipped landing-page scaffolds 2026-04-17. Owner must execute the validation gat
 ## Next (4–8 weeks)
 
 ### Fraus / Pillarly MVPs — CONDITIONAL on validation gate
-If validation greenlights, mirror the Accomplishly stack:
+If validation greenlights, mirror the Winlet stack:
 - Express + TypeScript + JWT (custom auth — no Supabase) on Render
 - Neon Postgres
 - Claude API with `cost-guard.ts` tier enforcement
@@ -54,7 +54,7 @@ Pillarly adds two hard legal gates before public launch:
 - [ ] Plainly public beta
 - [ ] Vinla public beta (requires Supabase sync + age gate)
 - [ ] 42ly invite beta → public beta
-- [ ] Accomplishly domain purchase + App Store submission
+- [ ] Winlet domain purchase (<your winlet domain>) + App Store submission
 
 ---
 
@@ -72,7 +72,7 @@ Pillarly adds two hard legal gates before public launch:
 
 - Every customer-facing app must have ToS + Privacy Policy before public launch
 - Every AI-backed feature must go through Sage 3-layer architecture + NIST AI RMF docs (see `SAGE-BRAND-PERSONALITY.md`, `NIST-AI-GOVERNANCE.md`)
-- No Supabase auth on new apps — custom JWT per the Accomplishly pattern (portfolio decision locked 2026-04-17)
+- No Supabase auth on new apps — custom JWT per the Winlet pattern (portfolio decision locked 2026-04-17)
 - Google + Apple sign-in added only **after** email/password MVP is live in App Store + Play Store
 - USPTO intent-to-use filings before public ad spend on any new brand
 
@@ -80,6 +80,6 @@ Pillarly adds two hard legal gates before public launch:
 
 ## Cross-product decisions locked 2026-04-17
 
-- **Auth:** No Supabase. Custom JWT following the Accomplishly pattern for every new app.
+- **Auth:** No Supabase. Custom JWT following the Winlet pattern for every new app.
 - **Name clearance:** Always check iOS App Store, Play Store, and USPTO before committing to a new brand. Two names were rejected at scaffolding (ScamShield → Fraus; Pill Buddy → Pillarly).
 - **Validate-then-build:** For any new consumer app, ship landing + Meta Pixel first, validate CPL against published thresholds, only then commit 2–4 weeks to an MVP.

@@ -18,7 +18,7 @@ Live at: https://plainlydigital.com
 | SitterSheet | Pre-launch (mobile) | AI-generated pet/house-sitter guide, one shareable link |
 | Plainly | Coming soon | Financial literacy for Gen Z |
 | Vinla | Coming soon | Health intelligence with N-of-1 experiments |
-| Accomplishly | Coming soon | Daily wins tracker with AI-powered remixes |
+| Winlet | Coming soon | Daily wins tracker with AI-powered remixes |
 | AI Life Advisor | Coming soon | Personal AI advisor for life questions (name TBD) |
 
 ## Stack
