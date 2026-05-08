@@ -60,8 +60,8 @@ export const APPS: IAppMeta[] = [
     },
   },
   {
-    slug: "plainly",
-    name: "Plainly",
+    slug: "patet",
+    name: "Patet",
     tagline: "Financial literacy for Gen Z, in your voice.",
     description:
       "Bite-sized, interactive lessons on budgeting, investing, debt, taxes, and more — paired with an AI coach that adapts to where you are, not where finance bros assume you should be.",
@@ -72,9 +72,9 @@ export const APPS: IAppMeta[] = [
       "Real-time bank account integration",
       "Crisis features (overdraft help, scam recognition) always free",
     ],
-    primary: "var(--app-plainly)",
-    primaryBg: "var(--app-plainly-bg)",
-    iconSlug: "plainly",
+    primary: "var(--app-patet)",
+    primaryBg: "var(--app-patet-bg)",
+    iconSlug: "patet",
   },
   {
     slug: "vinla",
