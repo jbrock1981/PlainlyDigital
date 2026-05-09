@@ -1,7 +1,248 @@
 ---
-import ComingSoonLayout from "@/layouts/ComingSoonLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import PhoneMockup from "@/components/PhoneMockup.astro";
+import Disclaimer from "@/components/Disclaimer.astro";
 import { appBySlug } from "@/data/apps";
+
 const app = appBySlug("patet")!;
 ---
 
-<ComingSoonLayout app={app} />
+<BaseLayout
+  title={app.name}
+  description={`${app.tagline} — ${app.description}`}
+>
+  <Hero
+    eyebrow="Patet"
+    title={app.tagline}
+    subtitle={app.description}
+  >
+    <p class="badge-row">
+      <span class="badge">In beta — App Store + Google Play soon</span>
+    </p>
+  </Hero>
+
+  <section class="split">
+    <div class="container split__inner">
+      <div class="split__copy">
+        <h2>What it does</h2>
+        <ul class="features">
+          {app.features.map((f) => <li>{f}</li>)}
+        </ul>
+
+        <h2>Pricing</h2>
+        <div class="pricing">
+          <div class="price">
+            <p class="price__name">Free</p>
+            <p class="price__amount">$0</p>
+            <p class="muted">10 coach calls/day · 60/mo · all 121 lessons.</p>
+          </div>
+          <div class="price price--featured">
+            <p class="price__name">Pro</p>
+            <p class="price__amount">$24.99<span>/yr</span></p>
+            <p class="muted">40 calls/day · statement uploads · annual saves 30%.</p>
+          </div>
+          <div class="price">
+            <p class="price__name">Pro+</p>
+            <p class="price__amount">$57.99<span>/yr</span></p>
+            <p class="muted">80 calls/day · Sonnet model on coach · priority feed.</p>
+          </div>
+        </div>
+
+        <Disclaimer>
+          <strong>Educational, not financial advice.</strong>
+          Patet teaches money concepts and surfaces patterns from your data.
+          For investment, tax, or legal decisions, consult a licensed
+          professional.
+        </Disclaimer>
+      </div>
+
+      <div class="split__visual">
+        <PhoneMockup
+          label="Coach reading your spending"
+          accent="var(--app-patet)"
+          bg="#0F0F0F"
+        >
+          <div class="mock pt-mock">
+            <header class="pt-mock__head">
+              <span class="pt-mock__avatar" aria-hidden="true">N</span>
+              <span class="pt-mock__title">Notch</span>
+              <span class="pt-mock__dot" aria-hidden="true"></span>
+            </header>
+            <div class="pt-mock__body">
+              <p class="pt-mock__tag">Pattern detected · 90 days</p>
+              <h3 class="pt-mock__h">DoorDash is up <strong>$112</strong></h3>
+              <p class="pt-mock__sum">
+                You went from 4 orders/mo to 9 since March. That's not a budget
+                problem — it's a "rough week, didn't cook" pattern. Want the
+                lesson on emotional spending or the one on subscription audit?
+              </p>
+              <div class="pt-mock__chips">
+                <span class="pt-mock__chip">Lesson 4.4 →</span>
+                <span class="pt-mock__chip">Lesson 4.5 →</span>
+              </div>
+              <button class="pt-mock__btn">Open coach</button>
+            </div>
+          </div>
+        </PhoneMockup>
+      </div>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="container">
+      <h2>Privacy summary</h2>
+      <p class="lead">
+        Bank connections via Plaid are read-only — Patet cannot move money.
+        Plaid tokens are encrypted with AES-256-GCM. Coach conversations are
+        sent to Anthropic's API for one-time processing — not retained, not
+        used for training. Uploaded statements are parsed in memory, never
+        stored as files; only extracted transactions are kept, and you can
+        delete them in two taps.
+      </p>
+      <p>
+        Read the full <a href="/patet/privacy">privacy policy</a> and
+        <a href="/patet/terms">terms of service</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .badge-row { margin: 0; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--pd-space-2) var(--pd-space-4);
+    border-radius: 999px;
+    background: var(--app-patet-bg);
+    color: var(--app-patet);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .split__inner {
+    display: grid;
+    gap: var(--pd-space-12);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .split__inner {
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    }
+  }
+  .features { list-style: none; padding: 0; margin-bottom: var(--pd-space-8); }
+  .features li {
+    position: relative;
+    padding-inline-start: 1.75rem;
+    color: var(--pd-ink-soft);
+  }
+  .features li::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--app-patet);
+  }
+  .pricing {
+    display: grid;
+    gap: var(--pd-space-3);
+    grid-template-columns: 1fr;
+    margin-bottom: var(--pd-space-8);
+  }
+  @media (min-width: 600px) {
+    .pricing { grid-template-columns: repeat(3, 1fr); }
+  }
+  .price {
+    padding: var(--pd-space-4);
+    border-radius: var(--pd-radius);
+    border: 1px solid var(--pd-line);
+    background: var(--pd-surface);
+  }
+  .price--featured {
+    border-color: var(--app-patet);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--app-patet) 18%, transparent);
+  }
+  .price__name {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--pd-ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .price__amount {
+    margin: var(--pd-space-2) 0;
+    font-family: var(--pd-font-display);
+    font-size: 1.625rem;
+    font-weight: 800;
+  }
+  .price__amount span { font-size: 0.875rem; font-weight: 600; color: var(--pd-ink-muted); }
+
+  .meta { background: var(--pd-surface-alt); }
+  .meta .lead { margin-bottom: var(--pd-space-4); }
+
+  /* Patet phone mockup — dark mode money-coach feel */
+  .pt-mock {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: #fafafa;
+    font-family: var(--pd-font-sans);
+  }
+  .pt-mock__head {
+    display: flex;
+    align-items: center;
+    padding: 32px 16px 12px;
+    gap: 12px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .pt-mock__avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--app-patet);
+    color: #0F0F0F;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 13px;
+  }
+  .pt-mock__title { flex: 1; font-weight: 700; font-size: 15px; }
+  .pt-mock__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--app-patet); }
+  .pt-mock__body { padding: 16px; flex: 1; overflow: hidden; }
+  .pt-mock__tag {
+    font-size: 11px;
+    color: var(--app-patet);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 8px;
+  }
+  .pt-mock__h { margin: 0 0 8px; font-size: 22px; font-weight: 800; color: #fafafa; }
+  .pt-mock__h strong { color: var(--app-patet); }
+  .pt-mock__sum { font-size: 12.5px; color: #c0c0c0; margin: 0 0 14px; line-height: 1.5; }
+  .pt-mock__chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
+  .pt-mock__chip {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: rgba(29, 185, 84, 0.16);
+    color: var(--app-patet);
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .pt-mock__btn {
+    margin-top: 8px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 12px;
+    background: var(--app-patet);
+    color: #0F0F0F;
+    font-weight: 700;
+    font-size: 13px;
+  }
+</style>

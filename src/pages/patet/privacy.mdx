@@ -1,0 +1,96 @@
+---
+layout: "@/layouts/LegalLayout.astro"
+title: "Patet privacy policy"
+description: "How Patet collects, uses, stores, and deletes your data."
+effective: "May 9, 2026"
+---
+
+Patet is a mobile and web app published by Plainly Digital LLC ("we," "us," "our")
+that pairs financial literacy lessons with an AI money coach that reads your real
+spending. This privacy policy explains what data Patet collects, how it is used,
+where it goes, and how to delete it.
+
+## What Patet collects
+
+When you use Patet:
+
+- **Account data**: name, email address, password (hashed). Email verification
+  + password reset use single-use tokens that expire in minutes.
+- **Onboarding profile**: financial situation, primary worry, optional financial
+  snapshot (income range, debts, savings goals). You can edit or clear any of it
+  at any time.
+- **Coach conversations**: every message you send to Notch (the AI coach) and
+  every reply, retained for up to 12 months for session context.
+- **Lesson progress**: which of the 121 lessons you've started or completed.
+- **Bank account data via Plaid** (optional): if you connect a bank, Plaid
+  passes us read-only access to balances, transaction history, and account
+  metadata. Bank login credentials never reach Plainly Digital. Tokens are
+  encrypted with AES-256-GCM at rest.
+- **Uploaded statements** (optional): if you upload a PDF, CSV, or Excel
+  statement, the file is parsed in memory and discarded — only extracted
+  transactions are stored, and you can delete them in two taps.
+- **Subscription state**: your current tier (Free / Pro / Pro+), boost-pack
+  balance, and renewal date — sourced from RevenueCat (App Store / Play Store
+  receipts). We never see your card.
+- **Push tokens** (optional): if you allow notifications, your Expo push token.
+- **Crash + performance data**: anonymized via Sentry. No identifying tokens.
+
+## What we do with it
+
+- Generate coach replies (Anthropic's API, one-time per request, no training).
+- Show your real spending alongside the right lessons.
+- Track lesson progress and send opt-in nudges.
+- Process subscription payments via the App Store / Play Store.
+- Detect fraud, abuse, and security threats.
+- Comply with legal obligations.
+
+We do **not** sell your personal information. We do **not** use your financial
+data for advertising. Affiliate links are clearly disclosed; we earn a
+commission only when you choose to act on a link.
+
+## Where data goes
+
+- **Anthropic** processes coach messages and statement-extraction text. Per
+  Anthropic's API agreement, customer data is not used to train their models.
+- **Plaid** brokers bank connections. See Plaid's privacy notice for their
+  retention.
+- **RevenueCat** processes subscription receipts. See RevenueCat's privacy
+  notice for their retention.
+- **Neon (PostgreSQL)** hosts the encrypted application database in AWS US East.
+- **Render** hosts the API server.
+- **Sentry** receives anonymized crash data.
+
+## Crisis handling
+
+If a coach message indicates self-harm or imminent danger, Patet shows you
+988 / Crisis Text Line / 211.org resources. Crisis routing is always free —
+it's not gated by tier or rate limits.
+
+## Your controls
+
+- **Delete your account** in Settings → Account → Delete. We delete your
+  profile, lesson progress, conversations, transactions, and subscription
+  metadata within 30 days. Plaid connections are unlinked immediately.
+- **Disconnect a bank** at any time. Tokens are deleted; the existing
+  transaction snapshot stays unless you also delete those.
+- **Export your data** — request via support@plainlydigital.com.
+- **Opt out of analytics** in Settings → Privacy → Analytics.
+
+## Children
+
+Patet is not directed to children under 13. We do not knowingly collect data
+from children under 13. If you believe we have, contact us at
+support@plainlydigital.com and we will delete it.
+
+## Changes
+
+If we change this policy materially, we'll notify you in-app before the new
+policy takes effect. The current effective date is shown at the top of this
+page.
+
+## Contact
+
+Plainly Digital LLC · support@plainlydigital.com · Tennessee, USA
+
+This policy is governed by Tennessee law. Disputes resolved per the Terms of
+Service.

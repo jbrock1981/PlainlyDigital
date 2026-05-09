@@ -62,19 +62,26 @@ export const APPS: IAppMeta[] = [
   {
     slug: "patet",
     name: "Patet",
-    tagline: "Financial literacy for Gen Z, in your voice.",
+    tagline: "Money skills + your real bank data.",
     description:
-      "Bite-sized, interactive lessons on budgeting, investing, debt, taxes, and more — paired with an AI coach that adapts to where you are, not where finance bros assume you should be.",
-    status: "coming-soon",
+      "121 bite-sized lessons across 18 modules, paired with Notch — an AI money coach that reads your real spending. When you spend $80 on takeout this week, the lesson on category creep doesn't wait for next month — it's there now.",
+    status: "in-beta",
     features: [
-      "Curriculum across 18 modules",
-      "AI coach calibrated to your background and goals",
-      "Real-time bank account integration",
-      "Crisis features (overdraft help, scam recognition) always free",
+      "121 lessons across 18 modules — budgeting, debt, investing, taxes, retirement",
+      "Notch AI coach reads your real Plaid transactions + uploaded statements",
+      "Bank statement upload — PDF, CSV, Excel — AI extracts transactions if you don't want Plaid",
+      "Plaid-driven lesson recommendations: spent $X on Y → here's the lesson that hits",
+      "Money Personality, Money Roast, Future You, financial health score",
+      "Free credential — passing the 50-question assessment earns a shareable certification",
+      "Crisis routing always free, regardless of tier",
     ],
     primary: "var(--app-patet)",
     primaryBg: "var(--app-patet-bg)",
     iconSlug: "patet",
+    legal: {
+      privacyPath: "/patet/privacy",
+      termsPath: "/patet/terms",
+    },
   },
   {
     slug: "vinla",
