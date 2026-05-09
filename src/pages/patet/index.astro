@@ -6,6 +6,38 @@ import Disclaimer from "@/components/Disclaimer.astro";
 import { appBySlug } from "@/data/apps";
 
 const app = appBySlug("patet")!;
+
+const patetJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Patet",
+  description: `${app.tagline} — ${app.description}`,
+  url: "https://plainlydigital.com/patet",
+  applicationCategory: "FinanceApplication",
+  operatingSystem: "iOS, Android",
+  offers: [
+    { "@type": "Offer", name: "Free", price: "0", priceCurrency: "USD" },
+    {
+      "@type": "Offer",
+      name: "Pro",
+      price: "24.99",
+      priceCurrency: "USD",
+      category: "subscription",
+    },
+    {
+      "@type": "Offer",
+      name: "Pro+",
+      price: "57.99",
+      priceCurrency: "USD",
+      category: "subscription",
+    },
+  ],
+  publisher: {
+    "@type": "Organization",
+    name: "Plainly Digital LLC",
+    url: "https://plainlydigital.com",
+  },
+};
 ---
 
 <BaseLayout
@@ -13,6 +45,9 @@ const app = appBySlug("patet")!;
   description={`${app.tagline} — ${app.description}`}
   ogImage="/og-patet.png"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(patetJsonLd)} />
+  </Fragment>
   <Hero
     eyebrow="Patet"
     title={app.tagline}

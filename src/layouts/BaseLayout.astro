@@ -13,6 +13,7 @@ interface Props {
 const { title, description, ogImage = "/og-default.png", noindex = false } = Astro.props;
 const fullTitle = title === "Plainly Digital" ? title : `${title} — Plainly Digital`;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://plainlydigital.com").toString();
+const ogImageUrl = new URL(ogImage, Astro.site ?? "https://plainlydigital.com").toString();
 ---
 
 <!doctype html>
@@ -34,15 +35,20 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://plainlydigi
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={new URL(ogImage, Astro.site ?? "https://plainlydigital.com").toString()} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="Plainly Digital" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
 
     <meta name="theme-color" content="#0F0F1A" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#FAFAF7" media="(prefers-color-scheme: light)" />
+
+    <slot name="head" />
   </head>
   <body>
     <a href="#main" class="skip-link">Skip to main content</a>

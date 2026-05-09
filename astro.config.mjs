@@ -1,5 +1,6 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
   site: "https://plainlydigital.com",
@@ -8,7 +9,7 @@ export default defineConfig({
     format: "directory",
     inlineStylesheets: "auto",
   },
-  integrations: [mdx()],
+  integrations: [mdx(), sitemap()],
   compressHTML: true,
   prefetch: {
     prefetchAll: false,

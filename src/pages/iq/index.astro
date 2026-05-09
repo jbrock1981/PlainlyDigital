@@ -4,12 +4,34 @@ import Hero from "@/components/Hero.astro";
 import Disclaimer from "@/components/Disclaimer.astro";
 
 const QUIZ_URL = "https://plainly-psi.vercel.app/iq";
+
+const iqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Quiz",
+  name: "Financial IQ",
+  description:
+    "A 20-question Financial IQ quiz from Patet. Five minutes, instant score, no account needed.",
+  url: "https://plainlydigital.com/iq",
+  educationalLevel: "Beginner",
+  audience: {
+    "@type": "Audience",
+    audienceType: "Adult",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "Plainly Digital LLC",
+    url: "https://plainlydigital.com",
+  },
+};
 ---
 
 <BaseLayout
   title="Financial IQ"
   description="A 20-question Financial IQ quiz from Patet. Five minutes, instant score, no account needed."
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(iqJsonLd)} />
+  </Fragment>
   <Hero
     eyebrow="Financial IQ"
     title="How money-fluent are you?"
