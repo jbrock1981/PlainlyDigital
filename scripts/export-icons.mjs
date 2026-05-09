@@ -37,4 +37,8 @@ for (const svg of svgs) {
 await render(join(PUBLIC, "og-default.svg"), join(PUBLIC, "og-default.png"), 1200);
 console.log(`✓ og-default.svg → og-default.png`);
 
-console.log(`\nGenerated ${svgs.length + 1} images.`);
+// Open Graph image for Patet (1200x630)
+await render(join(PUBLIC, "og-patet.svg"), join(PUBLIC, "og-patet.png"), 1200);
+console.log(`✓ og-patet.svg → og-patet.png`);
+
+console.log(`\nGenerated ${svgs.length + 2} images.`);

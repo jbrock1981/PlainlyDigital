@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Patet">
+  <!-- Dark background -->
+  <rect width="1200" height="630" fill="#0F0F0F"/>
+
+  <!-- Subtle green accent glow in upper-left -->
+  <defs>
+    <radialGradient id="glow" cx="22%" cy="28%" r="55%">
+      <stop offset="0%" stop-color="#1DB954" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#1DB954" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- Geometric P mark (left-aligned, scaled from app icon's 1024x1024 viewBox) -->
+  <!-- Original stem at x=368, y=288, w=80, h=448 in 1024-space -->
+  <!-- Scale factor 0.78125 → place mark inside a 400x400 area starting at x=120, y=115 -->
+  <!-- Stem -->
+  <rect x="183" y="180" width="63" height="350" rx="31" fill="#1DB954"/>
+  <!-- Bowl -->
+  <path d="M 214 180 L 339 180 A 113 113 0 0 1 339 405 L 214 405 Z" fill="#1DB954"/>
+  <!-- Inner negative-space cutout -->
+  <path d="M 246 236 L 339 236 A 56 56 0 0 1 339 349 L 246 349 Z" fill="#0F0F0F"/>
+  <!-- Subtle bar accent through the stem -->
+  <rect x="152" y="280" width="125" height="19" rx="9" fill="#0F0F0F"/>
+  <rect x="152" y="280" width="125" height="19" rx="9" fill="#1DB954" opacity="0.45"/>
+
+  <!-- Right-side composition: stacked horizontal bars suggesting clean typography rhythm -->
+  <!-- Headline-row stand-in: a thick green underline -->
+  <rect x="540" y="220" width="320" height="14" rx="7" fill="#1DB954"/>
+  <!-- Sub-bars (taglines stand-in) — soft white/grey to imply text rhythm without rendering text -->
+  <rect x="540" y="270" width="520" height="10" rx="5" fill="#FAFAFA" opacity="0.85"/>
+  <rect x="540" y="296" width="460" height="10" rx="5" fill="#FAFAFA" opacity="0.55"/>
+  <rect x="540" y="322" width="380" height="10" rx="5" fill="#FAFAFA" opacity="0.35"/>
+
+  <!-- Lower right accent: small green dot pair (visual rhythm) -->
+  <circle cx="552" cy="408" r="6" fill="#1DB954"/>
+  <circle cx="582" cy="408" r="6" fill="#1DB954" opacity="0.55"/>
+  <circle cx="612" cy="408" r="6" fill="#1DB954" opacity="0.30"/>
+
+  <!-- Footer band -->
+  <rect x="0" y="560" width="1200" height="70" fill="#000" opacity="0.55"/>
+  <!-- Footer left mark: small green dot indicating brand -->
+  <circle cx="100" cy="595" r="9" fill="#1DB954"/>
+  <!-- Footer right accent bar -->
+  <rect x="940" y="588" width="180" height="12" rx="6" fill="#FAFAFA" opacity="0.50"/>
+</svg>

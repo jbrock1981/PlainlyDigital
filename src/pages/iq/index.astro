@@ -1,0 +1,192 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Disclaimer from "@/components/Disclaimer.astro";
+
+const QUIZ_URL = "https://plainly-psi.vercel.app/iq";
+---
+
+<BaseLayout
+  title="Financial IQ"
+  description="A 20-question Financial IQ quiz from Patet. Five minutes, instant score, no account needed."
+>
+  <Hero
+    eyebrow="Financial IQ"
+    title="How money-fluent are you?"
+    subtitle="20 questions, 5 minutes, instant score, no account needed."
+  >
+    <p class="cta-row">
+      <a
+        class="cta"
+        href={QUIZ_URL}
+        aria-label="Take the Financial IQ quiz"
+        rel="noopener"
+      >
+        Take the quiz
+      </a>
+    </p>
+  </Hero>
+
+  <section class="split">
+    <div class="container split__inner">
+      <div class="split__copy">
+        <h2>How it works</h2>
+        <p class="lead">
+          Twenty questions, scored on a five-tier scale. No login, no email
+          capture, no shame about where you land. You get a result you can
+          share, and a sense of which money concepts to brush up on next.
+        </p>
+
+        <ul class="tiers">
+          <li>
+            <span class="tier__name">Beginner</span>
+            <span class="tier__desc">Just getting oriented to money basics.</span>
+          </li>
+          <li>
+            <span class="tier__name">Aware</span>
+            <span class="tier__desc">You know the vocabulary; running the math is the next step.</span>
+          </li>
+          <li>
+            <span class="tier__name">Sharp</span>
+            <span class="tier__desc">Solid grasp of budgeting, credit, and saving.</span>
+          </li>
+          <li>
+            <span class="tier__name">Strong</span>
+            <span class="tier__desc">Comfortable with investing concepts and tax mechanics.</span>
+          </li>
+          <li>
+            <span class="tier__name">Expert</span>
+            <span class="tier__desc">You could explain this stuff to a friend over coffee.</span>
+          </li>
+        </ul>
+
+        <Disclaimer>
+          <strong>Educational, not financial advice.</strong>
+          The Financial IQ quiz is meant to surface gaps in money knowledge,
+          not to rank people or recommend products. For investment, tax, or
+          legal decisions, consult a licensed professional. Operated by
+          Plainly Digital LLC under the laws of the State of Tennessee.
+        </Disclaimer>
+      </div>
+
+      <div class="split__copy">
+        <h2>What this is</h2>
+        <p>
+          The Financial IQ quiz is a free, public diagnostic from Patet, our
+          money-coaching app. The questions cover budgeting, credit, saving,
+          investing, taxes, and the kind of everyday tradeoffs most people
+          never get taught. Your answers are scored by Notch, the coach
+          inside Patet, and you get a result link you can keep or share.
+        </p>
+
+        <h2>Why we built it</h2>
+        <p>
+          Most people leave high school without ever being graded on money,
+          and "financial literacy" content online tends to either patronize
+          or upsell. We wanted a five-minute, no-signup way to get a real
+          read on where you are — and a clear path to the lessons that fix
+          the gaps.
+        </p>
+
+        <p class="cta-row cta-row--inline">
+          <a
+            class="cta"
+            href={QUIZ_URL}
+            aria-label="Take the Financial IQ quiz"
+            rel="noopener"
+          >
+            Take the quiz
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="meta">
+    <div class="container">
+      <h2>About the score</h2>
+      <p class="lead">
+        Your result is a snapshot, not a verdict. The same person can score
+        differently depending on which 20 questions land in their set, and
+        nobody walks in knowing every answer. The point is to spot the area
+        where the next hour of learning pays off most.
+      </p>
+      <p>
+        Curious about the lessons behind the score? See <a href="/patet">Patet</a>.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .cta-row { margin: 0; }
+  .cta-row--inline { margin-top: var(--pd-space-6); }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: var(--pd-tap);
+    padding: var(--pd-space-3) var(--pd-space-8);
+    border-radius: 999px;
+    background: var(--app-patet);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    box-shadow: var(--pd-shadow);
+    transition: transform 0.08s ease, box-shadow 0.12s ease, background 0.12s ease;
+  }
+  .cta:hover {
+    background: color-mix(in oklab, var(--app-patet) 88%, #000);
+    box-shadow: var(--pd-shadow-lg);
+  }
+  .cta:active { transform: translateY(1px); }
+  .cta:focus-visible {
+    outline: 3px solid color-mix(in oklab, var(--app-patet) 60%, transparent);
+    outline-offset: 3px;
+  }
+
+  .split__inner {
+    display: grid;
+    gap: var(--pd-space-12);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  @media (min-width: 960px) {
+    .split__inner {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+  }
+
+  .tiers {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--pd-space-8);
+    display: grid;
+    gap: var(--pd-space-2);
+  }
+  .tiers li {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: var(--pd-space-3);
+    align-items: baseline;
+    padding: var(--pd-space-3) var(--pd-space-4);
+    border-radius: var(--pd-radius-sm);
+    background: var(--app-patet-bg);
+  }
+  .tier__name {
+    font-weight: 700;
+    color: var(--app-patet);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 0.8125rem;
+  }
+  .tier__desc {
+    color: var(--pd-ink-soft);
+    font-size: 0.9375rem;
+  }
+
+  .meta { background: var(--pd-surface-alt); }
+  .meta .lead { margin-bottom: var(--pd-space-4); }
+</style>
