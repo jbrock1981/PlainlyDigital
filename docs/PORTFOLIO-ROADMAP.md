@@ -30,8 +30,8 @@ Shipped landing-page scaffolds 2026-04-17. Owner must execute the validation gat
 - [ ] Plainly audit C1/C2/C3 (test suite regression; Plaid revocation on delete; pdf-parse crash)
 - [ ] Vinla audit C1/C2/C3 (server-side prompt assembly; Sonnet tier enforcement; cost-guard race)
 - [ ] Winlet audit C1/C2 (cost-guard race; timing-safe webhook)
-- [ ] Notch Privacy Policy + ToS
-- [ ] Notch DBA registration under Plainly Digital LLC
+- [ ] Glyphe Privacy Policy + ToS
+- [ ] Glyphe DBA registration under Plainly Digital LLC
 
 ---
 
@@ -53,7 +53,7 @@ Salvis adds two hard legal gates before public launch:
 ### Core four — public beta
 - [ ] Plainly public beta
 - [ ] Vinla public beta (requires Supabase sync + age gate)
-- [ ] Notch invite beta → public beta
+- [ ] Glyphe invite beta → public beta
 - [ ] Winlet domain purchase (<your winlet domain>) + App Store submission
 
 ---
@@ -71,7 +71,7 @@ Salvis adds two hard legal gates before public launch:
 ## Standing gates (portfolio-wide)
 
 - Every customer-facing app must have ToS + Privacy Policy before public launch
-- Every AI-backed feature must go through Notch 3-layer architecture + NIST AI RMF docs (see `NOTCH-BRAND-PERSONALITY.md`, `NIST-AI-GOVERNANCE.md`)
+- Every AI-backed feature must go through Glyphe 3-layer architecture + NIST AI RMF docs (see `GLYPHE-BRAND-PERSONALITY.md`, `NIST-AI-GOVERNANCE.md`)
 - No Supabase auth on new apps — custom JWT per the Winlet pattern (portfolio decision locked 2026-04-17)
 - Google + Apple sign-in added only **after** email/password MVP is live in App Store + Play Store
 - USPTO intent-to-use filings before public ad spend on any new brand

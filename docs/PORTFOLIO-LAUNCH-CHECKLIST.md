@@ -134,9 +134,9 @@ Per revenue plan, SitterSheet has a $50-300 MRR ceiling and competes with NYC we
 
 ---
 
-## Notch (AI life advisor) — rename required before public launch
+## Glyphe (AI life advisor) — rename required before public launch
 
-- [ ] **Decide rename.** Notch is TM-blocked by 10bit FX (USPTO Reg #7691781). Per `project_app_name_clearance.md` clearance done 2026-05-09 — Notch is BLOCKED. Pick a new name; run USPTO + App Store + Play + .com clearance.
+- [ ] **Decide rename.** Glyphe is TM-blocked by 10bit FX (USPTO Reg #7691781). Per `project_app_name_clearance.md` clearance done 2026-05-09 — Glyphe is BLOCKED. Pick a new name; run USPTO + App Store + Play + .com clearance.
 - [ ] After rename: store submission (App Store + Play Console under new name + bundle id)
 
 ---
@@ -164,7 +164,7 @@ Owned by Lauri. No actions on your side beyond support.
 
 - [ ] After Patet first paying user lands: resubmit `https://plainlydigital.com/sitemap-index.xml` in Google Search Console (replaces old static `/sitemap.xml`)
 - [ ] As each app submits to stores: update `src/data/apps.ts` `status` field for that app from `coming-soon` / `in-beta` → `available`
-- [ ] Decide if Vinla, Winlet, Notch (renamed) need full product pages on the marketing site beyond their current Coming Soon stubs — model on `src/pages/patet/index.astro` if so
+- [ ] Decide if Vinla, Winlet, Glyphe (renamed) need full product pages on the marketing site beyond their current Coming Soon stubs — model on `src/pages/patet/index.astro` if so
 
 ---
 
@@ -182,7 +182,7 @@ Owned by Lauri. No actions on your side beyond support.
 
 ## GCP migration (per `project_gcp_migration.md`)
 
-Notch already migrated. Cloud Build pattern lives in `PlainlyDigital/cloudbuild.yaml`.
+Glyphe already migrated. Cloud Build pattern lives in `PlainlyDigital/cloudbuild.yaml`.
 
 - [ ] Patet — defer until first paying user (~1-2 weeks effort). When ready: provision GCP project under apps-org, mirror Cloud Build trigger, switch DNS.
 - [ ] Vinla — same pattern, after Patet
@@ -199,7 +199,7 @@ Notch already migrated. Cloud Build pattern lives in `PlainlyDigital/cloudbuild.
   - `~/repos/Accomplishly/` → `~/repos/Winlet/` (if not already done)
   - `~/repos/Pillarly/` → `~/repos/Salvis/` (if not already done)
   - `~/repos/Scamly/` → `~/repos/Fraus/` (if not already done)
-  - `~/repos/42ly/` → `~/repos/Notch/` (or new name once chosen)
+  - `~/repos/42ly/` → `~/repos/Glyphe/` (or new name once chosen)
 - [ ] After renames, update memory cross-refs (project_repos.md, etc.) to new paths
 
 ---
@@ -235,4 +235,4 @@ Everything else from the audit is closed.
 - ✅ USPTO + iOS/Play Store name clearance complete for Patet, Vinla, Winlet
 - ✅ GitHub Actions workflow removed (portfolio uses Cloud Build)
 - ✅ Apple Developer ($99/yr) + Google Play ($25 once) accounts funded
-- ✅ All major renames: Plainly→Patet, Vytally→Vinla, Accomplishly→Winlet, Pillarly→Salvis, Scamly→Fraus, 42ly→Notch (Notch needs rename due to TM block)
+- ✅ All major renames: Plainly→Patet, Vytally→Vinla, Accomplishly→Winlet, Pillarly→Salvis, Scamly→Fraus, 42ly→Glyphe (Glyphe needs rename due to TM block)

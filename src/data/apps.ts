@@ -64,11 +64,11 @@ export const APPS: IAppMeta[] = [
     name: "Patet",
     tagline: "Money skills + your real bank data.",
     description:
-      "121 bite-sized lessons across 18 modules, paired with Notch — an AI money coach that reads your real spending. When you spend $80 on takeout this week, the lesson on category creep doesn't wait for next month — it's there now.",
+      "121 bite-sized lessons across 18 modules, paired with Glyphe — an AI money coach that reads your real spending. When you spend $80 on takeout this week, the lesson on category creep doesn't wait for next month — it's there now.",
     status: "in-beta",
     features: [
       "121 lessons across 18 modules — budgeting, debt, investing, taxes, retirement",
-      "Notch AI coach reads your real Plaid transactions + uploaded statements",
+      "Glyphe AI coach reads your real Plaid transactions + uploaded statements",
       "Bank statement upload — PDF, CSV, Excel — AI extracts transactions if you don't want Plaid",
       "Plaid-driven lesson recommendations: spent $X on Y → here's the lesson that hits",
       "Money Personality, Money Roast, Future You, financial health score",

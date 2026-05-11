@@ -72,7 +72,7 @@ Based on Winlet's proven model, all apps standardize on:
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Notch Coach chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
+| Glyphe Coach chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
 | Coach nudge (lesson/milestone) | Haiku | $0.001 | 1/day | 3/day |
 | Weekly summary | Haiku | $0.001 | 1/week | 1/week |
 | Personalized feed | Haiku | $0.002 | 1/day (cached 12h) | 1/day |
@@ -162,7 +162,7 @@ Based on Winlet's proven model, all apps standardize on:
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Notch Chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 2/day | 8/day |
+| Glyphe Chat | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 2/day | 8/day |
 | Pattern analysis | Sonnet | $0.014 | 1/week | 2/week |
 | Reflection prompt | Sonnet | $0.008 | 1/week | 1/day |
 | Weekly summary | Sonnet | $0.012 | 1/week | 1/week |
@@ -226,7 +226,7 @@ Same pricing structure as Plainly. Winlet already has this implemented.
 
 | Endpoint | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-------|-----------|--------------------|--------------------|
-| Notch Health Coach | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
+| Glyphe Health Coach | Haiku (Free/Pro) / Sonnet (Pro Max) | $0.002 / $0.026 | 3/day | 10/day |
 | Food photo vision | Haiku (vision) | $0.003 | 0/day | 3/day |
 | Weekly insights | Sonnet | $0.014 | 1/week | 1/week |
 | Health signals | Haiku | $0.002 | 1/day (cached) | 1/day |
@@ -287,13 +287,13 @@ Same structure. Vinla's health-focused power users (meal plan generation, daily 
 
 ---
 
-# 4. NOTCH — AI Life Advisor App
+# 4. GLYPHE — AI Life Advisor App
 
 ## AI Call Sites (28+ endpoints — most AI-intensive app)
 
 | Category | Endpoints | Model | Cost/Call | Frequency (casual) | Frequency (power) |
 |----------|-----------|-------|-----------|--------------------|--------------------|
-| Notch Chat | 1 | Haiku/Sonnet | $0.002/$0.026 | 3/day | 10/day |
+| Glyphe Chat | 1 | Haiku/Sonnet | $0.002/$0.026 | 3/day | 10/day |
 | Career tools | 3 (resume, interview, cover letter) | Sonnet | $0.018 avg | 0/week | 2/week |
 | Money tools | 4 (budget, debt, explain, invest) | Sonnet | $0.014 avg | 0/week | 1/week |
 | Relationship tools | 4 (conflict, breakup, family, friendship) | Sonnet | $0.014 avg | 0/week | 1/week |
@@ -309,7 +309,7 @@ Same structure. Vinla's health-focused power users (meal plan generation, daily 
 
 ## Per-User Monthly AI Costs
 
-Notch is the most AI-intensive app — Sonnet is used for ALL non-chat features (domain tools, journal, decisions, quests, reviews).
+Glyphe is the most AI-intensive app — Sonnet is used for ALL non-chat features (domain tools, journal, decisions, quests, reviews).
 
 | User Type | Calls/Month | Model | API Cost/Month |
 |-----------|------------|-------|---------------|
@@ -333,7 +333,7 @@ Notch is the most AI-intensive app — Sonnet is used for ALL non-chat features 
 | Student monthly | $4.19 | $0.30 | **$3.89 (93%)** | $0.72 | **$3.47 (83%)** |
 
 ### 2. Boost Packs
-Notch's power users (career tools, decision engine, quest chains) will likely be the highest boost pack buyers in the portfolio. Each career tool call is a Sonnet call.
+Glyphe's power users (career tools, decision engine, quest chains) will likely be the highest boost pack buyers in the portfolio. Each career tool call is a Sonnet call.
 
 ### 3. Personality Training (Unique Monetization)
 - 12-question calibration with A/B comparison
@@ -350,7 +350,7 @@ Notch's power users (career tools, decision engine, quest chains) will likely be
 - Career document generation (resumes, cover letters) as premium
 - Year in Review as a shareable/printable product
 
-## Notch Break-Even & Projections
+## Glyphe Break-Even & Projections
 
 **Break-even:** $74 ÷ $4.19 = **18 Pro monthly subscribers**
 
@@ -368,7 +368,7 @@ Notch's power users (career tools, decision engine, quest chains) will likely be
 
 ## Combined Revenue Projections
 
-| Month | Plainly | Winlet | Vinla | Notch | **Portfolio MRR** | **Portfolio Net** |
+| Month | Plainly | Winlet | Vinla | Glyphe | **Portfolio MRR** | **Portfolio Net** |
 |-------|---------|-------------|---------|------|------------------|------------------|
 | 3 | $308 | $192 | $183 | $168 | **$851** | **$555** |
 | 6 | $966 | $505 | $546 | $495 | **$2,512** | **$2,216** |
@@ -404,8 +404,8 @@ $1.99 for 50 calls = $0.04/call revenue. Haiku costs $0.002/call. That's **95%+ 
 ### 4. Plainly Has the Highest Revenue Ceiling
 Affiliate revenue gives Plainly a second revenue stream that scales with users, not just subscribers. At 10K MAU, affiliate revenue ($4-6K/mo) could rival subscription revenue. No other app in the portfolio has this.
 
-### 5. Notch Has the Highest Per-User API Cost
-28+ API endpoints (all Sonnet for domain tools) makes Notch the most expensive app per active user. The standardized model (Haiku on Pro, Sonnet only on Pro Max) significantly reduces this risk vs. the current all-Sonnet approach.
+### 5. Glyphe Has the Highest Per-User API Cost
+28+ API endpoints (all Sonnet for domain tools) makes Glyphe the most expensive app per active user. The standardized model (Haiku on Pro, Sonnet only on Pro Max) significantly reduces this risk vs. the current all-Sonnet approach.
 
 ### 6. The 100 Sonnet Cap is the Portfolio Safety Valve
 Without the cap: a Pro Max power user doing 80 Sonnet calls/day = 2,400/month = ~$62/month in API costs (6x revenue).
@@ -429,7 +429,7 @@ $296/month for 4 apps is nothing. At 100 total paying subscribers (easily achiev
 A future "Plainly Digital All-Access" bundle across all 4 apps:
 - **$14.99/mo** — Pro Max on all 4 apps (vs. $39.96 if purchased separately)
 - 63% discount drives adoption across the portfolio
-- Cross-app ecosystem (Notch syncs with Vinla health data, Plainly finance data)
+- Cross-app ecosystem (Glyphe syncs with Vinla health data, Plainly finance data)
 - At 500 bundle subscribers: $7,500 MRR with portfolio-level Sonnet cap (200 total across apps)
 
 ---
@@ -450,7 +450,7 @@ Output: 512 tokens × ($15.00 / 1,000,000) = $0.0077
 Total:  $0.0152 → rounds to $0.015
 ```
 
-**Sonnet 4.6 long context (Notch life review, coach with history):**
+**Sonnet 4.6 long context (Glyphe life review, coach with history):**
 ```
 Input:  3,500 tokens × ($3.00 / 1,000,000) = $0.0105
 Output: 1,024 tokens × ($15.00 / 1,000,000) = $0.0154

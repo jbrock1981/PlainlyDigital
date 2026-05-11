@@ -19,7 +19,7 @@
 |--------|------|--------|------|-----------|
 | Plainly | DBA under Plainly Digital | ~95%, pre-beta | jbrock1981/Plainly | C:\Users\jbroc\Plainly |
 | Vinla | DBA under Plainly Digital | ~70%, family beta | jbrock1981/vytally | C:\Users\jbroc\vinla |
-| Notch | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
+| Glyphe | DBA under Plainly Digital (DBA NOT REGISTERED) | Waves 0-8 complete, deployed | jbrock1981/42ly | C:\Users\jbroc\42ly |
 | Winlet | Under Plainly Digital | All 4 phases, deployed & live | jbrock1981/Accomplishly | C:\Users\jbroc\Accomplishly |
 | Tradingly | Under Plainly Digital | Deployed, 37+ endpoints, rebranded, perf optimized | jbrock1981/DayTradeScreener | C:\Users\jbroc\DayTradeScreener |
 | CastFreely | Separate entity (LLC NOT YET FORMED) | ~75-80%, all 9 waves, 423 tests | jbrock1981/CastFreely | C:\Users\jbroc\CastFreely |
@@ -36,14 +36,14 @@
 
 **Deployed:** plainly-psi.vercel.app (web), plainly-c8jw.onrender.com (API), Neon (DB)
 **Stack:** Expo RN + Express + Neon PostgreSQL + Claude AI
-**Target:** Ages 18-28 | 18 modules, 121 lessons, ~240 quizzes | Claude AI coach "Notch"
+**Target:** Ages 18-28 | 18 modules, 121 lessons, ~240 quizzes | Claude AI coach "Glyphe"
 **Tests:** 493+ Jest tests passing (24+ test suites)
 **Routes:** 19 server route files | **Hooks:** 11 frontend hooks | **Components:** 18
 
 **What's built:**
 - Full auth (email/password + Google OAuth + Apple Sign-In)
 - 18 modules, 121 lessons, ~240 quiz cards
-- AI Coach "Notch" (streaming Claude Sonnet 4.6, personality, follow-up chips, lesson nudges, voice input/output)
+- AI Coach "Glyphe" (streaming Claude Sonnet 4.6, personality, follow-up chips, lesson nudges, voice input/output)
 - Voice coaching: Whisper API STT, expo-speech TTS, full voice conversation mode
 - 5 interactive calculators (compound interest, debt payoff, emergency fund, 50/30/20, rent)
 - "What If" spending simulation engine (7 scenario types, Plaid-powered)
@@ -52,18 +52,18 @@
 - AI-personalized micro-content feed (Claude Haiku, 5 card types, 12hr cache)
 - "Your Week in Money" AI-generated weekly summary cards
 - Push notifications, real-time spending alerts (Plaid webhook → pattern detection → push)
-- Embedded finance / affiliate system (11 curated products, Notch-aware, disclosure on every card)
+- Embedded finance / affiliate system (11 curated products, Glyphe-aware, disclosure on every card)
 - Certification: "Plainly Certified — Personal Finance Foundations" (50-question bank, verifiable credential)
 - Free/Pro/Pro+ monetization ($0/$2.99/$6.99)
 - Plaid Link SDK + AES-256-GCM token encryption
 - Internationalization (EN/ES), anti-gamification, UX polish
-- AI Cost Guard (all endpoints), Notch 3-Layer Architecture, NIST AI RMF governance
+- AI Cost Guard (all endpoints), Glyphe 3-Layer Architecture, NIST AI RMF governance
 - Financial health score (0-100), Salary Explorer with negotiation practice
 - 15 money scenarios, goal tracking with templates
 - **NEW (April 3-4):** Bank statement ingestion (PDF/CSV/Excel upload, multer, AI categorization)
 - **NEW:** Spending Trends (monthly breakdowns, category insights, AI analysis)
 - **NEW:** Budgets (create, track vs actuals, AI auto-generate via 50/30/20)
-- **NEW:** Subscription detection (recurring charge identification, Notch evaluation)
+- **NEW:** Subscription detection (recurring charge identification, Glyphe evaluation)
 - **NEW:** Credit Score tracking (with AI tips)
 - **NEW:** Income Tracker (payroll vs freelance, 6-month trends)
 - **NEW:** Side Hustle ROI calculator
@@ -83,7 +83,7 @@
 - Home: Personalized greeting, life moment card, stats, daily quiz, seasonal tip — all working
 - Learn: 18 modules/121 lessons loading, lesson viewer with card UI and progress bar — working
 - Tools: All calculators functional (compound interest live-calculating), new money tools visible — working
-- Coach: Notch responding with streaming, follow-up chips, AI badge, speaker/bookmark icons — working
+- Coach: Glyphe responding with streaming, follow-up chips, AI badge, speaker/bookmark icons — working
 - Profile: Progress stats, milestones, Money Personality, settings, account management — working
 - Issues found:
   - Coach markdown not rendering (raw `**bold**` showing instead of bold text) — react-markdown may not be wired for coach bubbles
@@ -114,7 +114,7 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 - [ ] Fix follow-up chip context (chips should match conversation topic)
 - [ ] Plaid production access (apply 1-2 weeks before launch)
 - [ ] Short-form video on lesson hooks
-- [ ] Pro+ tier with Sonnet-powered Notch
+- [ ] Pro+ tier with Sonnet-powered Glyphe
 
 ---
 
@@ -128,21 +128,21 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 **Supabase:** ohnoaetkvkevkvrdpwmp.supabase.co
 **Status:** Private family beta — daughter actively testing
 **Tests:** 290 Jest tests passing (14 test suites)
-**User Test (April 4):** All 5 tabs verified working — Dashboard, Log, Notch AI coach, Community, More
+**User Test (April 4):** All 5 tabs verified working — Dashboard, Log, Glyphe AI coach, Community, More
 
 **What's built (Waves 0-7 + security hardening):**
 - Dashboard with Bloom garden, streak badge, daily checklist, signals carousel
 - Multi-type logging (food, water, sleep, mood/energy/stress/anxiety/gratitude, exercise)
 - 4 food input methods: manual + barcode (Open Food Facts) + photo (Claude Vision) + conversational AI
 - Deep nutrient tracking (USDA FoodData Central, 29 nutrients, RDA dashboard)
-- AI Coach "Notch" (streaming Sonnet 4.6, 30-day context, mood-adaptive)
+- AI Coach "Glyphe" (streaming Sonnet 4.6, 30-day context, mood-adaptive)
 - 2-layer crisis detection (hardened against Unicode/homoglyph/l33tspeak)
 - Input/output guardrails, prompt sanitization, per-user AI cost guard (fail-closed)
 - Auth improvements, Supabase migration, Free/Pro/Pro+ gating
 - Cross-domain intelligence engine, PHQ-2/GAD-2 screening, Gentle Mode
 - Bloom virtual wellness garden, Apple Health / Health Connect
 - Push notifications, subscription system, privacy/consent flow
-- Notch 3-Layer Architecture + NIST AI RMF governance
+- Glyphe 3-Layer Architecture + NIST AI RMF governance
 - **NEW (April 4):** Security hardening — rate limiting, security headers, input validation
 
 **CLI Truncation Damage: RESOLVED** (commit f06c5aa restored all 7 files from git history)
@@ -163,18 +163,18 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 
 ---
 
-## Notch — AI Life Advisor App
+## Glyphe — AI Life Advisor App
 
 ### Dev Status: ALL WAVES COMPLETE (0-8) — 718 tests, deployed
 
 **Deployed:** notch.vercel.app | notch-api.vercel.app
 **Stack:** React Native/Expo 55 + Express + Supabase + Claude AI
-**Target:** Gen Z (16-27), "Notch" AI life advisor
+**Target:** Gen Z (16-27), "Glyphe" AI life advisor
 **Supabase:** vyparqcxakpzddmrjyin (us-east-1)
 **Tests:** 718 tests passing (318 app + 400 server, 61 test files)
 
 **What's built (Waves 0-8):**
-- Streaming chat UI with Claude AI "Notch" (toughest variant: "tough love dad energy")
+- Streaming chat UI with Claude AI "Glyphe" (toughest variant: "tough love dad energy")
 - Express API on Vercel, Supabase auth with email allowlist gate
 - 14 tables with RLS + 3 migrations
 - Journal (mood, AI reflections, cross-entry patterns, life review reports)
@@ -189,13 +189,13 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 - Personality Calibration ("Train the AI": 12-question bank)
 - Monetization Infrastructure, Multi-Language (EN/ES)
 - Ecosystem Integration (Vinla/Plainly sync), Year in Review
-- NIST AI RMF governance, Notch 3-Layer Architecture
+- NIST AI RMF governance, Glyphe 3-Layer Architecture
 - Server hardening: JWT, 3-tier rate limiting, cost-guard, CORS, 50KB limit
 
 **What's NOT built yet:**
 - [ ] Parental controls enforcement
 - [ ] Privacy Policy + Terms of Service
-- [ ] Register Notch DBA under Plainly Digital LLC
+- [ ] Register Glyphe DBA under Plainly Digital LLC
 - [ ] USPTO trademark check + filing
 - [ ] Google OAuth provider config in Supabase
 - [ ] eas.json credentials, RevenueCat integration
@@ -218,11 +218,11 @@ All auth endpoints, AI services, DB init, and package.json restored and verified
 **What's built:**
 - Full auth, Wins CRUD + "Lift Me Up" random retrieval + cumulative stats
 - Log Win modal with celebration animation, photo attachments, voice capture
-- Calendar heatmap (GitHub-style), AI pattern insights + Notch AI chat with crisis detection
+- Calendar heatmap (GitHub-style), AI pattern insights + Glyphe AI chat with crisis detection
 - Proof folder, Life Resume & Year in Review, shareable win cards (4 templates)
 - Dark mode (WCAG AA), push notifications, team/family spaces, web companion
 - Integrations (Slack, email, calendar), GDPR export, account deletion
-- AI Cost Guard (centralized), Notch 3-Layer (warmest variant), NIST AI RMF
+- AI Cost Guard (centralized), Glyphe 3-Layer (warmest variant), NIST AI RMF
 - **NEW (April 4):** Security hardening (SAST/DAST/STIG), Send Hype UI, circle streaks, Wrapped share, NIST governance docs, legal docs (Privacy Policy + ToS), hype_drops table, 6 market-disrupting features (Wrapped, Screenshot Dump, Hype Circle, etc.)
 
 **CLI Truncation Damage: RESOLVED** (commit b648bf9 restored space-detail.tsx and spaces.tsx from git history)
@@ -240,7 +240,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 
 ## TRADINGLY — AI-Powered Day Trading Screener
 
-### Dev Status: DEPLOYED — 37+ endpoints, Notch AI scoring, Finnhub real-time | All truncations fixed, rebranded, performance optimized
+### Dev Status: DEPLOYED — 37+ endpoints, Glyphe AI scoring, Finnhub real-time | All truncations fixed, rebranded, performance optimized
 
 **Domain:** tradingly.app (purchasing via GoDaddy)
 **Live Frontend:** frontend-iota-livid-71.vercel.app → tradingly.app (Vercel, rename pending)
@@ -251,7 +251,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 **Rebrand commit:** `1d72df4` — display names, meta tags, manifest, legal docs, render.yaml, CORS, package.json all updated. localStorage keys kept as `dts-` for backward compat.
 
 **What's built:**
-- **Notch AI Trading Assistant:** Notch Score (0-100, A+ to D), multi-factor confluence scoring
+- **Glyphe AI Trading Assistant:** Glyphe Score (0-100, A+ to D), multi-factor confluence scoring
 - Signal narration (plain-English trade thesis), risk guardrails, What-If scenarios
 - Live Signal Dashboard (auto-refreshing Buy/Sell scanning ~540 tickers)
 - 9 technical indicators: VWAP, RSI, MACD, Bollinger, EMA 9/21, ATR, RVOL, Stochastic RSI, OBV
@@ -269,7 +269,7 @@ server/src/index.ts, log-win.tsx, and onboarding.tsx were already complete. Type
 - Options: GEX analysis, unusual flow scanner, multi-leg strategy builder
 - JWT auth (local + Neon Postgres) + Stripe subscription (Free/Pro/Pro Max)
 - Invite-only whitelist (5 emails)
-- **NEW (April 4):** Phase 9 — AI Notch integration, advanced math, trader workflow, legal infrastructure. Rebrand DayTradeScreener → Tradingly complete.
+- **NEW (April 4):** Phase 9 — AI Glyphe integration, advanced math, trader workflow, legal infrastructure. Rebrand DayTradeScreener → Tradingly complete.
 - **NEW (April 4 late):** Performance optimization — React.memo on TickerTable rows, 4 custom hooks extracted from page.tsx (useScreenerState, useChartState, useAuthState, useAutoRefresh), 200ms debounced ticker search with useMemo. 0 new TS errors.
 
 **CLI Truncation Damage: RESOLVED**
@@ -359,7 +359,7 @@ Medium/Legal:
 | Vinla Terms of Service + Privacy Policy | Exists, needs review |
 
 ### Still needed:
-- [ ] Notch Terms of Service + Privacy Policy
+- [ ] Glyphe Terms of Service + Privacy Policy
 - [ ] Winlet Terms of Service + Privacy Policy
 - [ ] Tradingly Terms of Service + Privacy Policy
 - [ ] CastFreely Terms of Service + Privacy Policy + Operating Agreement (Lauri Brock)
@@ -367,20 +367,20 @@ Medium/Legal:
 
 ---
 
-## NOTCH 3-LAYER ARCHITECTURE (Cross-Portfolio)
+## GLYPHE 3-LAYER ARCHITECTURE (Cross-Portfolio)
 
-All consumer apps share the Notch AI personality system:
+All consumer apps share the Glyphe AI personality system:
 
 **Layer 1 — Brand Personality (identical across all apps):** Direct, warm but not soft, practical, no judgment, humor as tool. 8th-grade reading level, casual tone, under 200 words, 4-part structure (direct answer → why → applied to user → one next action).
 
 **Layer 2 — Domain Expertise (unique per app):**
-- **Notch:** Life advisor — most direct ("tough love dad energy")
+- **Glyphe:** Life advisor — most direct ("tough love dad energy")
 - **Vinla:** Health coach — direct but health-sensitive, mood-adaptive, eating disorder aware
 - **Plainly:** Financial coach — warm older-sibling energy, makes money approachable
 - **Winlet:** Self-worth coach — warmest variant, celebration-focused, validation-first
 - **Tradingly:** Trading assistant — data-driven, risk-aware, confidence-graded (A+ to D)
 
-**Layer 3 — User Personalization (per user, per app):** Unique context injection (onboarding, usage patterns, domain-specific signals). Notch Layer 3 intentionally NOT shared with other apps (regulatory/bias risk, NIST AI RMF MAP 2.3).
+**Layer 3 — User Personalization (per user, per app):** Unique context injection (onboarding, usage patterns, domain-specific signals). Glyphe Layer 3 intentionally NOT shared with other apps (regulatory/bias risk, NIST AI RMF MAP 2.3).
 
 ---
 
@@ -412,7 +412,7 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 |---------|-------|-------|--------|-----------------|
 | **Plainly** | ~95% | 493+ | Truncations fixed, AsyncStorage migrated, needs push+rebuild | Push to remote, Render env vars, eas.json, RevenueCat |
 | **Vinla** | ~70% | 290 | All truncations fixed, 290 tests passing, user tested (all 5 tabs working) | SQLite→Supabase migration, age gate, insurance |
-| **Notch** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
+| **Glyphe** | Waves 0-8 | 718 | All complete, deployed, invite-only | Privacy Policy/ToS, DBA, RevenueCat |
 | **Winlet** | All 4 phases | 379 | All truncations fixed, 0 TS errors, deployed | RevenueCat, Apple Dev account, domain |
 | **Tradingly** | ~92% | 34 | All truncations fixed, rebranded, perf optimized, deployed | Push rebrand+perf commits, Render rename |
 | **CastFreely** | ~75-80% | 423 | All 9 waves, deployed | LLC formation, SAG-AFTRA legal, Stripe |
@@ -430,10 +430,10 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 |---------|---------|--------|
 | **No attorney review** | ALL | Consumer apps: Termly ($10/mo/site). CastFreely: entertainment attorney ($2K-5K) |
 | **No insurance** | Vinla, CastFreely | E&O + GL + Cyber quotes (Hiscox, Hartford, CoverWallet) |
-| **Apple/Google dev accounts** | Plainly, Vinla, Notch, Winlet | $99 Apple + $25 Google, covers all apps |
-| **Trademark filings** | Vinla, Notch, Winlet, CastFreely | ~$350/class each |
+| **Apple/Google dev accounts** | Plainly, Vinla, Glyphe, Winlet | $99 Apple + $25 Google, covers all apps |
+| **Trademark filings** | Vinla, Glyphe, Winlet, CastFreely | ~$350/class each |
 | **CastFreely LLC not formed** | CastFreely | $300 TN filing + EIN + bank |
-| **Notch DBA not registered** | Notch | File DBA under Plainly Digital LLC |
+| **Glyphe DBA not registered** | Glyphe | File DBA under Plainly Digital LLC |
 | **RevenueCat not set up** | ALL consumer apps | One account, wire into all 4 apps |
 
 ---
@@ -464,15 +464,15 @@ Free / Pro / Pro Max (via Stripe) — pricing TBD
 
 ### Next 2 Weeks
 1. RevenueCat setup (one account, wire into all apps: Free/$2.99/$6.99 + boost packs)
-2. File Vinla + Notch + Winlet trademarks ($350/class each)
+2. File Vinla + Glyphe + Winlet trademarks ($350/class each)
 3. CastFreely LLC formation ($300) + EIN
-4. Notch DBA registration under Plainly Digital
+4. Glyphe DBA registration under Plainly Digital
 
 ### Ongoing
 - Vinla Phase 0 blockers (SQLite→Supabase, RLS, age gate, insurance)
-- All apps: Notch 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
+- All apps: Glyphe 3-Layer deployed, pricing standardized, cost guards active, NIST AI RMF in place
 - Plainly: Plaid production access (apply 1-2 weeks before public launch)
-- Legal docs needed for Notch, Winlet, Tradingly, CastFreely
+- Legal docs needed for Glyphe, Winlet, Tradingly, CastFreely
 
 **CLI MITIGATION STRATEGY:** For any file over ~80 lines, use Cowork (Edit tool) instead of CLI. CLI's truncation risk scales with file size. Use CLI only for builds, tests, git operations, and small file edits.
 
@@ -485,10 +485,10 @@ These are the canonical reference docs across all repos. Everything else has bee
 ### Plainly Repo (jbrock1981/Plainly)
 | Doc | Location | Purpose |
 |-----|----------|---------|
-| Notch Brand Personality | `docs/NOTCH-BRAND-PERSONALITY.md` | Layer 1 personality spec (shared across all apps) |
+| Glyphe Brand Personality | `docs/GLYPHE-BRAND-PERSONALITY.md` | Layer 1 personality spec (shared across all apps) |
 | Portfolio Cost Analysis | `docs/PORTFOLIO-COST-ANALYSIS.md` | AI API cost projections across all apps |
 | NIST AI Governance | `docs/NIST-AI-GOVERNANCE.md` | NIST AI RMF compliance documentation |
-| AI Coach Spec | `docs/ai-coach-spec.md` | Notch coach role definition for Plainly |
+| AI Coach Spec | `docs/ai-coach-spec.md` | Glyphe coach role definition for Plainly |
 | API Cost Model | `docs/api-cost-model.md` | Per-endpoint cost estimates |
 | Anthropic API Compliance | `docs/anthropic-api-compliance.md` | API usage compliance notes |
 | Competitive Intelligence | `COMPETITIVE_INTELLIGENCE_REPORT.md` | AI coach apps comparison (Cleo, etc.) |
@@ -513,7 +513,7 @@ These are the canonical reference docs across all repos. Everything else has bee
 | Advanced Features Research | `ADVANCED_FEATURES_RESEARCH.md` | GEX, dark pools, AI/ML, sentiment — API costs and feasibility |
 | Final Features Research | `FINAL_FEATURES_RESEARCH.md` | Paper trading, trade journal, position calc implementation |
 | Final Edge Research | `FINAL_EDGE_RESEARCH.md` | Premium features for free positioning strategy |
-| Phase 9 Build Plan | `CLI_PHASE9_AND_AI.md` | Active build plan (Notch AI, cost guards, Stripe, legal) |
+| Phase 9 Build Plan | `CLI_PHASE9_AND_AI.md` | Active build plan (Glyphe AI, cost guards, Stripe, legal) |
 
 ### Claude- Repo (jbrock1981/Claude-)
 | Doc | Location | Purpose |
