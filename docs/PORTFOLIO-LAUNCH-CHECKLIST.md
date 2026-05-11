@@ -1,13 +1,20 @@
 # Plainly Digital LLC — Portfolio Launch Checklist
 
-Created: 2026-05-11
+Created: 2026-05-11 (last updated 2026-05-11 evening — Phase 1+2 monetization landed)
 Scope: actions you (the human) need to complete. Cross-app, ranked by leverage. Code-side work tracked separately in each app's CLAUDE.md.
 
 ---
 
+## Plaid setup — meeting tomorrow morning (2026-05-12)
+
+You're mid-flow on the Plaid production application. Items surfaced during setup:
+
+- [ ] **Confirm product scope on submission.** Originally Transactions + Recurring Transactions + Balance. **Auth** (bank account/routing numbers, ACH) was mentioned later but was NOT in the original scope — only enable it if Patet actually needs ACH money-movement, which today it doesn't. Keep read-only.
+- [ ] **InfoSec Policy upload.** Plaid asks: "Does your organization have a documented information security policy and procedures…?" — **you do NOT have one ready today.** Either answer "No" (escalates to manual review) or pause the form and have me scaffold a 5-page Plainly Digital ISMS doc (you already operationalize most of it — Helmet/CORS, AES-256-GCM PII encryption, JWT revocation, account lockout, audit logging, NIST AI RMF docs — so the policy is mostly write-up, not new controls).
+
 ## Highest-leverage next 3 (sequence today if possible)
 
-1. [ ] **Plaid production access** — apply at dashboard.plaid.com. 3-5 day approval. Blocks Patet's bank-connect path which is the moat.
+1. [ ] **Plaid production access** — meeting tomorrow morning. See Plaid setup block above.
 2. [ ] **5 affiliate partner applications** — each is its own multi-day approval cycle. Stream B revenue ($300-1K/mo target) is dead until at least one approves.
 3. [ ] **Fill remaining Patet Render env vars** — 15 minutes in browser. Server runs without them but Plaid + RevenueCat + Google OAuth all fail silently in prod.
 
@@ -38,6 +45,8 @@ Set these empty env vars on the Patet API service:
 - [ ] `GOOGLE_CLIENT_ID`
 - [ ] `INTERNAL_API_KEY` — generate via `openssl rand -hex 32`
 - [ ] `REVENUECAT_WEBHOOK_AUTH` (from RevenueCat dashboard → Project Settings → Webhooks)
+- [ ] `PATET_LINKEDIN_ORG_ID` (after the Plainly Digital LinkedIn Company Page is provisioned — used by Patet Certified™ Add-to-Profile share)
+- [x] Neon migrations 019 (coach_persona) + 020 (Patet Certified™ paid columns + vanity slug uniq idx) — ran 2026-05-11 via `npm run migrate` against `royal-lake-78408653` "plainly" project.
 
 Then:
 - [ ] **Import `render.yaml` via Render dashboard → Patet API → Blueprints.** Until this is done, the every-15-min onboarding-email cron does NOT fire. The email drip silently does nothing in production.
@@ -50,13 +59,14 @@ Then:
 - [ ] Create app record, bundle id `com.plainlydigital.patet`
 - [ ] Generate Apple Connect API key (Users + Access → Keys)
 - [ ] Fill `app/eas.json` `submit.production.ios.{appleId, ascAppId, appleTeamId}`
-- [ ] Create 6 IAP products in App Store Connect:
+- [ ] Create 7 IAP products in App Store Connect:
   - `patet_pro_monthly` ($2.99/mo)
   - `patet_pro_annual` ($24.99/yr)
   - `patet_proplus_monthly` ($6.99/mo)
   - `patet_proplus_annual` ($57.99/yr)
   - `patet_boost` ($1.99 boost pack +50 calls)
   - `patet_power_boost` ($4.99 power pack +200 calls)
+  - `patet_certified_credential` ($19 non-consumable — Patet Certified™ paid credential, monetization phase 2)
 - [ ] Wire products → entitlements (`pro`, `pro_plus`) in RevenueCat dashboard
 - [ ] Refine listing copy from `Patet/docs/APP-STORE-LISTING.md` drafts
 - [ ] Design 6 iPhone 6.7" screenshots in Figma. Use `Patet/app/assets/screenshots/*.svg` as starter brand frames.
@@ -86,7 +96,24 @@ Then:
 
 ### Open product decisions (block code work until resolved)
 - [ ] MFA-before-Plaid policy (audit deferred L10): mandatory? optional toggle in settings? recovery via email codes? recovery codes printed at enroll? — I can build it after the decision.
-- [ ] Spanish lesson content translation: defer to Latam launch ($2.5-5.5K + 3 weeks per `Patet/docs/BILINGUAL-COVERAGE-AUDIT.md`)? Or auto-MT now as a starting point and refine later?
+- [x] Spanish lesson content translation — done 2026-05-11 via Sonnet 4.6 machine translation. Native LATAM reviewer pass (BILINGUAL-3) still open before commercial Latam launch.
+
+### Phase 2 / Phase 1 monetization — shipped 2026-05-11, follow-ups pending
+- [x] Phase 1 (Glyphe persona packs + feature unlocks tied to lessons) shipped.
+- [x] Phase 2 (\$19 Patet Certified™ credential, vanity slug, LinkedIn add-to-profile) shipped.
+- [ ] Server-rendered PDF cert (deferred polish — SVG share-image already works for LinkedIn crawler)
+- [ ] `/certified` marketing page on `plainly-psi.vercel.app` (Phase 2 plan called for it; not blocking purchase flow)
+- [ ] Vanity slug picker UI inside the Patet profile (endpoint exists; UI is a follow-up)
+- [ ] Glyphe system prompt cultural-context enhancement (BILINGUAL-6 — already has Spanish branch, polish-only)
+- [ ] Supporting ES content surface wiring (BILINGUAL-7 — dailyContent/scenarios/finalAssessment/etc. consumers route through locale helpers; current ES files exist but lesson body is the only surface wired)
+- [ ] Native LATAM Spanish reviewer pass (BILINGUAL-3 — $2K-$5K + 3 weeks before commercial Latam launch)
+
+### Brand rename mop-up (Notch → Glyphe, 2026-05-11)
+- [ ] **Glyphe USPTO + App Store + Play + .com clearance.** Notch was blocked by 10bit FX TM Reg #7691781; Glyphe has NOT been cleared. Do not file Glyphe TM or submit App Store listings under "Glyphe" until clearance passes.
+- [ ] GitHub repo rename: `jbrock1981/Notch` → `jbrock1981/Glyphe` (gh CLI: `gh repo rename Glyphe` from `~/repos/42ly`)
+- [ ] Vercel project rename: `notch` → `glyphe`, `notch-api` → `glyphe-api`
+- [ ] Supabase project rename: `Notch` → `Glyphe` (or keep slug, just rename display)
+- [ ] Local directory rename: `~/repos/42ly` → `~/repos/Glyphe` (also: `~/repos/Plainly` → `~/repos/Patet`, `~/repos/Vytally` → `~/repos/Vinla`, `~/repos/Accomplishly` → `~/repos/Winlet`, `~/repos/Pillarly` → `~/repos/Salvis`, `~/repos/Scamly` → `~/repos/Fraus`)
 
 ---
 
@@ -134,10 +161,21 @@ Per revenue plan, SitterSheet has a $50-300 MRR ceiling and competes with NYC we
 
 ---
 
-## Glyphe (AI life advisor) — rename required before public launch
+## Glyphe (AI life advisor) — clearance required before public launch
 
-- [ ] **Decide rename.** Glyphe is TM-blocked by 10bit FX (USPTO Reg #7691781). Per `project_app_name_clearance.md` clearance done 2026-05-09 — Glyphe is BLOCKED. Pick a new name; run USPTO + App Store + Play + .com clearance.
-- [ ] After rename: store submission (App Store + Play Console under new name + bundle id)
+The standalone life-advisor app was renamed Notch → **Glyphe** on 2026-05-11
+after the 10bit FX TM block surfaced. Same name is now the AI-coach
+personality across Patet, Vinla, Winlet, and the life-advisor app itself.
+
+- [ ] **Glyphe USPTO clearance** — search Class 9 / 41 / 42. Glyphe has NOT
+  been formally cleared yet. Do not file the TM application or submit App
+  Store listings under "Glyphe" until USPTO + App Store + Play + .com all
+  return clear.
+- [ ] After clearance: file Class 9 + 42 for the life-advisor app +
+  cross-portfolio coach name. See `project_app_name_clearance.md` for the
+  full filing recommendation.
+- [ ] After clearance: store submission (App Store + Play Console under
+  Glyphe name + bundle id) for the standalone life-advisor app.
 
 ---
 

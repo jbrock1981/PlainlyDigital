@@ -1,6 +1,6 @@
 # Plainly Digital LLC — Master Tracker
 
-**Last Updated:** April 4, 2026 (late night — all truncations resolved, Tradingly rebranded + optimized, Vinla user tested)
+**Last Updated:** 2026-05-11 (evening — Patet Phase 1+2 monetization shipped, Spanish content live, Notch→Glyphe rename swept, Neon migrations caught up. Plaid production meeting 2026-05-12.)
 **Parent Entity:** Plainly Digital LLC (Tennessee, manager-managed, EIN: 41-4877857, SOS #002094776)
 **Owner:** Jonathan Brock
 **Address:** 1309 Case Rd, Prospect, TN 38477
@@ -99,22 +99,35 @@ Previously broken by 20+ truncated files across multiple CLI sessions. All trunc
 - server/tsconfig.json excludes __tests__
 - **Needs push from local terminal** (`git push origin main`) to trigger Render rebuild
 
-**Remaining P0 (before beta):**
-- [x] ~~Fix 20+ truncated files~~ → ALL RESTORED (commits f41b281, 0f26f5b, bd6472f)
-- [x] ~~Replace AsyncStorage with platform-aware storage~~ → ALL 17 files migrated (commit bd6472f)
-- [ ] **Push to remote** (`git push origin main` from local terminal — triggers Render rebuild)
-- [ ] Configure remaining Render env vars (PLAID_CLIENT_ID, PLAID_SECRET, GOOGLE_CLIENT_ID, INTERNAL_API_KEY)
-- [ ] Run 002_add_transactions.sql + 006_fix_user_usage.sql migrations on Neon
+**Remaining P0 (before beta) — current as of 2026-05-11:**
+- [x] ~~Fix 20+ truncated files~~ → ALL RESTORED
+- [x] ~~Replace AsyncStorage with platform-aware storage~~ → ALL 17 files migrated
+- [x] All recent commits pushed (last: `30aced1`, Phase 2 monetization)
+- [x] Neon migrations through 020 applied (royal-lake-78408653 "plainly" project; ran `npm run migrate` 2026-05-11 evening)
+- [x] RevenueCat SDK + server webhook integrated (incl. patet_certified_credential non-consumable)
+- [x] Spanish lesson content (machine-translated 2026-05-11)
+- [x] Monetization Phase 1 (persona packs + feature unlocks tied to lessons)
+- [x] Monetization Phase 2 ($19 Patet Certified™ paid credential + vanity slug + LinkedIn Add-to-Profile)
+- [ ] **Plaid production access — meeting tomorrow 2026-05-12.** Confirm Auth product NOT in scope (read-only Transactions/Recurring/Balance only); upload InfoSec policy (`PlainlyDigital/legal/04_Information_Security_Policy.md` drafted 2026-05-11).
+- [ ] Fill remaining Patet Render env vars (PLAID_CLIENT_ID, PLAID_SECRET, PLAID_ENV=production, PLAID_WEBHOOK_SECRET, GOOGLE_CLIENT_ID, INTERNAL_API_KEY, REVENUECAT_WEBHOOK_AUTH, PATET_LINKEDIN_ORG_ID)
+- [ ] Fill `eas.json` app store credentials (appleId, ascAppId, appleTeamId, serviceAccountKeyPath)
+- [ ] Create RevenueCat product `patet_certified_credential` ($19 non-consumable) — required for Phase 2 IAP flow
+- [ ] Import `render.yaml` via Render dashboard → Blueprints (every-15-min onboarding-email cron does NOT fire until done)
+- [ ] Rotate Neon DB password (needs separate Neon API key — neonctl OAuth lacks `roles reset-password`)
 - [ ] End-to-end smoke test on device
-- [ ] Fill eas.json app store credentials
-- [ ] Integrate RevenueCat SDK for real payment processing
 
 **Remaining P1/P2:**
-- [ ] Fix coach markdown rendering (wire react-markdown for chat bubbles)
-- [ ] Fix follow-up chip context (chips should match conversation topic)
-- [ ] Plaid production access (apply 1-2 weeks before launch)
+- [ ] Server-rendered PDF cert (Phase 2 polish; SVG share-image already works for LinkedIn crawler)
+- [ ] `/certified` marketing page on plainly-psi.vercel.app
+- [ ] Vanity slug picker UI in Patet profile (endpoint exists; UI is a follow-up)
+- [ ] Glyphe system prompt cultural-context enhancement (BILINGUAL-6 polish)
+- [ ] Supporting ES content surface wiring (BILINGUAL-7 — wire dailyContent / scenarios / finalAssessment / etc. consumers through locale helpers)
+- [ ] Native LATAM Spanish reviewer pass (BILINGUAL-3 — $2K-$5K + 3 weeks before commercial Latam launch)
+- [ ] Fix coach markdown rendering edge cases
 - [ ] Short-form video on lesson hooks
-- [ ] Pro+ tier with Sonnet-powered Glyphe
+- [ ] Glyphe USPTO + App Store + Play + .com clearance pass (replaces blocked "Notch"; not yet cleared)
+- [ ] GitHub repo rename `jbrock1981/Notch` → `jbrock1981/Glyphe`; Vercel project renames `notch` → `glyphe` + `notch-api` → `glyphe-api`; Supabase project rename
+- [ ] Local dir renames (~/repos/42ly → Glyphe, ~/repos/Plainly → Patet, ~/repos/Vytally → Vinla, ~/repos/Accomplishly → Winlet, ~/repos/Pillarly → Salvis, ~/repos/Scamly → Fraus)
 
 ---
 
