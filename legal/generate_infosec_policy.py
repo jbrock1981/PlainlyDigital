@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
 """
-Generate the Plainly Digital InfoSec Policy as a polished DOCX from the
-markdown source at legal/04_Information_Security_Policy.md.
+General-purpose Plainly Digital legal-doc renderer: markdown → polished DOCX.
+
+Originally built for legal/04_Information_Security_Policy.md; now also used
+for legal/10_Access_Control_Policy.md and any future Plainly Digital legal
+doc following the same simple markdown subset (title + sections + bullets +
+tables + metadata block under the title).
 
 Run with:
-    /tmp/docxenv/bin/python legal/generate_infosec_policy.py
+    /tmp/docxenv/bin/python legal/generate_infosec_policy.py [filename.md ...]
 
-Output:
-    legal/04_Information_Security_Policy.docx
+If no filenames are given, defaults to the InfoSec Policy markdown for
+backward compat. Output filename is derived from input by swapping .md → .docx.
 """
 
 import re
+import sys
 from pathlib import Path
 
 from docx import Document
@@ -21,8 +26,7 @@ from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
 
 ROOT = Path(__file__).resolve().parent
-SRC = ROOT / "04_Information_Security_Policy.md"
-OUT = ROOT / "04_Information_Security_Policy.docx"
+DEFAULT_INPUT = ROOT / "04_Information_Security_Policy.md"
 
 BODY_FONT = "Calibri"
 BODY_SIZE = 11
@@ -248,8 +252,8 @@ def parse_markdown(md: str):
         yield ("body", " ".join(body_lines).strip())
 
 
-def render():
-    md = SRC.read_text(encoding="utf-8")
+def render(src_path: Path, out_path: Path):
+    md = src_path.read_text(encoding="utf-8")
     doc = new_doc()
 
     # Track first few lines under the title — render as right-aligned metadata
@@ -290,10 +294,22 @@ def render():
             # space_after handle the gap, no need to add explicit blanks.
             pass
 
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    doc.save(OUT)
-    print(f"Wrote {OUT}")
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    doc.save(out_path)
+    print(f"Wrote {out_path}")
+
+
+def main(argv: list[str]):
+    inputs = [Path(p) for p in argv[1:]] if len(argv) > 1 else [DEFAULT_INPUT]
+    for src in inputs:
+        if not src.is_absolute():
+            src = (ROOT / src.name).resolve() if (ROOT / src.name).exists() else src.resolve()
+        if not src.exists():
+            print(f"SKIP: {src} not found", file=sys.stderr)
+            continue
+        out = src.with_suffix(".docx")
+        render(src, out)
 
 
 if __name__ == "__main__":
-    render()
+    main(sys.argv)
