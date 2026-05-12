@@ -4,7 +4,7 @@
 
 Static marketing + legal-docs site for **Plainly Digital LLC** at `https://plainlydigital.com`. Astro 5 + MDX, hosted on **Firebase Hosting** under GCP project `plainlydigital-www` (apps-org, billing `019368-94B72C-5B073A`). Authoritative DNS lives in **Cloud DNS**. CI/CD runs through **Cloud Build** on push to `main` (no GitHub Actions deploy).
 
-The site holds privacy policy + ToS for every Plainly Digital app (ClearDoc, SitterSheet, Plainly, Vinla, Winlet, AI Life Advisor) plus the parent-LLC about/landing pages.
+The site holds privacy policy + ToS for every Plainly Digital app (ClearDoc, SitterSheet, Patet, Vinla, Winlet, AI Life Advisor) plus the parent-LLC about/landing pages.
 
 ## The bar for this repo
 
@@ -76,7 +76,8 @@ Once the GCP CI/CD pipeline (in ROADMAP.md as "Self-hosted CI/CD on GCP") is bui
 
 ## Key paths
 
-- `src/pages/` — 14 routes total (8 Astro, 6 MDX). Top-level: `index`, `about`, `privacy`, `terms`. Per-app subdirs: `cleardoc/{index,privacy,terms}`, `sittersheet/{index,privacy,terms}`, plus coming-soon stubs for `plainly/`, `vinla/`, `winlet/`, `ai-life-advisor/`.
+- `src/pages/` — 17 routes total (9 Astro, 8 MDX). Top-level: `index`, `about`, `privacy`, `terms`, `iq`. Per-app subdirs: `cleardoc/{index,privacy,terms}`, `sittersheet/{index,privacy,terms}`, `patet/{index,privacy,terms}`, plus coming-soon stubs for `vinla/`, `winlet/`, `ai-life-advisor/`.
+- `legal/` — Plainly Digital LLC legal docs (Operating Agreement, IP Assignment, NDA, InfoSec Policy `04_Information_Security_Policy.{md,docx}`, Access Control Policy `10_Access_Control_Policy.{md,docx}`, Vinla ToS/Privacy, Advisedly MSA/SOW). `PLAID_FORM_ANSWERS.md` is the 2026-05-12 Plaid-meeting answer reference. DOCX exports regenerated via `/tmp/docxenv/bin/python legal/generate_infosec_policy.py <file.md>` after any markdown edit.
 - `src/layouts/` — `BaseLayout`, `LegalLayout`, `ComingSoonLayout`
 - `src/components/` — `Header`, `Footer`, `Hero`, `AppCard`, `PhoneMockup`, `Disclaimer`
 - `src/data/apps.ts` — single source of truth for app metadata + slug lookup
