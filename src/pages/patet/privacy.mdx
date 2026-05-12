@@ -2,7 +2,7 @@
 layout: "@/layouts/LegalLayout.astro"
 title: "Patet privacy policy"
 description: "How Patet collects, uses, stores, and deletes your data."
-effective: "May 9, 2026"
+effective: "May 12, 2026"
 ---
 
 Patet is a mobile and web app published by Plainly Digital LLC ("we," "us," "our")
@@ -66,6 +66,18 @@ If a coach message indicates self-harm or imminent danger, Patet shows you
 988 / Crisis Text Line / 211.org resources. Crisis routing is always free —
 it's not gated by tier or rate limits.
 
+## How we obtain your consent
+
+You consent to the data practices described here when you tap "I agree to
+the Terms of Service and Privacy Policy" at registration. Patet does not
+collect account data, financial data, or coach conversations from anyone
+who has not completed that step. Where a separate consent is required —
+notably **connecting a bank through Plaid** — Plaid itself displays its
+own consent UI inside Plaid Link before any bank credentials are entered,
+and you can decline at that point without affecting the rest of your
+account. You can withdraw consent at any time by deleting your account
+(see "Your controls" below).
+
 ## Your controls
 
 - **Delete your account** in Settings → Account → Delete. We delete your
@@ -73,8 +85,27 @@ it's not gated by tier or rate limits.
   metadata within 30 days. Plaid connections are unlinked immediately.
 - **Disconnect a bank** at any time. Tokens are deleted; the existing
   transaction snapshot stays unless you also delete those.
-- **Export your data** — request via support@plainlydigital.com.
+- **Export your data** — self-serve in Settings → Privacy → Download my
+  data (returns a full JSON bundle), or by emailing
+  support@plainlydigital.com.
 - **Opt out of analytics** in Settings → Privacy → Analytics.
+
+## Retention & policy review
+
+| Category | Retention | Trigger to delete |
+|---|---|---|
+| Account profile, lesson progress | Lifetime of account | 30 days after `DELETE /api/auth/me` |
+| Coach conversation messages | 12 months rolling | Account delete OR explicit per-conversation delete |
+| Plaid access tokens | Lifetime of connected bank | Bank disconnect (immediate); account delete |
+| Plaid transaction snapshots | Lifetime of account | Account delete; user-initiated per-transaction delete |
+| Subscription receipts (RevenueCat) | 7 years (tax) | Aged out per US IRS requirements |
+| Audit + security event log | 24 months | Aged out automatically |
+| Anonymized crash data (Sentry) | 90 days | Aged out automatically |
+
+This Privacy Policy is reviewed at least annually by the Managing Member
+of Plainly Digital LLC and within 30 days of any material change to
+vendors, products, or applicable law. The current effective date is at
+the top of this page; previous versions are preserved in git history.
 
 ## Children
 
