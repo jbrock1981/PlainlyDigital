@@ -47,7 +47,7 @@ is older than 5 minutes. The client routes the user to `/mfa/setup` or
 
 **Screenshots needed (3, take from web bundle):**
 
-Pre-step — open `https://plainly-psi.vercel.app/` in a browser and sign
+Pre-step — open `https://patet.plainlydigital.com/` in a browser and sign
 in to a test account (no MFA on it yet).
 
 1. **Profile → "🔐 Two-factor authentication" row.**
@@ -202,7 +202,7 @@ any material vendor/regulatory change. Documented in:
 - [ ] Q5 screenshots taken (2-3) and saved
 - [ ] Both DOCXes staged on desktop for upload
 - [ ] Live verify: `curl -sI https://plainlydigital.com/patet/privacy` returns 200
-- [ ] Live verify: `curl -sI https://plainly-psi.vercel.app/mfa` returns 200
+- [ ] Live verify: `curl -sI https://patet.plainlydigital.com/mfa` returns 200
 - [ ] Live verify: `curl -sI https://plainly-c8jw.onrender.com/api/health` returns 200
 
 ---
