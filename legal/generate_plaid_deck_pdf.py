@@ -326,7 +326,7 @@ def slide_04_one_screen(c):
         ("AI coach (Glyphe)", [
             "Claude Sonnet 4.6 (Pro+) + Haiku 4.5 (Free/Pro)",
             "Knows your 121 lessons + 11 affiliate products + your Plaid spending",
-            "4 personas unlocked by progress: Older Sibling -> Drill Sergeant -> Therapist -> Hype Friend",
+            "4 personas unlocked by progress: Older Sibling -> Strategist -> Therapist -> Hype Friend",
             "Voice in/out · streaming · follow-up chips",
             "Crisis detection + medical/legal/financial guardrails",
         ]),
@@ -442,7 +442,7 @@ def slide_07_unique(c):
         ("121-lesson curriculum at $2.99",
          "Ramsey charges $79.99/year for curriculum alone. Patet ships 18 modules + 121 lessons in $2.99/mo Pro — and unlocks an AI tutor that knows the curriculum cold."),
         ("Learn-then-unlock coach personas",
-         "Four coach personalities unlock at module milestones (Older Sibling default -> Drill Sergeant @5 -> Therapist @10 -> Hype Friend @15). Gamifies completion."),
+         "Four coach personalities unlock at module milestones (Older Sibling default -> Strategist @5 -> Therapist @10 -> Hype Friend @15). Gamifies completion."),
         ("Money Roast + Future You + Personality",
          "Emotional engagement layer competitors don't ship. Roast = 3-tone spending critique. Future You = life at 30. Personality = 5 archetypes."),
         ("Voice in / voice out",
