@@ -500,7 +500,7 @@ def slide_04_one_screen():
         (
             "AI coach (Glyphe)",
             [
-                "Claude Sonnet 4.6 (Pro+) + Haiku 4.5 (Free/Pro)",
+                "Claude Sonnet 4.6 (Coached) + Haiku 4.5 (Free/Connected)",
                 "Knows your 121 lessons + 11 affiliate products + your Plaid spending",
                 "4 personas unlocked by progress: Older Sibling → Strategist → Therapist → Hype Friend",
                 "Voice in/out · streaming · follow-up chips",
@@ -747,7 +747,7 @@ def slide_07_unique():
         ("Statement upload, multi-format",
          "PDF, CSV, and Excel bank statements parsed and AI-categorized. Most competitors offer CSV only — or no upload at all."),
         ("121-lesson curriculum at $2.99",
-         "Ramsey charges $79.99/year for curriculum alone. Patet ships 18 modules + 121 lessons in the $2.99/mo Pro tier — and unlocks an AI tutor that knows the curriculum cold."),
+         "Ramsey charges $79.99/year for curriculum alone. Patet ships 18 modules + 121 lessons in the $2.99/mo Connected tier — and unlocks an AI tutor that knows the curriculum cold."),
         ("Learn-then-unlock coach personas",
          "Four coach personalities unlock at module milestones (Older Sibling default → Strategist @5 → Therapist @10 → Hype Friend @15). Gamifies completion."),
         ("Money Roast + Future You + Money Personality",
@@ -761,7 +761,7 @@ def slide_07_unique():
         ("Spanish curriculum (LATAM)",
          "All 121 lessons + content surfaces translated to LATAM Spanish. Native reviewer pass pending pre-launch. No major US competitor ships Spanish curriculum."),
         ("Strict-freemium tier gating",
-         "Plaid + statement upload + advanced calculators + scenarios all sit behind $2.99 Pro. Hard-gated server-side, not trial-and-revoke. Real boundary."),
+         "Plaid + statement upload + advanced calculators + scenarios all sit behind the $2.99 Connected tier. Hard-gated server-side, not trial-and-revoke. Real boundary."),
     ]
 
     # Two-column grid (5 each)
@@ -820,7 +820,7 @@ def slide_07_unique():
 
 def slide_08_pricing():
     s = prs.slides.add_slide(BLANK)
-    slide_header(s, "Pricing", "Below every competitor's flagship Pro — by 75%.")
+    slide_header(s, "Pricing", "Below every competitor's flagship paid tier — by 75%.")
 
     # left: chart
     left_x = MARGIN
@@ -845,8 +845,8 @@ def slide_08_pricing():
         ("Goodbudget",  10.00, MUTED),
         ("Rocket Money", 9.99, MUTED),
         ("Cleo Plus",    5.99, MUTED),
-        ("Patet Pro+",   6.99, GREEN),
-        ("Patet Pro",    2.99, GREEN),
+        ("Patet Coached",   6.99, GREEN),
+        ("Patet Connected", 2.99, GREEN),
     ]
     # Sort: Patet rows pinned at bottom
     competitors = [b for b in bars if not b[0].startswith("Patet")]
@@ -915,9 +915,9 @@ def slide_08_pricing():
         s,
         [
             "Free: 10 coach calls/day on Haiku 4.5. Full curriculum.",
-            "Pro $2.99: Plaid, statement upload, all calculators, scenarios, credit tracker, 40 coach calls/day.",
-            "Pro+ $6.99: 80 coach calls/day, Claude Sonnet 4.6 (50/mo cap then Haiku fallback), 1,200/mo.",
-            "Annual: Pro $24.99 (saves 31%) · Pro+ $57.99 (saves 31%).",
+            "Connected $2.99: Plaid, statement upload, all calculators, scenarios, credit tracker, 40 coach calls/day.",
+            "Coached $6.99: 80 coach calls/day, Claude Sonnet 4.6 (50/mo cap then Haiku fallback), 1,200/mo.",
+            "Annual: Connected $24.99 (saves 31%) · Coached $57.99 (saves 31%).",
             "$19 one-time IAP: Patet Certified™ credential with LinkedIn add-to-profile.",
             "Boost packs: +50 calls $1.99 · +200 calls $4.99.",
         ],
