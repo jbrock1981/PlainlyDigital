@@ -14,9 +14,10 @@ not deployed publicly — it lives in the repo only.
 |---|---|---|
 | InfoSec Policy DOCX | `legal/04_Information_Security_Policy.docx` | `/home/jbroc/repos/PlainlyDigital/legal/04_Information_Security_Policy.docx` |
 | Access Control Policy DOCX | `legal/10_Access_Control_Policy.docx` | `/home/jbroc/repos/PlainlyDigital/legal/10_Access_Control_Policy.docx` |
+| Data Retention and Disposal Policy DOCX (Q11 attachment) | `legal/11_Data_Retention_and_Disposal_Policy.docx` | `/home/jbroc/repos/PlainlyDigital/legal/11_Data_Retention_and_Disposal_Policy.docx` |
 | Patet Privacy Policy (Q9 URL) | Live at plainlydigital.com | `https://plainlydigital.com/patet/privacy` |
 | Patet Terms of Service | Live at plainlydigital.com | `https://plainlydigital.com/patet/terms` |
-| Markdown sources (for edits) | `legal/04_Information_Security_Policy.md`, `legal/10_Access_Control_Policy.md` | Same dir as DOCX |
+| Markdown sources (for edits) | `legal/04_Information_Security_Policy.md`, `legal/10_Access_Control_Policy.md`, `legal/11_Data_Retention_and_Disposal_Policy.md` | Same dir as DOCX |
 | DOCX regenerator (if any md edit needed) | `legal/generate_infosec_policy.py` | `/tmp/docxenv/bin/python legal/generate_infosec_policy.py <file.md>` |
 
 ---
@@ -175,22 +176,26 @@ section (added 2026-05-12) + IS Policy §10.
 
 **Answer: Yes.**
 
-Retention table is in the Patet Privacy Policy under "Retention & policy review":
+**Document to upload:** `legal/11_Data_Retention_and_Disposal_Policy.docx`
 
-| Category | Retention | Trigger to delete |
-|---|---|---|
-| Account profile, lesson progress | Lifetime of account | 30 days after `DELETE /api/auth/me` |
-| Coach conversation messages | 12 months rolling | Account delete OR per-conversation delete |
-| Plaid access tokens | Lifetime of connected bank | Bank disconnect (immediate); account delete |
-| Plaid transaction snapshots | Lifetime of account | Account delete; per-transaction delete |
-| Subscription receipts (RevenueCat) | 7 years (tax) | Aged out per IRS |
-| Audit + security event log | 24 months | Aged out automatically |
-| Anonymized crash data (Sentry) | 90 days | Aged out automatically |
+The dedicated policy document was added 2026-05-17 specifically to satisfy this question's "Please provide your Data Retention and Disposal Policy" attachment requirement. It is canonical for the retention and disposal of personal and operational data across every Plainly Digital product.
 
-**Review cadence:** Annually by the Managing Member; within 30 days of
-any material vendor/regulatory change. Documented in:
+Headline contents:
+- §1 Purpose & Scope — implements GDPR Art. 5(1)(e), GDPR Art. 17, CCPA/CPRA §1798.105
+- §2 Principles — storage limitation, trigger-based deletion, erasure on request, disposal at the database layer, periodic review
+- §3 Retention schedule (exhaustive table covering 19 data categories with retention period, deletion triggers, storage location, disposal method)
+- §3.1 Legal-retention carve-outs (tax, fraud investigations, legal hold)
+- §4 Third-party processors (Neon, Render, Vercel, Plaid, RevenueCat, Anthropic, Resend, Sentry)
+- §5 Backups (7-day Neon backup window + EDPB Guidelines 06/2020 alignment)
+- §6 Disposal mechanisms (CASCADE delete, application-layer encryption, anonymization, scheduled purge jobs)
+- §7 User rights & self-service (export, delete, correct, disconnect bank, portability, COPPA)
+- §8 Vendor incident response (72-hour GDPR Art. 33 notification)
+- §9 Periodic review (annual + within-30-days-of-material-change + within-24-hours-of-incident)
+- §10 Revision history
 
-- Privacy Policy "Retention & policy review" (Plaid Link URL evidence)
+**Companion documents** (referenced for cross-validation; not required as primary attachments):
+
+- Patet Privacy Policy "Retention & policy review" section — `https://plainlydigital.com/patet/privacy`
 - IS Policy §10 (Privacy & Regulatory Posture) + §11 (Training, Awareness & Review)
 - Access Control Policy §8.3 (Audit-log retention & immutability) + §8.4 (Periodic access review)
 
