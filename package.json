@@ -17,8 +17,8 @@
     "format:check": "prettier --check \"src/**/*.{astro,mdx,ts,tsx,css}\" \"*.{json,md}\""
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
-    "astro": "^5.18.1"
+    "@astrojs/mdx": "^5.0.6",
+    "astro": "^6.3.3"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.2",
