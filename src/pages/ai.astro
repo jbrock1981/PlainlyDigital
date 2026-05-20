@@ -40,12 +40,23 @@ const description =
       </table>
 
       <p class="muted">
-        Today, all AI calls go through the Anthropic API directly. As Plainly
-        Digital scales onto Google Cloud (Cloud Run + Firebase Hosting +
-        Cloud SQL), AI workloads will migrate to <strong>Claude on Vertex
-        AI Model Garden</strong> — consolidating observability (Cloud
-        Logging + Cloud Trace), governance (IAM + Cloud Audit Logs), and
-        billing under a single GCP control plane.
+        <strong>Multi-model in production today.</strong> Claude (Sonnet
+        4.6 + Haiku 4.5) runs on the Anthropic API direct for user-facing
+        coaching. <strong>Gemini 2.5 Flash on Vertex AI</strong> runs on
+        every <code>/api/chat</code> in Glyphe (live now on Cloud Run,
+        project <code>notch-plainlydigital</code>) classifying user inputs
+        into the six 42 Map life domains — career, relationships, finances,
+        health, personal growth, purpose — feeding domain-health analytics.
+        Both models are part of the production stack as of 2026-05-20.
+      </p>
+      <p class="muted">
+        Path forward: as the rest of Plainly Digital scales onto Google
+        Cloud, Claude workloads will consolidate onto
+        <strong>Claude on Vertex AI Model Garden</strong> — bringing
+        observability (Cloud Logging + Cloud Trace), governance (IAM +
+        Cloud Audit Logs), and billing under a single GCP control plane.
+        Glyphe's Gemini Flash classifier is the first multi-model
+        production surface; Patet (mid-migration) and the rest follow.
       </p>
 
       <h2>What AI does in each product</h2>
@@ -92,7 +103,7 @@ const description =
           (front-end on Firebase Hosting; API at
           <code>notch-api-496908504053.us-central1.run.app</code> on Cloud Run).
         </p>
-        <p><strong>AI tasks:</strong> personality calibration, long-context advisory across life domains, persistent memory, year-in-review story generation.</p>
+        <p><strong>AI tasks:</strong> personality calibration, long-context advisory across life domains, persistent memory, year-in-review story generation. <strong>Multi-model production today:</strong> Claude Sonnet 4.6 (Anthropic API) for the user-facing coaching response + Gemini 2.5 Flash (Vertex AI Model Garden, project <code>notch-plainlydigital</code>) for post-response topic classification feeding domain-health analytics.</p>
         <p><strong>Why this isn't possible without AI:</strong> the product <em>is</em> the AI advisor. Remove the model and there is no product.</p>
       </article>
 
