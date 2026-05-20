@@ -18,7 +18,7 @@ export const APPS: IAppMeta[] = [
   {
     slug: "cleardoc",
     name: "ClearDoc",
-    tagline: "Snap it. Understand it. Act on it.",
+    tagline: "AI reads the document. You decide what to do.",
     description:
       "Point your camera at any confusing document — a bill, a contract, a benefits letter — and get a plain-English summary, action items, and key numbers in seconds.",
     status: "coming-soon",
@@ -40,7 +40,7 @@ export const APPS: IAppMeta[] = [
   {
     slug: "sittersheet",
     name: "SitterSheet",
-    tagline: "Everything your sitter needs. One link.",
+    tagline: "An AI wizard turns your answers into a sitter guide.",
     description:
       "An AI-guided wizard turns your answers into a warm, comprehensive pet-and-house-sitter guide. Share with a 30-day expiring link or export a PDF — no apps for them to install.",
     status: "coming-soon",
@@ -62,7 +62,7 @@ export const APPS: IAppMeta[] = [
   {
     slug: "patet",
     name: "Patet",
-    tagline: "Money skills + your real bank data.",
+    tagline: "An AI money coach that reads your real bank data.",
     description:
       "121 bite-sized lessons across 18 modules, paired with Glyphe — an AI money coach that reads your real spending. When you spend $80 on takeout this week, the lesson on category creep doesn't wait for next month — it's there now.",
     status: "in-beta",
@@ -86,7 +86,7 @@ export const APPS: IAppMeta[] = [
   {
     slug: "vinla",
     name: "Vinla",
-    tagline: "Track your health like a scientist.",
+    tagline: "AI health experiments, run on your own data.",
     description:
       "Run N-of-1 health experiments on yourself with statistical rigor. Persistent AI memory, food vision, and Health Connect integration — without the wellness-industrial-complex sales pitch.",
     status: "coming-soon",
@@ -103,7 +103,7 @@ export const APPS: IAppMeta[] = [
   {
     slug: "winlet",
     name: "Winlet",
-    tagline: "Celebrate your wins. Then remix them.",
+    tagline: "AI extracts your wins. Hype Circles celebrate them.",
     description:
       "Log daily wins (or let AI extract them from screenshots), get monthly Wrapped-style recaps, and share with a Hype Circle of people who actually want you to win.",
     status: "coming-soon",

@@ -3,27 +3,45 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.astro";
 
 const description =
-  "Plainly Digital LLC is built by a cybersecurity engineer who makes secure, cutting-edge apps that improve daily life.";
+  "Plainly Digital LLC is an AI-first consumer-apps studio. Every product is built around Claude as the reasoning layer, with security-first architecture and a privacy-by-design contract.";
 ---
 
 <BaseLayout title="About" description={description}>
-  <Hero eyebrow="About" title="A studio of one. Built like a studio of ten." />
+  <Hero eyebrow="About" title="AI-first by foundation, not by feature." />
 
   <section>
     <div class="container readable about">
       <p>
-        Plainly Digital is built by a cybersecurity engineer who makes secure,
-        cutting-edge apps that improve daily life. Every app in the suite is
-        built with the same security discipline &mdash; encrypted at rest,
-        hardened at the API layer, AI-governed at the model layer.
+        <strong>Plainly Digital LLC is an AI-first consumer-apps studio.</strong>
+        Every product in the suite is built around Claude Sonnet 4.6 (Anthropic)
+        as the reasoning layer &mdash; multi-turn coaching, document
+        understanding, scam classification, transaction-aware insights, and
+        personalized recommendations all depend on frontier language-model
+        capabilities. Without that layer, the products would not exist. With it,
+        they do things rule-based systems can't.
+      </p>
+      <p>
+        Today, AI workloads run via the Anthropic API directly. As Plainly
+        Digital scales onto Google Cloud (Cloud Run, Firebase Hosting,
+        Cloud SQL), AI workloads will migrate to
+        <strong>Claude on Vertex AI Model Garden</strong> &mdash; consolidating
+        observability, governance, and billing under a single GCP control
+        plane.
+      </p>
+      <p>
+        See the <a href="/ai">AI architecture page</a> for the per-product
+        model assignments and the specific tasks the AI performs in each app.
       </p>
       <p>
         The apps in this suite started as solutions to problems I had myself:
         a confusing benefits letter that took two hours to decode, a pet sitter
         who needed to know seventeen things and ended up missing four of them,
         finance content built for the people writing finance content, and so on.
-        Plainly Digital is the small studio that turns those into mobile apps
-        anyone can use.
+        Plainly Digital is the small studio that turns those into AI-native
+        mobile apps anyone can use &mdash; engineered with the security
+        discipline of someone who builds compliance tools for a living
+        (encrypted at rest, hardened at the API layer, AI-governed at the
+        model layer).
       </p>
 
       <h2>Contact</h2>

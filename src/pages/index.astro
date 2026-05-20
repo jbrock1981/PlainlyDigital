@@ -5,14 +5,14 @@ import AppCard from "@/components/AppCard.astro";
 import { APPS } from "@/data/apps";
 
 const description =
-  "Plainly Digital LLC builds secure, useful mobile apps that improve daily life. ClearDoc, SitterSheet, and a growing suite of apps for the things you actually do.";
+  "Plainly Digital LLC is an AI-first consumer-apps studio. Six products built around Claude as the reasoning layer — money coaching, scam classification, document explanation, pill-bottle OCR, win extraction, and a personal life advisor.";
 ---
 
 <BaseLayout title="Plainly Digital" description={description}>
   <Hero
     eyebrow="Plainly Digital"
-    title="Apps that quietly make your day easier."
-    subtitle="A small studio building secure, useful mobile apps for the things you actually do — understanding documents, briefing pet sitters, getting your money straight, and more on the way."
+    title="AI-native consumer apps. Built around Claude."
+    subtitle="Plainly Digital LLC builds six products where AI does the work — transaction-aware money coaching, scam classification, document explanation, pill-bottle OCR, accomplishment intelligence, and a personal life advisor. Every one is built around Claude as the reasoning layer with privacy-first architecture. Without the model, the products don't exist."
   >
     <div class="hero-cta">
       <a class="btn" href="#apps">See the apps</a>
@@ -24,11 +24,13 @@ const description =
     <div class="container">
       <header class="section-head">
         <p class="tag">The suite</p>
-        <h2 id="apps-heading">Six apps. One quiet promise.</h2>
+        <h2 id="apps-heading">Six apps. AI is the foundation.</h2>
         <p class="lead">
-          Every Plainly Digital app is mobile-first, AI-aware, and built with
-          the security discipline of someone who builds compliance tools for a
-          living. Two are nearly here. Four are coming.
+          Every Plainly Digital app is AI-native — Claude Sonnet 4.6 powers
+          multi-turn coaching and reasoning; Claude Haiku 4.5 handles
+          high-volume conversations and contextual nudges. Each product is
+          engineered around the model's capabilities, not bolted on top.
+          Two are nearly here. Four are coming.
         </p>
       </header>
       <div class="apps-grid">
@@ -53,11 +55,14 @@ const description =
           </p>
         </div>
         <div class="how__card">
-          <h3>AI used carefully, not theatrically</h3>
+          <h3>AI-first <em>and</em> privacy-first</h3>
           <p>
-            Every AI feature is governed: explicit disclaimers, redaction of
-            sensitive identifiers, and a hard kill-switch on daily spend. We
-            don't train on your data &mdash; ever.
+            The model is the product &mdash; but the product isn't the
+            model. We pair Claude with input/output guardrails, Unicode-
+            normalized crisis routing, NIST AI RMF alignment, and hard
+            daily spend caps. Your conversations and financial data are
+            not retained beyond what's needed and are never used to train
+            any model.
           </p>
         </div>
         <div class="how__card">

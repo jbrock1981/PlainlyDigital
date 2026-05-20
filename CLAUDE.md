@@ -123,7 +123,7 @@ Full operator runbook including DNS, cert renewal, and rollback: see `DEPLOY.md`
 
 1. All work goes to `main` — no feature branches unless asked.
 2. Cloudflare Pages was named in earlier ROADMAP entries as the pre-migration host but no Cloudflare deploy ever actually happened (verified 2026-05-06: no project on user's Cloudflare account). Don't reference it as a real prior host — Firebase Hosting is the only host this site has ever had.
-3. Never reference vendors like Anthropic/OpenAI in customer-facing copy on this site (the apps don't, the marketing site shouldn't either).
+3. Vendor-naming policy (revised 2026-05-20): naming Anthropic / Claude is **allowed and encouraged** on Plainly Digital LLC marketing copy when it strengthens the AI-first positioning. The provider-agnostic stance was for **Advisedly Compliance LLC** (a separate LLC with different compliance posture) and does NOT apply to this site. Google for Startups Cloud Program is model-agnostic and Anthropic is a deep Google partner ($40B investment April 2026; Claude is first-class on Vertex AI Model Garden) — naming Claude here is on-brand. See `project_gcp_ai_startups_denial.md` for the AI-first positioning context.
 4. Privacy/ToS MDX files cite Tennessee governing law — keep this consistent across all per-app legal docs.
 5. Zero third-party JS. No analytics, no fonts loaded from Google, no embedded scripts. Privacy-preserving cookieless analytics may be added per ROADMAP v1.x.
 

@@ -1,0 +1,277 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+
+const description =
+  "AI architecture at Plainly Digital LLC: per-product model assignments, specific AI tasks, guardrails, and migration path to Claude on Vertex AI Model Garden.";
+---
+
+<BaseLayout title="AI Architecture" description={description}>
+  <Hero
+    eyebrow="AI architecture"
+    title="Built around Claude. Per product. By design."
+    subtitle="Plainly Digital LLC is an AI-first consumer-apps studio. Every product in the suite is engineered around Claude as the reasoning layer — not a thin wrapper, not a productivity bolt-on. This page documents what AI does in each app, the safety architecture around it, and the planned migration to Claude on Vertex AI Model Garden."
+  />
+
+  <section>
+    <div class="container readable">
+      <h2>Model stack</h2>
+      <table class="stack">
+        <thead>
+          <tr><th>Surface</th><th>Model</th><th>Why</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Multi-turn coaching (paid tier)</td>
+            <td><strong>Claude Sonnet 4.6</strong></td>
+            <td>Long-context reasoning, tool use, structured outputs.</td>
+          </tr>
+          <tr>
+            <td>High-volume conversations + nudges (free + paid)</td>
+            <td><strong>Claude Haiku 4.5</strong></td>
+            <td>Fast, low-cost, good enough for short turns and contextual messages.</td>
+          </tr>
+          <tr>
+            <td>Vision (document OCR, pill bottle reading, win extraction)</td>
+            <td><strong>Claude Sonnet 4.6 (vision)</strong></td>
+            <td>Single model handles image + reasoning without a second model hop.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="muted">
+        Today, all AI calls go through the Anthropic API directly. As Plainly
+        Digital scales onto Google Cloud (Cloud Run + Firebase Hosting +
+        Cloud SQL), AI workloads will migrate to <strong>Claude on Vertex
+        AI Model Garden</strong> — consolidating observability (Cloud
+        Logging + Cloud Trace), governance (IAM + Cloud Audit Logs), and
+        billing under a single GCP control plane.
+      </p>
+
+      <h2>What AI does in each product</h2>
+
+      <article class="product">
+        <h3>Patet — AI money coach</h3>
+        <p>
+          Patet pairs 121 financial literacy lessons with <strong>Glyphe</strong>,
+          an AI coach that reads the user's real Plaid transaction stream
+          and uploaded bank statements. Glyphe runs on Claude Sonnet 4.6
+          for paid-tier conversations (Connected, Coached) and Haiku 4.5
+          for free-tier and lesson-completion nudges.
+        </p>
+        <p><strong>AI tasks:</strong></p>
+        <ul>
+          <li>
+            Multi-turn coaching that references specific transactions
+            ("you spent $112 on DoorDash this week, up from $40")
+          </li>
+          <li>Statement upload — Claude vision + reasoning extracts transactions from PDF/CSV/Excel</li>
+          <li>Plaid-driven lesson assignment — model picks the lesson that matches the spending pattern</li>
+          <li>Money Personality, Money Roast, Future You Visualizer, Money Wrapped weekly recap</li>
+          <li>Paycheck detection + payday auto-coach briefing on every deposit</li>
+          <li>Crisis routing (988 / Crisis Text Line) with Unicode-normalized text matching</li>
+        </ul>
+        <p><strong>Why this isn't possible without AI:</strong> The product thesis is "money lessons tied to your actual spending." Rule-based systems can match categories but can't generate the empathetic, lesson-aware coaching responses that connect a spending pattern to a curriculum module. The certification credential is also AI-graded — passing the 50-question assessment requires more than pattern matching.</p>
+      </article>
+
+      <article class="product">
+        <h3>Glyphe / AI Life Advisor</h3>
+        <p>
+          Personality-calibrated AI advisor. Twelve-question persona calibration
+          builds a persistent context that the model uses across every future
+          conversation. Year-in-review story format. Tiered limits never gate
+          crisis routing.
+        </p>
+        <p><strong>AI tasks:</strong> personality calibration, long-context advisory across life domains, persistent memory, year-in-review story generation.</p>
+        <p><strong>Why this isn't possible without AI:</strong> the product <em>is</em> the AI advisor. Remove the model and there is no product.</p>
+      </article>
+
+      <article class="product">
+        <h3>Vinla — AI health experiments</h3>
+        <p>
+          N-of-1 health experiments with statistical rigor (Welch's t-test +
+          effect size) wrapped in an AI coach that interprets the results and
+          suggests next experiments. Persistent client-side AI memory across
+          sessions. Food vision via Claude.
+        </p>
+        <p><strong>AI tasks:</strong> experiment interpretation, food vision + nutrient extraction, persistent personalization across sessions, crisis routing.</p>
+        <p><strong>Why this isn't possible without AI:</strong> N-of-1 statistics is the easy part. Translating "your blood pressure dropped 4 points when you cut afternoon coffee" into actionable next steps is the hard part — and that's the AI's job.</p>
+      </article>
+
+      <article class="product">
+        <h3>Winlet — AI win extraction</h3>
+        <p>
+          AI extracts user accomplishments from screenshots (Slack DMs, email,
+          calendar events) into a Wrapped-style recap. Hype Circles add social
+          celebration.
+        </p>
+        <p><strong>AI tasks:</strong> vision-based win extraction from arbitrary screenshots, win remixing (tweet / meme / affirmation tone), monthly + yearly Wrapped recap generation.</p>
+        <p><strong>Why this isn't possible without AI:</strong> "screenshot to win" is a vision + reasoning task. Manual entry exists in every productivity app; AI extraction is the differentiator.</p>
+      </article>
+
+      <article class="product">
+        <h3>Fraus — AI scam classifier</h3>
+        <p>
+          User pastes a suspicious text, email, voicemail transcript, or URL.
+          AI returns Safe / Suspicious / Scam with the red flags it spotted
+          and plain-English next steps (block, report, or safely reply).
+          Family alerts notify when a parent gets targeted.
+        </p>
+        <p><strong>AI tasks:</strong> intent classification, red-flag enumeration, plain-English explanation, family-alert generation.</p>
+        <p><strong>Why this isn't possible without AI:</strong> scam classification at language depth is the entire product. The app is an AI classifier with a UX.</p>
+      </article>
+
+      <article class="product">
+        <h3>Salvis — AI medication assistant</h3>
+        <p>
+          Point a phone at a pill bottle. AI reads the label (Claude vision),
+          identifies the medication, explains it in plain English, checks for
+          interactions and allergies against the user's other medications,
+          sets up voice-first reminders. Family dashboard for adult children.
+        </p>
+        <p><strong>AI tasks:</strong> OCR + medication identification, drug-interaction reasoning, plain-English explanation tuned for senior readability, voice-first conversation.</p>
+        <p><strong>Why this isn't possible without AI:</strong> the camera-to-explanation pipeline is the product. Senior-friendly voice-first UX is the wrapper.</p>
+      </article>
+
+      <article class="product">
+        <h3>ClearDoc — AI document explainer</h3>
+        <p>
+          Point a camera at any confusing document — a bill, a contract, a
+          benefits letter — and get a plain-English summary, action items, and
+          key numbers in seconds. Sensitive identifiers (SSN, card numbers)
+          redacted on-device before any AI call.
+        </p>
+        <p><strong>AI tasks:</strong> document vision + structured extraction, plain-English summarization, action-item + key-date extraction.</p>
+        <p><strong>Why this isn't possible without AI:</strong> document explanation across arbitrary domains (medical, legal, financial) requires multi-domain language understanding. Hard-coded parsers don't generalize.</p>
+      </article>
+
+      <article class="product">
+        <h3>SitterSheet — AI sitter-guide generator</h3>
+        <p>
+          An AI-guided wizard turns the user's answers (pet routines, house
+          info, sitter-specific quirks) into a warm, comprehensive sitter
+          guide. Share with a 30-day expiring link or export to PDF.
+        </p>
+        <p><strong>AI tasks:</strong> guide generation tuned for warmth + clarity, content adaptation per-sitter (full-context vs. quick-reference).</p>
+        <p><strong>Why this isn't possible without AI:</strong> the product is the generation step. A static form would be a different (worse) product.</p>
+      </article>
+
+      <h2>Safety + governance architecture</h2>
+      <ul>
+        <li>
+          <strong>Input guardrails:</strong> prompt injection detection,
+          role-override detection, safety-bypass detection, jailbreak
+          detection. Per-message Unicode + homoglyph + l33tspeak
+          normalization.
+        </li>
+        <li>
+          <strong>Output guardrails:</strong> medical / legal / financial
+          boundary checks. Every response carries an AI disclosure badge.
+        </li>
+        <li>
+          <strong>Crisis detection:</strong> always-on text classification
+          routes to 988 (suicide + crisis lifeline), Crisis Text Line, or
+          211.org regardless of subscription tier. <em>Crisis routing is
+          never gated.</em>
+        </li>
+        <li>
+          <strong>Audit logging:</strong> NIST AI Risk Management Framework
+          aligned. Every AI call carries an audit record tied to a
+          per-user identifier (not the underlying PII) for incident
+          response.
+        </li>
+        <li>
+          <strong>Cost guard:</strong> per-user daily and monthly call
+          caps, per-tier model selection (Sonnet vs. Haiku), hard
+          kill-switch on daily AI spend. Prevents runaway cost on a
+          single bad prompt loop.
+        </li>
+        <li>
+          <strong>No training on user data.</strong> All AI calls go through
+          Anthropic's zero-retention API path (request not stored beyond
+          the immediate response). When we migrate to Vertex AI Model
+          Garden, the equivalent zero-retention contract applies.
+        </li>
+        <li>
+          <strong>Financial PII at rest:</strong> dual-write to AES-256-GCM
+          encrypted companion columns. Plaid access tokens encrypted with
+          the same primitive. Backfill scripts maintain encryption parity
+          across migrations.
+        </li>
+      </ul>
+
+      <h2>Migration path: Anthropic API → Vertex AI Model Garden</h2>
+      <p>
+        Plainly Digital is mid-flight on a Google Cloud consolidation. Today,
+        compute lives on Render + Vercel; AI calls hit Anthropic's API
+        directly. The target state:
+      </p>
+      <ul>
+        <li>API services on <strong>Cloud Run</strong> (autoscale, min-instances=1 for no cold start)</li>
+        <li>Static frontends on <strong>Firebase Hosting</strong> (already live for plainlydigital.com itself)</li>
+        <li>Database on <strong>Cloud SQL Postgres</strong> (Patet, Vinla; Neon stays for Winlet)</li>
+        <li>Auth on <strong>Firebase Auth</strong> (Vinla; Patet retains self-issued JWTs)</li>
+        <li>Secrets in <strong>Secret Manager</strong></li>
+        <li>CI/CD via <strong>Cloud Build</strong> (template already proven on Glyphe migration, 2026-05-08)</li>
+        <li>AI calls via <strong>Claude on Vertex AI Model Garden</strong> for unified observability + audit + billing</li>
+      </ul>
+      <p>
+        Migration sequence is gated on the Google for Startups Cloud Program
+        AI track credits applying to billing account
+        <code>019368-94B72C-5B073A</code>. Glyphe (life advisor) finished
+        its Cloud Run + Firebase Hosting migration on 2026-05-08. Patet
+        is queued next.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        AI architecture questions, partnership inquiries, or program
+        eligibility review: <a href="mailto:apps@plainlydigital.com"
+          >apps@plainlydigital.com</a
+        >.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .stack {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--pd-space-6) 0 var(--pd-space-8);
+    font-size: 0.95rem;
+  }
+  .stack th,
+  .stack td {
+    padding: var(--pd-space-3) var(--pd-space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--pd-line);
+    vertical-align: top;
+  }
+  .stack th {
+    color: var(--pd-ink-soft);
+    font-weight: 600;
+    background: var(--pd-surface-alt);
+  }
+  .product {
+    border-top: 1px solid var(--pd-line);
+    padding-top: var(--pd-space-6);
+    margin-top: var(--pd-space-8);
+  }
+  .product h3 {
+    margin-bottom: var(--pd-space-3);
+    font-size: 1.25rem;
+  }
+  .product ul,
+  .readable ul {
+    color: var(--pd-ink-soft);
+  }
+  .readable h2 {
+    margin-top: var(--pd-space-12);
+    font-size: 1.5rem;
+  }
+  .muted {
+    color: var(--pd-ink-soft);
+    font-size: 0.95rem;
+  }
+</style>
