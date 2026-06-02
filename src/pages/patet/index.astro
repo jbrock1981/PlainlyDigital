@@ -53,10 +53,40 @@ const patetJsonLd = {
     title={app.tagline}
     subtitle={app.description}
   >
+    <div class="hero-cta">
+      <a class="btn" href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">Open Patet &mdash; it's live</a>
+      <a class="btn btn--ghost" href="/iq">Try the free Financial IQ quiz</a>
+    </div>
     <p class="badge-row">
-      <span class="badge">In beta — App Store + Google Play soon</span>
+      <span class="badge">Live web app, in beta &middot; iOS + Android coming</span>
     </p>
   </Hero>
+
+  <section class="live">
+    <div class="container live__inner">
+      <div class="live__copy">
+        <p class="tag">Live now</p>
+        <h2>Patet is running in beta at <a href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">patet.plainlydigital.com</a></h2>
+        <p class="lead">
+          Create an account, connect your bank read-only through Plaid (or
+          upload statements), and Glyphe starts coaching against your real
+          transactions. No install required &mdash; native iOS and Android
+          builds follow.
+        </p>
+        <a class="btn" href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">Launch the app &rarr;</a>
+      </div>
+      <figure class="live__shot">
+        <img
+          src="/screens/patet-live.png"
+          alt="The live Patet web app: 'Money skills + your real bank data + an AI coach', with a Let's get started button."
+          width="414"
+          height="700"
+          loading="lazy"
+        />
+        <figcaption>The live Patet web app at patet.plainlydigital.com.</figcaption>
+      </figure>
+    </div>
+  </section>
 
   <section class="split">
     <div class="container split__inner">
@@ -145,7 +175,45 @@ const patetJsonLd = {
 </BaseLayout>
 
 <style>
+  .hero-cta {
+    display: flex;
+    gap: var(--pd-space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--pd-space-4);
+  }
   .badge-row { margin: 0; }
+
+  .live { background: var(--pd-surface-alt); }
+  .live__inner {
+    display: grid;
+    gap: var(--pd-space-8);
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+  @media (min-width: 880px) {
+    .live__inner { grid-template-columns: 1.1fr 0.9fr; }
+  }
+  .live__copy h2 { margin: var(--pd-space-2) 0 var(--pd-space-3); font-size: 1.5rem; }
+  .live__copy .lead { color: var(--pd-ink-soft); margin-bottom: var(--pd-space-6); }
+  .live__shot {
+    margin: 0;
+    justify-self: center;
+  }
+  .live__shot img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: var(--pd-radius);
+    border: 1px solid var(--pd-line);
+    box-shadow: var(--pd-shadow-lg);
+    display: block;
+  }
+  .live__shot figcaption {
+    margin-top: var(--pd-space-3);
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--pd-ink-muted);
+  }
   .badge {
     display: inline-flex;
     align-items: center;

@@ -47,6 +47,16 @@ const iqJsonLd = {
         Take the quiz
       </a>
     </p>
+    <figure class="shot">
+      <img
+        src="/screens/iq-quiz.png"
+        alt="A live Financial IQ quiz question — 'You earned $3,200 this month but your paycheck says $2,412. Where did the rest go?' — with four answer choices."
+        width="414"
+        height="896"
+        loading="lazy"
+      />
+      <figcaption>A real question from the live quiz.</figcaption>
+    </figure>
   </Hero>
 
   <section class="split">
@@ -143,6 +153,24 @@ const iqJsonLd = {
 <style>
   .cta-row { margin: 0; }
   .cta-row--inline { margin-top: var(--pd-space-6); }
+
+  .shot {
+    margin: var(--pd-space-8) 0 0;
+    max-width: 280px;
+  }
+  .shot img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--pd-radius);
+    border: 1px solid var(--pd-line);
+    box-shadow: var(--pd-shadow-lg);
+    display: block;
+  }
+  .shot figcaption {
+    margin-top: var(--pd-space-3);
+    font-size: 0.8125rem;
+    color: var(--pd-ink-muted);
+  }
 
   .cta {
     display: inline-flex;
