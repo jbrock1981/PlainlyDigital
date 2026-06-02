@@ -11,8 +11,7 @@ export const COMPANY = {
 } as const;
 
 export const FOUNDER = {
-  // TODO: confirm exact spelling of the full name before deploying to main.
-  name: "J. Brock",
+  name: "Jonathan Brock",
   role: "Founder & Principal Engineer",
   // Optional — set to a real URL to render a profile link, or leave empty.
   linkedin: "",
