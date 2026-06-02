@@ -40,23 +40,20 @@ const description =
       </table>
 
       <p class="muted">
-        <strong>Multi-model in production today.</strong> Claude (Sonnet
+        <strong>Multi-model by design.</strong> Claude (Sonnet
         4.6 + Haiku 4.5) runs on the Anthropic API direct for user-facing
-        coaching. <strong>Gemini 2.5 Flash on Vertex AI</strong> runs on
-        every <code>/api/chat</code> in Glyphe (live now on Cloud Run,
-        project <code>notch-plainlydigital</code>) classifying user inputs
-        into the six 42 Map life domains — career, relationships, finances,
-        health, personal growth, purpose — feeding domain-health analytics.
-        Both models are part of the production stack as of 2026-05-20.
+        coaching. <strong>Gemini 2.5 Flash on Vertex AI</strong> handles
+        secondary classification — for example, sorting user inputs into the
+        six 42 Map life domains (career, relationships, finances, health,
+        personal growth, purpose) to feed domain-health analytics. Patet,
+        our AI money coach, is the first product to ship — currently in beta.
       </p>
       <p class="muted">
-        Path forward: as the rest of Plainly Digital scales onto Google
-        Cloud, Claude workloads will consolidate onto
+        Path forward: as Plainly Digital scales onto Google Cloud, Claude
+        workloads will consolidate onto
         <strong>Claude on Vertex AI Model Garden</strong> — bringing
         observability (Cloud Logging + Cloud Trace), governance (IAM +
         Cloud Audit Logs), and billing under a single GCP control plane.
-        Glyphe's Gemini Flash classifier is the first multi-model
-        production surface; Patet (mid-migration) and the rest follow.
       </p>
 
       <h2>What AI does in each product</h2>
@@ -86,24 +83,15 @@ const description =
       </article>
 
       <article class="product">
-        <h3>Glyphe / AI Life Advisor — <a href="https://notch-plainlydigital.web.app" rel="noopener">live now</a></h3>
+        <h3>Glyphe / AI Life Advisor — in development</h3>
         <p>
           Personality-calibrated AI advisor. Twelve-question persona calibration
           builds a persistent context that the model uses across every future
           conversation. Year-in-review story format. Tiered limits never gate
-          crisis routing. <strong>Glyphe was the first Plainly Digital product
-          to migrate to GCP (Cloud Run + Firebase Hosting, completed 2026-05-08)
-          and is the reference architecture for the rest of the portfolio.</strong>
+          crisis routing. Glyphe is the reference architecture for the
+          portfolio's Google Cloud build-out (Cloud Run + Firebase Hosting).
         </p>
-        <p>
-          <strong>Live URL:</strong>
-          <a href="https://notch-plainlydigital.web.app" rel="noopener">
-            notch-plainlydigital.web.app
-          </a>
-          (front-end on Firebase Hosting; API at
-          <code>notch-api-496908504053.us-central1.run.app</code> on Cloud Run).
-        </p>
-        <p><strong>AI tasks:</strong> personality calibration, long-context advisory across life domains, persistent memory, year-in-review story generation. <strong>Multi-model production today:</strong> Claude Sonnet 4.6 (Anthropic API) for the user-facing coaching response + Gemini 2.5 Flash (Vertex AI Model Garden, project <code>notch-plainlydigital</code>) for post-response topic classification feeding domain-health analytics.</p>
+        <p><strong>AI tasks:</strong> personality calibration, long-context advisory across life domains, persistent memory, year-in-review story generation. <strong>Multi-model design:</strong> Claude Sonnet 4.6 (Anthropic API) for the user-facing coaching response + Gemini 2.5 Flash (Vertex AI Model Garden) for post-response topic classification feeding domain-health analytics.</p>
         <p><strong>Why this isn't possible without AI:</strong> the product <em>is</em> the AI advisor. Remove the model and there is no product.</p>
       </article>
 
@@ -128,30 +116,6 @@ const description =
         </p>
         <p><strong>AI tasks:</strong> vision-based win extraction from arbitrary screenshots, win remixing (tweet / meme / affirmation tone), monthly + yearly Wrapped recap generation.</p>
         <p><strong>Why this isn't possible without AI:</strong> "screenshot to win" is a vision + reasoning task. Manual entry exists in every productivity app; AI extraction is the differentiator.</p>
-      </article>
-
-      <article class="product">
-        <h3>Fraus — AI scam classifier</h3>
-        <p>
-          User pastes a suspicious text, email, voicemail transcript, or URL.
-          AI returns Safe / Suspicious / Scam with the red flags it spotted
-          and plain-English next steps (block, report, or safely reply).
-          Family alerts notify when a parent gets targeted.
-        </p>
-        <p><strong>AI tasks:</strong> intent classification, red-flag enumeration, plain-English explanation, family-alert generation.</p>
-        <p><strong>Why this isn't possible without AI:</strong> scam classification at language depth is the entire product. The app is an AI classifier with a UX.</p>
-      </article>
-
-      <article class="product">
-        <h3>Salvis — AI medication assistant</h3>
-        <p>
-          Point a phone at a pill bottle. AI reads the label (Claude vision),
-          identifies the medication, explains it in plain English, checks for
-          interactions and allergies against the user's other medications,
-          sets up voice-first reminders. Family dashboard for adult children.
-        </p>
-        <p><strong>AI tasks:</strong> OCR + medication identification, drug-interaction reasoning, plain-English explanation tuned for senior readability, voice-first conversation.</p>
-        <p><strong>Why this isn't possible without AI:</strong> the camera-to-explanation pipeline is the product. Senior-friendly voice-first UX is the wrapper.</p>
       </article>
 
       <article class="product">
@@ -233,15 +197,14 @@ const description =
         <li>Database on <strong>Cloud SQL Postgres</strong> (Patet, Vinla; Neon stays for Winlet)</li>
         <li>Auth on <strong>Firebase Auth</strong> (Vinla; Patet retains self-issued JWTs)</li>
         <li>Secrets in <strong>Secret Manager</strong></li>
-        <li>CI/CD via <strong>Cloud Build</strong> (template already proven on Glyphe migration, 2026-05-08)</li>
+        <li>CI/CD via <strong>Cloud Build</strong> (template proven on the Glyphe build and on plainlydigital.com itself)</li>
         <li>AI calls via <strong>Claude on Vertex AI Model Garden</strong> for unified observability + audit + billing</li>
       </ul>
       <p>
-        Migration sequence is gated on the Google for Startups Cloud Program
-        AI track credits applying to billing account
-        <code>019368-94B72C-5B073A</code>. Glyphe (life advisor) finished
-        its Cloud Run + Firebase Hosting migration on 2026-05-08. Patet
-        is queued next.
+        Patet, our AI money coach, is in beta and ships first. The rest of
+        the portfolio follows onto Cloud Run + Firebase Hosting through 2026,
+        with Claude workloads consolidating onto Vertex AI Model Garden as the
+        build-out completes.
       </p>
 
       <h2>Contact</h2>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Hero from "@/components/Hero.astro";
+import { COMPANY, FOUNDER } from "@/data/company";
 
 const description =
   "Plainly Digital LLC is an AI-first consumer-apps studio. Every product is built around Claude as the reasoning layer, with security-first architecture and a privacy-by-design contract.";
@@ -44,6 +45,39 @@ const description =
         model layer).
       </p>
 
+      <h2>The team</h2>
+      <p>
+        {COMPANY.shortName} is founded and built by <strong>{FOUNDER.name}</strong>,
+        {FOUNDER.role}. {FOUNDER.name.split(" ").slice(-1)[0]} is a
+        cybersecurity professional who has spent a career securing software and
+        building compliance tooling, and started {COMPANY.shortName} to put
+        that same discipline behind AI-native consumer apps — software built to
+        make everyday life a little easier, and the world a little better.
+      </p>
+      <p>
+        That background shows up in how every product is engineered: sensitive
+        data encrypted at rest, APIs hardened and budget-capped, AI calls
+        governed with input/output guardrails, crisis routing that's never
+        gated, and NIST AI RMF&ndash;aligned audit logging. Security-first and
+        AI-first are the same decision here.
+      </p>
+      {FOUNDER.linkedin && (
+        <p>
+          Connect on <a href={FOUNDER.linkedin} rel="noopener">LinkedIn</a>.
+        </p>
+      )}
+
+      <h2>How the business works</h2>
+      <p>
+        {COMPANY.legalName} is a {COMPANY.state}-registered consumer-software
+        company, founded in {COMPANY.founded}. It's a digital-native business:
+        subscription apps distributed through the Apple App Store and Google
+        Play, free to start with paid monthly and annual tiers. Revenue scales
+        with software and users — not consulting, not services, not per-project
+        billing. The whole suite is built around Claude as the reasoning layer
+        and runs on Google Cloud.
+      </p>
+
       <h2>Contact</h2>
       <p>
         One address: <a href="mailto:apps@plainlydigital.com"
@@ -66,6 +100,11 @@ const description =
         privacy policy and terms of service:
       </p>
       <ul>
+        <li>
+          Patet &mdash;
+          <a href="/patet/privacy">privacy</a>,
+          <a href="/patet/terms">terms</a>
+        </li>
         <li>
           ClearDoc &mdash;
           <a href="/cleardoc/privacy">privacy</a>,
