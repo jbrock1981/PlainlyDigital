@@ -2,12 +2,15 @@
 import BaseLayout from "./BaseLayout.astro";
 
 interface Props {
-  title: string;
-  description: string;
-  effective: string;
+  frontmatter: {
+    title: string;
+    description: string;
+    effective: string;
+  };
 }
 
-const { title, description, effective } = Astro.props;
+const { frontmatter } = Astro.props;
+const { title, description, effective } = frontmatter;
 ---
 
 <BaseLayout title={title} description={description}>

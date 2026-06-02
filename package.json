@@ -17,11 +17,11 @@
     "format:check": "prettier --check \"src/**/*.{astro,mdx,ts,tsx,css}\" \"*.{json,md}\""
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
-    "astro": "^5.18.1"
+    "@astrojs/mdx": "^6.0.1",
+    "astro": "^6.4.3"
   },
   "devDependencies": {
-    "@astrojs/sitemap": "^3.7.2",
+    "@astrojs/sitemap": "^3.7.3",
     "@resvg/resvg-js": "^2.6.2",
     "linkinator": "^7.6.1",
     "prettier": "^3.4.2",
