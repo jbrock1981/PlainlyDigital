@@ -6,43 +6,54 @@ import { APPS } from "@/data/apps";
 import { COMPANY, FOUNDER } from "@/data/company";
 
 const description =
-  "Plainly Digital LLC is an AI-first consumer-apps studio. Six products built around Claude as the reasoning layer — money coaching, scam classification, document explanation, pill-bottle OCR, win extraction, and a personal life advisor.";
+  "Plainly Digital LLC builds AI-native consumer software on Google Cloud. Patet, our AI money coach, is live — powered by Claude, backed by Plaid, running on Cloud Run + Firebase.";
 ---
 
 <BaseLayout title="Plainly Digital" description={description}>
   <Hero
     eyebrow="Plainly Digital"
-    title="AI-native consumer apps. Built around Claude."
-    subtitle="Plainly Digital LLC builds six products where AI does the work — transaction-aware money coaching, scam classification, document explanation, pill-bottle OCR, accomplishment intelligence, and a personal life advisor. Every one is built around Claude as the reasoning layer with privacy-first architecture. Without the model, the products don't exist."
+    title="Patet is live. AI money coaching, powered by Claude."
+    subtitle="Plainly Digital LLC builds AI-native consumer software on Google Cloud. Patet, our flagship product, is a live web app that reads your real bank transactions through Plaid and coaches you in plain English — powered by Claude as the reasoning layer. Create an account and start today."
   >
     <div class="hero-cta">
-      <a class="btn" href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">Open Patet &mdash; live in beta</a>
+      <a class="btn" href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">Open Patet &mdash; it's live</a>
       <a class="btn btn--ghost" href="/iq">Try the Financial IQ quiz</a>
       <a class="btn btn--ghost" href="/ai">How the AI works</a>
     </div>
-    <p class="hero-note">
-      Patet, our AI money coach, is <strong>live in beta now</strong> &mdash;
-      open the <a href="/patet">app</a>, or try the free Financial IQ quiz
-      (20 questions, instant score, no account needed).
-    </p>
   </Hero>
 
   <section id="apps" aria-labelledby="apps-heading">
     <div class="container">
       <header class="section-head">
-        <p class="tag">The suite</p>
-        <h2 id="apps-heading">Six apps. AI is the foundation.</h2>
+        <p class="tag">The product</p>
+        <h2 id="apps-heading">Patet — an AI money coach that reads your real bank data.</h2>
         <p class="lead">
-          Every Plainly Digital app is AI-native — Claude Sonnet 4.6 powers
-          multi-turn coaching and reasoning; Claude Haiku 4.5 handles
-          high-volume conversations and contextual nudges. Each product is
-          engineered around the model's capabilities, not bolted on top.
-          Patet, our AI money coach, is live in beta now; the rest follow
-          through 2026.
+          Patet pairs 121 financial literacy lessons with Glyphe, an AI
+          coach powered by Claude Sonnet 4.6 that reads your real Plaid
+          transactions and coaches you in plain English. Free to start,
+          with Pro ($24.99/yr) and Pro+ ($57.99/yr) tiers.
+          Live now at <a href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">patet.plainlydigital.com</a>.
         </p>
       </header>
       <div class="apps-grid">
-        {APPS.map((app) => <AppCard app={app} />)}
+        {APPS.filter((app) => app.slug === "patet").map((app) => <AppCard app={app} />)}
+      </div>
+    </div>
+  </section>
+
+  <section id="portfolio" aria-labelledby="portfolio-heading">
+    <div class="container">
+      <header class="section-head">
+        <p class="tag">In development</p>
+        <h2 id="portfolio-heading">More AI-native apps on the way.</h2>
+        <p class="lead">
+          Beyond Patet, Plainly Digital is building additional AI-native
+          consumer apps — each engineered around Claude as the reasoning
+          layer with the same privacy-first architecture.
+        </p>
+      </header>
+      <div class="apps-grid">
+        {APPS.filter((app) => app.slug !== "patet").map((app) => <AppCard app={app} />)}
       </div>
     </div>
   </section>
@@ -74,11 +85,11 @@ const description =
           </p>
         </div>
         <div class="how__card">
-          <h3>Mobile-only, deliberately</h3>
+          <h3>Web-first, mobile-ready</h3>
           <p>
-            These apps live where you live: in your pocket. No desktop sprawl,
-            no notification firehose, no engagement tricks. Use it, close it,
-            move on.
+            Patet runs in your browser today &mdash; no install required.
+            Native iOS and Android apps are in development. No notification
+            firehose, no engagement tricks. Use it, close it, move on.
           </p>
         </div>
       </div>
@@ -93,16 +104,15 @@ const description =
       </header>
       <p class="lead">
         {COMPANY.legalName} is a {COMPANY.state}-registered consumer-software
-        company, founded in {COMPANY.founded}. The model is simple and
-        digital-native: subscription software delivered on the web today —
-        Patet is live in beta at patet.plainlydigital.com — with native Apple
-        App Store and Google Play apps to follow. Each product is free to
-        start, with paid monthly and annual tiers — Patet, for example, runs
-        $0 free, $24.99/yr Pro, and $57.99/yr Pro+. Revenue scales with software and users, not
-        headcount: no consulting, no services, no per-project billing. AI is
-        the core cost and the core value — every product is built around
-        Claude as the reasoning layer and runs on Google Cloud
-        infrastructure.
+        company, founded in {COMPANY.founded}. The business model is
+        digital-native: subscription software delivered on the web. Patet is
+        live at <a href="https://patet.plainlydigital.com" target="_blank" rel="noopener noreferrer">patet.plainlydigital.com</a> with
+        three tiers &mdash; Free ($0), Pro ($24.99/yr), and Pro+ ($57.99/yr).
+        Revenue scales with software and users, not headcount: no consulting,
+        no services, no per-project billing. AI is the core cost and the core
+        value &mdash; every product is built around Claude as the reasoning
+        layer and runs on Google Cloud infrastructure (Cloud Run, Firebase
+        Hosting, Cloud Build, Cloud DNS).
       </p>
     </div>
   </section>

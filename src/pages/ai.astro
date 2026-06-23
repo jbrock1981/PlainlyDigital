@@ -186,26 +186,15 @@ const description =
         </li>
       </ul>
 
-      <h2>Migration path: Anthropic API → Vertex AI Model Garden</h2>
+      <h2>Infrastructure</h2>
       <p>
-        Plainly Digital is mid-flight on a Google Cloud consolidation. Today,
-        compute lives on Render + Vercel; AI calls hit Anthropic's API
-        directly. The target state:
-      </p>
-      <ul>
-        <li>API services on <strong>Cloud Run</strong> (autoscale, min-instances=1 for no cold start)</li>
-        <li>Static frontends on <strong>Firebase Hosting</strong> (already live for plainlydigital.com itself)</li>
-        <li>Database on <strong>Cloud SQL Postgres</strong> (Patet, Vinla; Neon stays for Winlet)</li>
-        <li>Auth on <strong>Firebase Auth</strong> (Vinla; Patet retains self-issued JWTs)</li>
-        <li>Secrets in <strong>Secret Manager</strong></li>
-        <li>CI/CD via <strong>Cloud Build</strong> (template proven on the Glyphe build and on plainlydigital.com itself)</li>
-        <li>AI calls via <strong>Claude on Vertex AI Model Garden</strong> for unified observability + audit + billing</li>
-      </ul>
-      <p>
-        Patet, our AI money coach, is live in beta and ships first. The rest of
-        the portfolio follows onto Cloud Run + Firebase Hosting through 2026,
-        with Claude workloads consolidating onto Vertex AI Model Garden as the
-        build-out completes.
+        Plainly Digital runs on Google Cloud. The marketing site and Patet
+        both deploy through <strong>Cloud Build</strong> to
+        <strong>Firebase Hosting</strong>, with DNS on
+        <strong>Cloud DNS</strong> and backend services on
+        <strong>Cloud Run</strong>. AI workloads run on Claude (Anthropic
+        API) with secondary classification on Gemini 2.5 Flash via
+        Vertex AI Model Garden.
       </p>
 
       <h2>Contact</h2>
